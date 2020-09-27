@@ -45,11 +45,16 @@ module.exports = {
                 test: /\.scss$/,
                 exclude: /node_modules/,
                 use: [
-                    "style-loader", // creates style nodes from JS Nodes
+                    "style-loader", // creates style nodes from JS Nodes {
                     "css-loader", // translates CSS into CommonJs
                     "sass-loader" // compiles Sass into to CSS, using node sass by default
                 ]
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
+                loader: 'url-loader'
             }
+
         ]
     }
 }
