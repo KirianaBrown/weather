@@ -1,0 +1,23 @@
+.btn {
+    &,
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        background-image: linear-gradient(to right bottom, $color-secondary, $color-primary);
+        border: none;
+        border-radius: 10rem;
+        color: $color-white;
+        font-size: 1.4rem;
+        display: flex;
+        align-items: center;
+        padding: 1.3rem 3rem;
+        cursor: pointer;
+        transition: all .35s;
+    }
+    &:hover {
+        transform: scale(1.05);
+    }
+    &:focus {
+        outline: none;
+    }
+}
