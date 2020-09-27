@@ -1,23 +1,24 @@
 {
-  "name": "weather",
-  "version": "1.0.0",
-  "description": "Simple Weather App",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/KirianaBrown/weather.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/KirianaBrown/weather/issues"
-  },
-  "homepage": "https://github.com/KirianaBrown/weather#readme",
-  "devDependencies": {
-    "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12"
-  }
+    "name": "weather",
+    "version": "1.0.0",
+    "description": "Simple Weather App",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/KirianaBrown/weather.git"
+    },
+    "author": "Kiriana Brown",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/KirianaBrown/weather/issues"
+    },
+    "homepage": "https://github.com/KirianaBrown/weather#readme",
+    "devDependencies": {
+        "webpack": "^4.44.2",
+        "webpack-cli": "^3.3.12",
+        "webpack-dev-server": "^3.11.0"
+    }
 }
