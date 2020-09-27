@@ -1,8 +1,6 @@
-$primary-font-color: #e9ecef;
-body {
-    background-color: $primary-font-color;
-}
-
-h1 {
-    color: orange;
+@import './test';
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }

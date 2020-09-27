@@ -13,8 +13,25 @@
 </head>
 
 <body>
-    <h1> Basic weather app </h1>
-    <button class='btn'>Click ME</button>
+    <div class="container">
+        <header class="header">
+            <img src="img/favicon.png" alt="Logo" class="header__logo">
+            <h1 class="header__heading">Your Weather Forecaster</h1>
+            <form class="search">
+                <input type="text" class="search__field" placeholder="Search weather in your local area ....">
+                <button class="btn search__btn">
+                    <svg class="search__icon">
+                        <use href="img/icons.svg#icon-magnifying-glass"></use>
+                    </svg>
+                    <span>Search</span>
+                </button>
+            </form>
+        </header>
+
+
+
+
+    </div>
 
     <script src="dist/bundle.js"></script>
 </body>

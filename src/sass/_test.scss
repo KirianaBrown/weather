@@ -1,0 +1,103 @@
+body {
+    // background-image: url('https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2200&q=80');
+    // background-image: url('https://images.unsplash.com/photo-1523978591478-c753949ff840?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+    background-image: url('https://images.unsplash.com/photo-1428908728789-d2de25dbd4e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80');
+    background-size: cover;
+    color: white;
+    padding: 2rem;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.container {
+    max-width: 70vw;
+    height: 96vh;
+    margin: 0 auto;
+    background-color: rgba($color: #e9ecef, $alpha: .5);
+    padding: 1rem;
+    border-radius: 2rem;
+}
+
+.header {
+    // background-color: #F9F5F3;
+    max-width: 70vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 1rem 0 2rem;
+}
+
+.header__logo {
+    margin-left: 4rem;
+    height: 4.5rem;
+    display: block;
+}
+
+.search {
+    background-color: #fff;
+    border-radius: 10rem;
+    display: flex;
+    align-items: center;
+    padding-left: 3rem;
+    transition: all .3s;
+}
+
+.search:focus-within {
+    transform: translateY(-2px);
+    box-shadow: 0 0.7rem 3rem rgba(101, 90, 86, 0.08);
+}
+
+.search__field {
+    border: none;
+    background: none;
+    font-family: inherit;
+    color: inherit;
+    font-size: 1.7rem;
+    width: 50rem;
+}
+
+.search__field:focus {
+    outline: none;
+}
+
+.search__field::placeholder {
+    color: #DAD0CC;
+}
+
+.btn,
+.btn-small,
+.btn-small:link,
+.btn-small:visited {
+    background-image: linear-gradient(to right bottom, #becdd2, #8fb7cc);
+    border-radius: 10rem;
+    border: none;
+    text-transform: uppercase;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all .2s;
+}
+
+.btn:hover,
+.btn-small:hover {
+    transform: scale(1.05);
+}
+
+.btn:focus,
+.btn-small:focus {
+    outline: none;
+}
+
+.btn {
+    padding: 1.3rem 3rem;
+    font-size: 1.4rem;
+}
+
+.btn svg {
+    height: 2.25rem;
+    width: 2.25rem;
+    fill: currentColor;
+}
