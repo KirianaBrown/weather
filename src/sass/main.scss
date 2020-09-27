@@ -1,6 +1,4 @@
-@import './test';
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+@import './base/variables';
+@import './base/base';
+@import './components/button';
+@import './layout/layout';
