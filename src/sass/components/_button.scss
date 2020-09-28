@@ -21,3 +21,22 @@
         outline: none;
     }
 }
+
+.btn-tiny {
+    height: 1.75rem;
+    width: 1.75rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.btn-tiny svg {
+    height: 100%;
+    width: 100%;
+    fill: $color-primary;
+    transition: all .3s;
+}
+
+.btn-tiny:focus {
+    outline: none;
+}
