@@ -1,0 +1,224 @@
+.container {
+    width: 1180px;
+    height: 80vh;
+    margin: 0 auto;
+    background-color: rgba($color: $color-light-grey, $alpha: .8);
+    padding: 1rem;
+    border-radius: 2rem;
+    @include box-shadow;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 3fr 1fr;
+    // column-gap: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.header {
+    max-width: 100%;
+    // background-color: #F9F5F3;
+    grid-column: 1/4;
+    grid-row: 1/2;
+    // background-color: rgba($color: $color-primary, $alpha: .1);
+    // border-radius: 2rem;
+    // @include box-shadow-light;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    &__logo {
+        width: 6rem;
+        height: 6rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+    &__heading {
+        text-transform: uppercase;
+        font-size: 1.6rem;
+    }
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    border-radius: 10rem;
+    background-color: $color-white;
+    transition: all .3s;
+    &:focus-within {
+        transform: translateY(-2px);
+        box-shadow: 0 0.7rem 3rem rgba(101, 90, 86, 0.08);
+    }
+    &__field {
+        border: none;
+        background: none;
+        font-size: 1.7rem;
+        font-family: inherit;
+        width: 40rem;
+        padding-left: 2rem;
+        &:focus {
+            outline: none;
+        }
+        &::placeholder {
+            color: grey;
+        }
+    }
+    &__icon {
+        height: 2.5rem;
+        width: 2.5rem;
+        fill: currentColor;
+    }
+}
+
+.results {
+    grid-row: 2/5;
+    grid-column: 1/3;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding-left: 4rem;
+    &__container {
+        grid-column: 1/3;
+        padding: 1.4rem;
+        position: relative;
+    }
+    &__love {
+        position: absolute;
+        right: 0;
+        top: 0;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        &:visited,
+        &:link,
+        &:focus {
+            outline: none;
+        }
+    }
+    &__likes {
+        // border-radius: 50%;
+        // border: none;
+        fill: $color-primary;
+        height: 4.5rem;
+        width: 4.5rem;
+        margin-left: auto;
+        transition: all .2s;
+    }
+    &__location {
+        margin-bottom: 4rem;
+    }
+}
+
+.details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 0rem 10rem 0rem 2rem;
+    margin-left: 8rem;
+    margin-top: 8rem;
+    line-height: 2rem;
+    &__temperature {
+        font-size: 18rem;
+        color: $color-black;
+        font-family: 'Oswald', sans-serif;
+        display: flex;
+    }
+    &__description {
+        color: grey;
+        font-size: 1.4rem;
+        line-height: 2.2rem;
+        &-main {
+            font-size: 2rem;
+        }
+    }
+    &__fig {
+        height: 6rem;
+        width: 6rem;
+        padding: 0;
+    }
+}
+
+.saved {
+    grid-column: 3/4;
+    width: 28rem;
+    padding: 1rem;
+    // border-left: 1px white solid;
+    &__item {
+        position: relative;
+        transition: all .3s;
+        &:hover {
+            background-color: $color-white;
+        }
+    }
+    &__link,
+    &__link:visited,
+    &__link:link {
+        display: flex;
+        align-items: center;
+        color: $color-primary;
+        padding: .5rem;
+        text-decoration: none;
+        margin-bottom: .5rem;
+    }
+    &__fig {
+        height: 3.5rem;
+        width: 3.5rem;
+        padding-right: 1rem;
+    }
+    &__location {
+        padding-right: 2rem;
+    }
+    &__delete {
+        position: absolute;
+        right: 0;
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.saved__item:hover .saved__delete {
+    visibility: visible;
+    opacity: 1;
+}
+
+.forecast {
+    grid-row: 5/6;
+    // background-color: orange;
+    position: relative;
+    left: -2;
+    margin-top: -12rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 160%);
+    cursor: auto;
+    // background-color: white;
+    &__list {
+        display: flex;
+        text-decoration: none;
+    }
+    &__item {
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        margin: 1rem;
+    }
+    &__link,
+    &__link:visited,
+    &__link:link {
+        color: $color-black;
+        padding: 1rem;
+        text-decoration: none;
+        background-color: $color-white;
+        padding: 4rem;
+        // border: 1px solid black;
+        text-align: center;
+        border-radius: 1rem;
+        cursor: auto;
+    }
+    &__fig {
+        height: 4rem;
+        width: 4rem;
+    }
+}

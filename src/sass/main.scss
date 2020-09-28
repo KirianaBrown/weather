@@ -1,8 +1,4 @@
-$primary-font-color: #e9ecef;
-body {
-    background-color: $primary-font-color;
-}
-
-h1 {
-    color: orange;
-}
+@import './base/variables';
+@import './base/base';
+@import './components/button';
+@import './layout/layout';

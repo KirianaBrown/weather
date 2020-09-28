@@ -7,7 +7,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
   MODULE.EXPORTS = {} IS THE MAIN CONFIGURATION OBJECT
   ~~ here you write different options and tell Webpack what to do
       1. ENTRY
-        Path to your entry point. From this file webpack will begin his work
+        Path to your entry point. From this file webpack will begin its work
       2. OUTPUT OBJECT
         Path and filename of your result bundle. Webpack will bundle all javascript into this file
       3. MODE / DEV SERVER
@@ -45,11 +45,16 @@ module.exports = {
                 test: /\.scss$/,
                 exclude: /node_modules/,
                 use: [
-                    "style-loader", // creates style nodes from JS Nodes
+                    "style-loader", // creates style nodes from JS Nodes {
                     "css-loader", // translates CSS into CommonJs
                     "sass-loader" // compiles Sass into to CSS, using node sass by default
                 ]
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
+                loader: 'url-loader'
             }
+
         ]
     }
 }
