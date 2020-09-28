@@ -2,7 +2,7 @@
     width: 1180px;
     height: 80vh;
     margin: 0 auto;
-    background-color: rgba($color: $color-light-grey, $alpha: .5);
+    background-color: rgba($color: $color-light-grey, $alpha: .8);
     padding: 1rem;
     border-radius: 2rem;
     @include box-shadow;
@@ -55,7 +55,7 @@
         background: none;
         font-size: 1.7rem;
         font-family: inherit;
-        width: 50rem;
+        width: 40rem;
         padding-left: 2rem;
         &:focus {
             outline: none;
@@ -142,13 +142,13 @@
 .saved {
     grid-column: 3/4;
     width: 28rem;
-    padding: 1.4rem;
+    padding: 1rem;
     // border-left: 1px white solid;
     &__item {
         position: relative;
         transition: all .3s;
         &:hover {
-            background-color: $color-light-grey;
+            background-color: $color-white;
         }
     }
     &__link,
@@ -157,13 +157,13 @@
         display: flex;
         align-items: center;
         color: $color-primary;
-        padding: 1rem;
+        padding: .5rem;
         text-decoration: none;
         margin-bottom: .5rem;
     }
     &__fig {
-        height: 4rem;
-        width: 4rem;
+        height: 3.5rem;
+        width: 3.5rem;
         padding-right: 1rem;
     }
     &__location {
@@ -204,7 +204,12 @@
         padding: 1rem;
         margin: 1rem;
     }
-    &__link {
+    &__link,
+    &__link:visited,
+    &__link:link {
+        color: $color-black;
+        padding: 1rem;
+        text-decoration: none;
         background-color: $color-white;
         padding: 4rem;
         // border: 1px solid black;
