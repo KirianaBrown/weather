@@ -128,6 +128,9 @@
         color: grey;
         font-size: 1.4rem;
         line-height: 2.2rem;
+        &-main {
+            font-size: 2rem;
+        }
     }
     &__fig {
         height: 6rem;
