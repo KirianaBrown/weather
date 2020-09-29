@@ -1,0 +1,20 @@
+.loader svg {
+    width: 10rem;
+    height: 10rem;
+    fill: $color-primary;
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    transform: translate(-45%, -45%);
+    transform-origin: 44% 50%;
+    animation: spin 1.5s infinite linear;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
