@@ -2,7 +2,7 @@
 import Search from './models/Search';
 
 // VIEW IMPORTS
-import { elements, renderLoader } from './views/base';
+import { elements, renderLoader, clearLoader } from './views/base';
 import * as searchView from './views/searchView';
 
 
@@ -32,8 +32,8 @@ const searchControl = async() => {
         // 3. Add a Loader
         renderLoader(elements.resultsContainer)
 
-
         console.log('New Search with Query')
+
 
     }
 
