@@ -5,7 +5,6 @@ export const elements = {
 }
 
 export const renderLoader = parentEl => {
-    console.log(parentEl);
     const loader = `
     <div class = "loader" >
         <svg> 

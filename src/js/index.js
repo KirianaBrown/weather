@@ -31,6 +31,13 @@ const searchControl = async() => {
         searchView.clearInput();
         // 3. Add a Loader
         renderLoader(elements.resultsContainer)
+            // 4. Get Results
+        try {
+            await state.search.getResults()
+            clearLoader();
+        } catch (err) {
+            console.log(`There was an err: ${err}`)
+        }
 
         console.log('New Search with Query')
 
