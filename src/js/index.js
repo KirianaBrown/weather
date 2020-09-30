@@ -2,7 +2,7 @@
 import Search from './models/Search';
 
 // VIEW IMPORTS
-import { elements, renderLoader, clearLoader } from './views/base';
+import { elements, renderLoader, clearLoader, renderErrorMessage, clearErrorMessage } from './views/base';
 import * as searchView from './views/searchView';
 
 
@@ -29,6 +29,7 @@ const searchControl = async() => {
         state.search = new Search(query);
         // 2. Prepare UI
         searchView.clearInput();
+        searchView.clearUI();
         // 3. Add a Loader
         renderLoader(elements.resultsContainer)
             // 4. Get Results
@@ -36,23 +37,28 @@ const searchControl = async() => {
             await state.search.getResults()
             clearLoader();
         } catch (err) {
-            console.log(`There was an err: ${err}`)
-            console.log('There was an error retrieving the location')
+            // 1. Clear Loader
             clearLoader();
+            // 2. Add Error Message
+            renderErrorMessage();
         }
 
         console.log('New Search with Query')
 
 
     }
-
-
-
 }
-
 
 // EVENT LISTENERS
 elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
     searchControl();
+    const target = e.target;
+    clearErrorMessage(target);
+})
+
+elements.resultsContainer.addEventListener('click', e => {
+    e.preventDefault();
+    const target = e.target;
+    clearErrorMessage(target);
 })
