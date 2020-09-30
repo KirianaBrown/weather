@@ -9,12 +9,13 @@ export const elements = {
 let isError = false;
 
 export const elementStrings = {
-    error: 'error'
+    error: 'error',
+    loader: 'loader'
 }
 
 export const renderLoader = parentEl => {
     const loader = `
-    <div class = "loader" >
+    <div class = "${elementString.loader}" >
         <svg> 
             <use href="img/icons.svg#icon-cw"></use>
         </svg>
@@ -48,7 +49,7 @@ export const renderErrorMessage = () => {
     parentEl.insertAdjacentHTML('afterbegin', markUp);
 
     isError = true;
-    console.log(isError)
+
 }
 
 
@@ -56,25 +57,12 @@ export const clearErrorMessage = target => {
 
     if (target.classList.contains('error__btn')) {
         isError = false;
-        console.log(isError);
         elements.searchInput.focus()
         target.parentElement.remove()
     } else if (target.classList.contains('search') && isError === true) {
         document.querySelector('.error').remove();
         isError = false;
     } else {
-        console.log('Shitttttt')
+        console.log('error removing error message')
     }
-
-    // if (target.classList.contains('error__btn')) {
-    //     elements.searchInput.focus()
-    //     target.parentElement.remove()
-
-    // } else if (target.classList.contains('search')) {
-    //     document.querySelector('.error').remove();
-    // } else {
-    //     console.log('I dont know')
-    // }
-
-
 }
