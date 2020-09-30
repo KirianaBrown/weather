@@ -37,6 +37,8 @@ const searchControl = async() => {
             clearLoader();
         } catch (err) {
             console.log(`There was an err: ${err}`)
+            console.log('There was an error retrieving the location')
+            clearLoader();
         }
 
         console.log('New Search with Query')

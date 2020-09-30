@@ -1,0 +1,25 @@
+.error {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    &__heading {
+        color: $color-tertiary;
+        font-size: 10rem;
+    }
+    &__title {
+        color: $color-black;
+        text-transform: uppercase;
+    }
+    &__content {
+        color: $color-black;
+        padding: 2rem 0 2rem 0;
+    }
+    &__btn {
+        background: $color-tertiary;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}

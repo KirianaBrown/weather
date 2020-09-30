@@ -61,7 +61,7 @@
             outline: none;
         }
         &::placeholder {
-            color: grey;
+            color: $color-tertiary;
         }
     }
     &__icon {
