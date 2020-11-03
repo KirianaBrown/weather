@@ -15,6 +15,7 @@
         font-family: inherit;
         width: 50rem;
         padding-left: 2rem;
+        caret-color: $color-primary;
         &:focus {
             outline: none;
         }
