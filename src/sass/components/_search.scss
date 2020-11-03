@@ -13,13 +13,13 @@
         background: none;
         font-size: 1.7rem;
         font-family: inherit;
-        width: 40rem;
+        width: 50rem;
         padding-left: 2rem;
         &:focus {
             outline: none;
         }
         &::placeholder {
-            color: $color-tertiary;
+            color: rgba($color: $color-primary, $alpha: .7)
         }
     }
     &__icon {
