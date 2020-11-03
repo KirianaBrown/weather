@@ -15,7 +15,7 @@ export const elementStrings = {
 
 export const renderLoader = parentEl => {
     const loader = `
-    <div class = "${elementString.loader}" >
+    <div class = "${elementStrings.loader}" >
         <svg> 
             <use href="img/icons.svg#icon-cw"></use>
         </svg>

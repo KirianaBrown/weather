@@ -5,7 +5,9 @@
     transform: translate(-50%, -50%);
     text-align: center;
     &__heading {
-        color: $color-tertiary;
+        background-image: linear-gradient(to right bottom, $color-primary, $color-tertiary);
+        -webkit-background-clip: text;
+        color: transparent;
         font-size: 10rem;
     }
     &__title {
@@ -17,7 +19,8 @@
         padding: 2rem 0 2rem 0;
     }
     &__btn {
-        background: $color-tertiary;
+        // background: $color-tertiary;
+        background: linear-gradient(to right bottom, $color-primary, $color-tertiary);
         width: 100%;
         display: flex;
         justify-content: center;

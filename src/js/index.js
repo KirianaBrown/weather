@@ -21,40 +21,73 @@ import '../sass/main.scss';
 const state = {}
 
 const searchControl = async() => {
-    // 1. Get user input
+    console.log('2. Success the search controller has been called')
+
+    // Get user input
+    console.log('3. Get the User Input from the the form')
     const query = searchView.getInput();
 
     if (query) {
-        // 1. Create new Search Obj
+        console.log(`4. The search result is ${query}`);
+
+        // 1. Create new search object
         state.search = new Search(query);
         // 2. Prepare UI
         searchView.clearInput();
         searchView.clearUI();
-        // 3. Add a Loader
-        renderLoader(elements.resultsContainer)
-            // 4. Get Results
+        // 3. Render Loader
+        renderLoader(elements.resultsContainer);
+        // 4. Get the results
         try {
-            await state.search.getResults()
+            await state.search.getResults();
             clearLoader();
         } catch (err) {
-            // 1. Clear Loader
+            console.log(err)
+            console.log('ERROR: no results returned')
             clearLoader();
-            // 2. Add Error Message
             renderErrorMessage();
+
         }
 
-        console.log('New Search with Query')
 
-
+    } else {
+        console.log('ERROR: there is NO form input')
     }
+
+
+
+    // if (query) {
+    //     // 1. Create new Search Obj
+    //     state.search = new Search(query);
+    //     // 2. Prepare UI
+    //     searchView.clearInput();
+    //     searchView.clearUI();
+    //     // 3. Add a Loader
+    //     renderLoader(elements.resultsContainer)
+    //         // 4. Get Results
+    //     try {
+    //         await state.search.getResults()
+    //         clearLoader();
+    //     } catch (err) {
+    //         // 1. Clear Loader
+    //         clearLoader();
+    //         // 2. Add Error Message
+    //         renderErrorMessage();
+    //     }
+
+    //     console.log('New Search with Query')
+    // }
 }
 
 // EVENT LISTENERS
 elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
+    console.log('1. Success form has been submitted')
     searchControl();
-    const target = e.target;
-    clearErrorMessage(target);
+    // const target = e.target;
+    // clearErrorMessage(target);
+
+
 })
 
 elements.resultsContainer.addEventListener('click', e => {
