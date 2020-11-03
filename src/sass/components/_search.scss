@@ -1,0 +1,32 @@
+.search {
+    display: flex;
+    align-items: center;
+    border-radius: 10rem;
+    background-color: $color-white;
+    transition: all .3s;
+    &:focus-within {
+        transform: translateY(-2px);
+        box-shadow: 0 0.7rem 3rem rgba(101, 90, 86, 0.08);
+    }
+    &__field {
+        border: none;
+        background: none;
+        font-size: 1.7rem;
+        font-family: inherit;
+        width: 50rem;
+        padding-left: 2rem;
+        caret-color: $color-primary;
+        color: $color-primary;
+        &:focus {
+            outline: none;
+        }
+        &::placeholder {
+            color: rgba($color: $color-primary, $alpha: .7)
+        }
+    }
+    &__icon {
+        height: 2.5rem;
+        width: 2.5rem;
+        fill: currentColor;
+    }
+}
