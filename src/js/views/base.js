@@ -52,9 +52,8 @@ export const renderErrorMessage = () => {
 
 }
 
-
+// REPLACE CLEAR UI - searchView
 export const clearErrorMessage = target => {
-
     if (target.classList.contains('error__btn')) {
         isError = false;
         elements.searchInput.focus()

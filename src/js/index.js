@@ -37,46 +37,22 @@ const searchControl = async() => {
         searchView.clearUI();
         // 3. Render Loader
         renderLoader(elements.resultsContainer);
-        // 4. Get the results
+
         try {
             await state.search.getResults();
             clearLoader();
+            searchView.renderWeather(state.search.results);
         } catch (err) {
             console.log(err)
             console.log('ERROR: no results returned')
             clearLoader();
             renderErrorMessage();
-
         }
 
 
     } else {
         console.log('ERROR: there is NO form input')
     }
-
-
-
-    // if (query) {
-    //     // 1. Create new Search Obj
-    //     state.search = new Search(query);
-    //     // 2. Prepare UI
-    //     searchView.clearInput();
-    //     searchView.clearUI();
-    //     // 3. Add a Loader
-    //     renderLoader(elements.resultsContainer)
-    //         // 4. Get Results
-    //     try {
-    //         await state.search.getResults()
-    //         clearLoader();
-    //     } catch (err) {
-    //         // 1. Clear Loader
-    //         clearLoader();
-    //         // 2. Add Error Message
-    //         renderErrorMessage();
-    //     }
-
-    //     console.log('New Search with Query')
-    // }
 }
 
 // EVENT LISTENERS
