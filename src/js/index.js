@@ -1,5 +1,6 @@
 // MODEL IMPORTS
 import Search from './models/Search';
+import Weather from './models/Weather';
 
 // VIEW IMPORTS
 import { elements, renderLoader, clearLoader, renderErrorMessage, clearErrorMessage } from './views/base';
@@ -41,7 +42,8 @@ const searchControl = async() => {
         try {
             await state.search.getResults();
             clearLoader();
-            searchView.renderWeather(state.search.results);
+            // searchView.renderWeather(state.search.results);
+            weatherController(state.search.results);
         } catch (err) {
             console.log(err)
             console.log('ERROR: no results returned')
@@ -54,6 +56,13 @@ const searchControl = async() => {
         console.log('ERROR: there is NO form input')
     }
 }
+
+
+const weatherController = async(weatherObject) => {
+    const weather = new Weather(weatherObject);
+    weather.showWeatherTemp();
+}
+
 
 // EVENT LISTENERS
 elements.searchForm.addEventListener('submit', e => {
