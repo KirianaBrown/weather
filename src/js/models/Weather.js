@@ -1,15 +1,17 @@
 export default class Weather {
-    constructor(id) {
-        this.id = id
+    constructor(weatherObj) {
+        this.weatherObj = weatherObj;
+        this.id = weatherObj.id;
+        this.city = weatherObj.name;
+        this.country = weatherObj.sys.country;
+        this.temp = weatherObj.main.temp;
     }
 
-    async getWeather() {
-        try {
-            const API_KEY = `c8d2013b39ce1062ff9e54042c8d2be6`;
-            const res = await fetch(`api.openweathermap.org/data/2.5/weather?id=${this.id}&appid=${API_KEY}`);
-            console.log(res);
-        } catch (err) {
-            console.log(err);
-        }
+    showWeatherTemp() {
+        console.log(this.weatherObj);
+        console.log(this.id);
+        console.log(this.city);
+        console.log(this.country);
+        console.log(this.temp);
     }
 }
