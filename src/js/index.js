@@ -33,7 +33,8 @@ const searchControl = async() => {
         console.log(`4. The search result is ${query}`);
 
         // 1. Create new search object
-        state.search = new Search(query);
+        // state.search = new Search(query);
+        state.weather = new Weather(query);
         // 2. Prepare UI
         searchView.clearInput();
         searchView.clearUI();
@@ -41,10 +42,11 @@ const searchControl = async() => {
         renderLoader(elements.resultsContainer);
 
         try {
-            await state.search.getResults();
+            // await state.search.getResults();
+            await state.weather.getWeather();
             clearLoader();
             // searchView.renderWeather(state.search.results);
-            weatherController(state.search.results);
+            // weatherController(state.search.results);
         } catch (err) {
             console.log(err)
             console.log('ERROR: no results returned')
@@ -88,7 +90,7 @@ elements.searchForm.addEventListener('submit', e => {
 elements.resultsContainer.addEventListener('click', e => {
     e.preventDefault();
     const target = e.target;
-    clearErrorMessage(target);
+    // clearErrorMessage(target);
     console.log(target);
 })
 
