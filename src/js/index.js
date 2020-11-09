@@ -1,9 +1,11 @@
 // MODEL IMPORTS
 import Search from './models/Search';
+import Weather from './models/Weather';
 
 // VIEW IMPORTS
 import { elements, renderLoader, clearLoader, renderErrorMessage, clearErrorMessage } from './views/base';
 import * as searchView from './views/searchView';
+import * as weatherView from './views/weatherView';
 
 
 // IMPORT STYLESHEETS
@@ -37,50 +39,43 @@ const searchControl = async() => {
         searchView.clearUI();
         // 3. Render Loader
         renderLoader(elements.resultsContainer);
-        // 4. Get the results
+
         try {
             await state.search.getResults();
             clearLoader();
+            // searchView.renderWeather(state.search.results);
+            weatherController(state.search.results);
         } catch (err) {
             console.log(err)
             console.log('ERROR: no results returned')
             clearLoader();
             renderErrorMessage();
-
         }
 
 
     } else {
         console.log('ERROR: there is NO form input')
     }
-
-
-
-    // if (query) {
-    //     // 1. Create new Search Obj
-    //     state.search = new Search(query);
-    //     // 2. Prepare UI
-    //     searchView.clearInput();
-    //     searchView.clearUI();
-    //     // 3. Add a Loader
-    //     renderLoader(elements.resultsContainer)
-    //         // 4. Get Results
-    //     try {
-    //         await state.search.getResults()
-    //         clearLoader();
-    //     } catch (err) {
-    //         // 1. Clear Loader
-    //         clearLoader();
-    //         // 2. Add Error Message
-    //         renderErrorMessage();
-    //     }
-
-    //     console.log('New Search with Query')
-    // }
 }
+
+
+const weatherController = async(weatherObject) => {
+    // 1. create new weatherObj
+    state.weather = new Weather(weatherObject);
+    state.weather.setMetric();
+    state.weather.showWeatherTemp();
+
+    // 2. Prepare the UI
+
+    // 3. Render the results
+    weatherView.renderWeather(state.weather);
+
+}
+
 
 // EVENT LISTENERS
 elements.searchForm.addEventListener('submit', e => {
+
     e.preventDefault();
     console.log('1. Success form has been submitted')
     searchControl();
@@ -94,4 +89,11 @@ elements.resultsContainer.addEventListener('click', e => {
     e.preventDefault();
     const target = e.target;
     clearErrorMessage(target);
+    console.log(target);
 })
+
+// elements.errorMessage.addEventListener('click', e => {
+//     e.preventDefault();
+//     const target = e.target;
+//     console.log(target)
+// })
