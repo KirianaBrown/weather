@@ -5,6 +5,7 @@ import Weather from './models/Weather';
 // VIEW IMPORTS
 import { elements, renderLoader, clearLoader, renderErrorMessage, clearErrorMessage } from './views/base';
 import * as searchView from './views/searchView';
+import * as weatherView from './views/weatherView';
 
 
 // IMPORT STYLESHEETS
@@ -59,13 +60,22 @@ const searchControl = async() => {
 
 
 const weatherController = async(weatherObject) => {
-    const weather = new Weather(weatherObject);
-    weather.showWeatherTemp();
+    // 1. create new weatherObj
+    state.weather = new Weather(weatherObject);
+    state.weather.setMetric();
+    state.weather.showWeatherTemp();
+
+    // 2. Prepare the UI
+
+    // 3. Render the results
+    weatherView.renderWeather(state.weather);
+
 }
 
 
 // EVENT LISTENERS
 elements.searchForm.addEventListener('submit', e => {
+
     e.preventDefault();
     console.log('1. Success form has been submitted')
     searchControl();
@@ -79,4 +89,11 @@ elements.resultsContainer.addEventListener('click', e => {
     e.preventDefault();
     const target = e.target;
     clearErrorMessage(target);
+    console.log(target);
 })
+
+// elements.errorMessage.addEventListener('click', e => {
+//     e.preventDefault();
+//     const target = e.target;
+//     console.log(target)
+// })
