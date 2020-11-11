@@ -10,7 +10,6 @@ import * as weatherView from './views/weatherView';
 
 // IMPORT STYLESHEETS
 import '../sass/main.scss';
-import { search } from 'core-js/fn/symbol';
 
 
 // STATE
