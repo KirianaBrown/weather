@@ -109,6 +109,8 @@ const weatherController = async() => {
     // 1. Create new Weather Obj
     state.weather = new Weather(query);
     // 2. Prepare the UI
+
+    // 3. Call the getResults method
 }
 
 elements.searchForm.addEventListener('submit', e => {
