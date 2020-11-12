@@ -1,25 +1,19 @@
 import { elements } from './base';
 
-export const renderWeather = weatherObject => {
+export const renderWeather = weather => {
     const html =
         `
-    <div class="results__location heading-tertiary">Christchurch <sup class='country'> NZ </sup></div>
-      <button class="results__love">
-          <svg class="results__likes">
-              <use href="img/icons.svg#icon-heart-outlined"></use>
-          </svg>
-      </button>
+    <div class="results__location heading-tertiary">${weather.name} <sup class='country'> ${weather.sys.country} </sup></div>
+     
       <div class="details">
         <div class="details__temperature">
-            ${weatherObject.temp}${weatherObject.type}
+            ${weather.main.temp} C
         </div>
 
         <div class="details__description">
-            <p class="details__description-main">
-                Cloudy and overcast
-            </p>
+            <img src="./img/weather/${weather.weather[0].icon}.svg" alt="Weather Icon"/>
             <br>
-            <p class="details__description-secondary">The high today will be 28C with winds of 453mph</p>
+            <p class="details__description-secondary">${weather.weather[0].main}</p>
         </div>
       </div> 
   
