@@ -87,12 +87,12 @@ import '../sass/main.scss';
 
 // })
 
-// elements.resultsContainer.addEventListener('click', e => {
-//     e.preventDefault();
-//     const target = e.target;
-//     // clearErrorMessage(target);
-//     console.log(target);
-// })
+elements.resultsContainer.addEventListener('click', e => {
+    e.preventDefault();
+    const target = e.target;
+    clearErrorMessage(target);
+    // console.log(target);
+})
 
 // // elements.errorMessage.addEventListener('click', e => {
 // //     e.preventDefault();
@@ -108,8 +108,21 @@ const weatherController = async() => {
     // 1. Create new Weather Obj
     state.weather = new Weather(query);
     // 2. Prepare the UI
-
+    searchView.clearUI();
+    searchView.clearInput();
+    // 3. Render loader
+    renderLoader(elements.resultsContainer);
     // 3. Call the getResults method
+    try {
+        await state.weather.getWeather();
+        clearLoader();
+    } catch (err) {
+        console.log(err)
+        clearLoader();
+        renderErrorMessage();
+    }
+
+
 }
 
 elements.searchForm.addEventListener('submit', e => {
