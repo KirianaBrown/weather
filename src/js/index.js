@@ -129,4 +129,5 @@ elements.searchForm.addEventListener('submit', e => {
     weatherController();
 })
 
-console.log(process.env.API_KEY)
+console.log(process.env.API_KEY);
+console.log(process.env.API_URL);
