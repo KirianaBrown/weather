@@ -29,8 +29,8 @@ export default class Weather {
     }
 
     async getWeather() {
-        const API_KEY = `c8d2013b39ce1062ff9e54042c8d2be6`;
-        const res = await axios(`https://api.openweathermap.org/data/2.5/weather?q=${this.query}&units=metric&appid=${API_KEY}`);
+        const API_KEY = `${process.env.API_KEY}`;
+        const res = await axios(`${process.env.API_URL}?q=${this.query}&units=metric&appid=${API_KEY}`);
         this.results = res.data;
         // this.id = this.results.id;
         // this.name = this.results.name;
