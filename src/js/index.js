@@ -8,6 +8,7 @@ import * as searchView from './views/searchView';
 import * as weatherView from './views/weatherView';
 
 
+
 // IMPORT STYLESHEETS
 import '../sass/main.scss';
 
@@ -115,19 +116,16 @@ const weatherController = async() => {
     try {
         await state.weather.getWeather();
         clearLoader();
+        weatherView.renderWeather(state.weather.results)
+
     } catch (err) {
         console.log(err)
         clearLoader();
         renderErrorMessage();
     }
-
-
 }
 
 elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
     weatherController();
 })
-
-console.log(process.env.API_KEY);
-console.log(process.env.API_URL);
