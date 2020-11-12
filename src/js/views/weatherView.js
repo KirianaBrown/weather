@@ -15,10 +15,9 @@ export const renderWeather = (weather, metric = 'C') => {
             <br>
             <p class="details__description-secondary">${weather.weather[0].main}</p>
             <p class="details__description-secondary">The high today will be ${Math.round(weather.main.temp_max)}&#0176;${metric} currently feels like ${Math.round(weather.main.feels_like)}&#0176;${metric}</p>
-
-      </div> 
+        </div> 
   
   `
 
-    elements.resultsContainer.insertAdjacentHTML('afterbegin', html);
+    elements.weatherDetails.insertAdjacentHTML('afterbegin', html);
 }
