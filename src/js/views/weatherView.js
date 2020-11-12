@@ -7,15 +7,15 @@ export const renderWeather = (weather, metric = 'C') => {
      
       <div class="details">
         <div class="details__temperature">
-            ${Math.round(weather.main.temp)}${metric}
+            ${Math.round(weather.main.temp)}&#0176;${metric}
         </div>
 
         <div class="details__description">
-            <img src="./img/weather/${weather.weather[0].icon}.svg" alt="Weather Icon"/>
+            <img class="details__fig" src="./img/weather/${weather.weather[0].icon}.svg" alt="Weather Icon"/>
             <br>
             <p class="details__description-secondary">${weather.weather[0].main}</p>
-            <p class="details__description-secondary">The high today will be ${weather.main.temp_max}${metric} currently feels like ${weather.main.feels_like}${metric}</p>
-        </div>
+            <p class="details__description-secondary">The high today will be ${Math.round(weather.main.temp_max)}&#0176;${metric} currently feels like ${Math.round(weather.main.feels_like)}&#0176;${metric}</p>
+
       </div> 
   
   `
