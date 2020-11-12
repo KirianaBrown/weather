@@ -11,7 +11,6 @@ import * as weatherView from './views/weatherView';
 // IMPORT STYLESHEETS
 import '../sass/main.scss';
 
-
 // STATE
 /*
     1. Search Object
@@ -129,3 +128,5 @@ elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
     weatherController();
 })
+
+console.log(process.env.API_KEY)
