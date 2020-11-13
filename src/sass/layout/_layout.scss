@@ -134,7 +134,7 @@
     align-items: center;
     margin-left: 0rem;
     margin-top: 4rem;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     width: 100%;
 }
 
@@ -143,12 +143,12 @@
     // background-color: orange;
     // position: relative;
     // left: -2;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    // position: absolute;
+    // top: 100%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
     // bottom: 31rem;
-    margin-top: -12rem;
+    // margin-top: -12rem;
     cursor: auto;
     // background-color: white;
     &__list {
@@ -158,16 +158,16 @@
     &__item {
         display: flex;
         align-items: center;
-        padding: 1rem;
-        margin: 1rem;
+        padding: .5rem;
+        margin: .5rem;
     }
     &__link,
     &__link:visited,
     &__link:link {
         color: $color-black;
-        padding: 1rem;
+        padding: .5rem;
         text-decoration: none;
-        background-color: $color-white;
+        // background-color: $color-white;
         padding: 4rem;
         // border: 1px solid black;
         text-align: center;
