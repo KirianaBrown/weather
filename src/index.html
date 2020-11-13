@@ -67,22 +67,112 @@
                     <svg class="results__likes">
                         <use href="img/icons.svg#icon-heart-outlined"></use>
                     </svg>
-                </button>
+                </button> -->
+
+                <div class="results__location heading-tertiary">London <sup class='country'> GB} </sup>
+                </div>
+
                 <div class="details">
                     <div class="details__temperature">
-                        28
+                        10 <span class='details__temperature-metric'> &#0176;C </span>
                     </div>
 
                     <div class="details__description">
-                        <p class="details__description-main">
-                            Cloudy and overcast
-                        </p>
-                        <img src="./img/weather/${weather.weather[0].icon}.svg" alt="Weather Icon" />
+                        <img class="details__fig" src="./img/weather/04n.svg" alt="Weather Icon" />
                         <br>
-                        <p class="details__description-secondary">The high today will be 28C with winds of 453mph</p>
+                        <p class="details__description-secondary">Cloudy</p>
+                        <p class="details__description-secondary">H:11&#0176;C L:8&#0176;C
+                        </p>
                     </div>
-                </div> -->
+                </div>
+
+                <div class="info">
+                    <ul class="info__list">
+                        <li class="info__list-item">
+                            Sunrise: 8am
+                        </li>
+                        <li class="info__list-item">
+                            Sunset: 8pm
+                        </li>
+                        <li class="info__list-item">
+                            Chance of Rain: 20%
+                        </li>
+                    </ul>
+                    <ul class="info__list">
+                        <li class="info__list-item">
+                            Humidity: 10
+                        </li>
+                        <li class="info__list-item">
+                            Wind: 10
+                        </li>
+                        <li class="info__list-item">
+                            Pressure: 10
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="forecast">
+                    <!-- <ul class="forecast__list">
+                    <li class="forecast__item">
+                        <a href="123" class="forecast__link">
+                            <figure class="forecast__fig">
+                                <img src="img/weather/02d.svg" alt="Test Image">
+                            </figure>
+                            <div class="forecast__data">
+                                <h4 class="forecast__date">Tues</h4>
+                                <p class="forecast__temp">26</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="forecast__item">
+                        <a href="123" class="forecast__link">
+                            <figure class="forecast__fig">
+                                <img src="img/weather/02d.svg" alt="Test Image">
+                            </figure>
+                            <div class="forecast__data">
+                                <h4 class="forecast__date">Wed</h4>
+                                <p class="forecast__temp">26</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="forecast__item">
+                        <a href="123" class="forecast__link">
+                            <figure class="forecast__fig">
+                                <img src="img/weather/02d.svg" alt="Test Image">
+                            </figure>
+                            <div class="forecast__data">
+                                <h4 class="forecast__date">Thur</h4>
+                                <p class="forecast__temp">26</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="forecast__item">
+                        <a href="123" class="forecast__link">
+                            <figure class="forecast__fig">
+                                <img src="img/weather/02d.svg" alt="Test Image">
+                            </figure>
+                            <div class="forecast__data">
+                                <h4 class="forecast__date">Fri</h4>
+                                <p class="forecast__temp">26</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="forecast__item">
+                        <a href="123" class="forecast__link">
+                            <figure class="forecast__fig">
+                                <img src="img/weather/02d.svg" alt="Test Image">
+                            </figure>
+                            <div class="forecast__data">
+                                <h4 class="forecast__date">Sat</h4>
+                                <p class="forecast__temp">26</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul> -->
+                </div>
             </div>
+
+
 
             <div class="saved">
                 <h2 class="heading-secondary">Saved Locations</h2>
@@ -138,68 +228,74 @@
 
                 </ul> -->
             </div>
+
+            <div class="forecast">
+                <!-- <ul class="forecast__list">
+                    <li class="forecast__item">
+                        <a href="123" class="forecast__link">
+                            <figure class="forecast__fig">
+                                <img src="img/weather/02d.svg" alt="Test Image">
+                            </figure>
+                            <div class="forecast__data">
+                                <h4 class="forecast__date">Tues</h4>
+                                <p class="forecast__temp">26</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="forecast__item">
+                        <a href="123" class="forecast__link">
+                            <figure class="forecast__fig">
+                                <img src="img/weather/02d.svg" alt="Test Image">
+                            </figure>
+                            <div class="forecast__data">
+                                <h4 class="forecast__date">Wed</h4>
+                                <p class="forecast__temp">26</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="forecast__item">
+                        <a href="123" class="forecast__link">
+                            <figure class="forecast__fig">
+                                <img src="img/weather/02d.svg" alt="Test Image">
+                            </figure>
+                            <div class="forecast__data">
+                                <h4 class="forecast__date">Thur</h4>
+                                <p class="forecast__temp">26</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="forecast__item">
+                        <a href="123" class="forecast__link">
+                            <figure class="forecast__fig">
+                                <img src="img/weather/02d.svg" alt="Test Image">
+                            </figure>
+                            <div class="forecast__data">
+                                <h4 class="forecast__date">Fri</h4>
+                                <p class="forecast__temp">26</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="forecast__item">
+                        <a href="123" class="forecast__link">
+                            <figure class="forecast__fig">
+                                <img src="img/weather/02d.svg" alt="Test Image">
+                            </figure>
+                            <div class="forecast__data">
+                                <h4 class="forecast__date">Sat</h4>
+                                <p class="forecast__temp">26</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul> -->
+            </div>
         </div>
+
     </div>
 
-    <div class="forecast">
-        <ul class="forecast__list">
-            <li class="forecast__item">
-                <a href="123" class="forecast__link">
-                    <figure class="forecast__fig">
-                        <img src="img/weather/02d.svg" alt="Test Image">
-                    </figure>
-                    <div class="forecast__data">
-                        <h4 class="forecast__date">Tues</h4>
-                        <p class="forecast__temp">26</p>
-                    </div>
-                </a>
-            </li>
-            <li class="forecast__item">
-                <a href="123" class="forecast__link">
-                    <figure class="forecast__fig">
-                        <img src="img/weather/02d.svg" alt="Test Image">
-                    </figure>
-                    <div class="forecast__data">
-                        <h4 class="forecast__date">Wed</h4>
-                        <p class="forecast__temp">26</p>
-                    </div>
-                </a>
-            </li>
-            <li class="forecast__item">
-                <a href="123" class="forecast__link">
-                    <figure class="forecast__fig">
-                        <img src="img/weather/02d.svg" alt="Test Image">
-                    </figure>
-                    <div class="forecast__data">
-                        <h4 class="forecast__date">Thur</h4>
-                        <p class="forecast__temp">26</p>
-                    </div>
-                </a>
-            </li>
-            <li class="forecast__item">
-                <a href="123" class="forecast__link">
-                    <figure class="forecast__fig">
-                        <img src="img/weather/02d.svg" alt="Test Image">
-                    </figure>
-                    <div class="forecast__data">
-                        <h4 class="forecast__date">Fri</h4>
-                        <p class="forecast__temp">26</p>
-                    </div>
-                </a>
-            </li>
-            <li class="forecast__item">
-                <a href="123" class="forecast__link">
-                    <figure class="forecast__fig">
-                        <img src="img/weather/02d.svg" alt="Test Image">
-                    </figure>
-                    <div class="forecast__data">
-                        <h4 class="forecast__date">Sat</h4>
-                        <p class="forecast__temp">26</p>
-                    </div>
-                </a>
-            </li>
-        </ul>
+
     </div>
+
+
 
     <script src="dist/bundle.js"></script>
 </body>
