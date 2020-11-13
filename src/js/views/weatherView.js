@@ -7,7 +7,7 @@ export const renderWeather = (weather, metric = 'C') => {
      
       <div class="details">
         <div class="details__temperature">
-            ${Math.round(weather.main.temp)}&#0176;${metric}
+            ${Math.round(weather.main.temp)} <span class='details__temperature-metric'> &#0176;${metric} </span>
         </div>
 
         <div class="details__description">
