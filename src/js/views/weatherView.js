@@ -21,10 +21,10 @@ export const renderWeather = (weather, metric = 'C') => {
     <div class="info">
                     <ul class="info__list">
                         <li class="info__list-item">
-                            Sunrise: 8am
+                            Sunrise: ${weather.sys.sunrise}
                         </li>
                         <li class="info__list-item">
-                            Sunset: 8pm
+                            Sunset: ${weather.sys.sunset}
                         </li>
                         <li class="info__list-item">
                             Chance of Rain: 20%
@@ -32,13 +32,13 @@ export const renderWeather = (weather, metric = 'C') => {
                     </ul>
                     <ul class="info__list">
                         <li class="info__list-item">
-                            Humidity: 10
+                            Humidity: ${weather.main.humidity}
                         </li>
                         <li class="info__list-item">
-                            Wind: 10
+                            Wind Speed: ${weather.wind.speed}
                         </li>
                         <li class="info__list-item">
-                            Pressure: 10
+                            Pressure: ${weather.main.pressure}hPa
                         </li>
                     </ul>
                 </div>
