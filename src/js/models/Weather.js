@@ -33,7 +33,7 @@ export default class Weather {
         const res = await axios(`${process.env.API_URL}?q=${this.query}&units=metric&appid=${API_KEY}`);
         this.results = res.data;
         this.metric = 'C';
-        // this.id = this.results.id;
+        this.id = this.results.id;
         // this.name = this.results.name;
         // this.country = this.results.sys.country;
         // this.temp = this.results.main.temp;
