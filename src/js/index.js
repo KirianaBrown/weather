@@ -129,15 +129,3 @@ elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
     weatherController();
 })
-
-
-const kiriana = {
-    hair: 'brown',
-    age: 28
-};
-
-const keysKiriana = Object.keys(kiriana)
-console.log(keysKiriana)
-let mine = keysKiriana[0];
-console.log(`mine: ${mine}`)
-console.log(kiriana.mine)
