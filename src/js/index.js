@@ -54,10 +54,6 @@ elements.searchForm.addEventListener('submit', e => {
 // Handling non-render details events.
 elements.resultsContainer.addEventListener('click', e => {
     if (e.target.matches('.error__btn, .error__btn *')) {
-        // Respond as Decrease button has been clicked
-        console.log('Brilliant the right button has been clicked')
         clearErrorMessage();
-    } else {
-        console.log('button not clicked')
     }
 });
