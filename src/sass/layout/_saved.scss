@@ -1,16 +1,15 @@
 .saved {
     grid-column: 2.5/4;
-    // width: 28rem;
     height: 100%;
     padding: 1rem;
-    background-color: rgba($color: $color-secondary, $alpha: 0.2);
+    background-color: rgba($color: $color-secondary, $alpha: 0.1);
     position: absolute;
     right: 0;
     width: 30%;
-    // border-left: 1px white solid;
     &__item {
         position: relative;
         transition: all .3s;
+        border-radius: $border-radius;
         &:hover {
             background-color: $color-white;
         }
@@ -20,10 +19,13 @@
     &__link:link {
         display: flex;
         align-items: center;
-        color: $color-primary;
-        padding: .5rem;
+        color: grey;
+        padding: 1rem;
         text-decoration: none;
-        margin-bottom: .5rem;
+        margin-top: 1rem;
+        font-size: 1.4rem;
+        @include box-shadow;
+        border-radius: $border-radius;
     }
     &__fig {
         height: 3.5rem;
@@ -35,9 +37,11 @@
     }
     &__delete {
         position: absolute;
-        right: 0;
+        right: 1rem;
         opacity: 0;
         visibility: hidden;
+        height: 2.4rem;
+        width: 2.4rem;
     }
 }
 
