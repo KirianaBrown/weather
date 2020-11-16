@@ -45,5 +45,6 @@
         background-image: linear-gradient(to right bottom, $color-secondary, $color-primary);
         color: transparent;
         -webkit-background-clip: text;
+        background-clip: text;
     }
 }
