@@ -7,7 +7,7 @@ export default class Saved {
 
     addItem(img, location, temp) {
         const item = {
-            id: uniqid()
+            id: uniqid(),
             img,
             location,
             temp,
