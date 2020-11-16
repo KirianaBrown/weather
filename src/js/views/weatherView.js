@@ -21,30 +21,59 @@ export const renderWeather = (weather, metric = 'C') => {
     <div class="info">
                     <ul class="info__list">
                         <li class="info__list-item">
-                            Sunrise: ${weather.sys.sunrise}
+                            Sunrise: ${convertUnix(weather.sys.sunrise)}
                         </li>
                         <li class="info__list-item">
-                            Sunset: ${weather.sys.sunset}
+                            Sunset: ${convertUnix(weather.sys.sunset)}
                         </li>
                         <li class="info__list-item">
-                            Chance of Rain: 20%
+                            Humidity: ${weather.main.humidity}%
                         </li>
                     </ul>
                     <ul class="info__list">
                         <li class="info__list-item">
-                            Humidity: ${weather.main.humidity}
+                            Wind Speed: ${weather.wind.speed} met/sec
                         </li>
                         <li class="info__list-item">
-                            Wind Speed: ${weather.wind.speed}
+                            Wind Direction: ${getDirection(weather.wind.deg)}
                         </li>
                         <li class="info__list-item">
                             Pressure: ${weather.main.pressure}hPa
                         </li>
                     </ul>
                 </div>
-
-
   `
 
     elements.weatherDetails.insertAdjacentHTML('afterbegin', html);
+}
+
+const convertUnix = (unixTime) => {
+    const date = new Date(unixTime * 1000);
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const seconds = date.getSeconds();
+
+    let timeUnit = (hours >= 12) ? 'PM' : 'AM'
+
+    let formattedTime = `${hours}:${minutes} ${timeUnit}`;
+
+    // let formattedTime = `${hours}:${minutes}:${seconds}`
+
+    return formattedTime;
+}
+
+const getDirection = angle => {
+    const arrows = { north: '↑ N', north_east: '↗ NE', east: '→ E', south_east: '↘ SE', south: '↓ S', south_west: '↙ SW', west: '← W', north_west: '↖ NW' };
+
+    const directions = Object.keys(arrows);
+    const symbols = Object.values(arrows);
+
+    const degree = 360 / directions.length;
+
+    angle = Math.floor(angle / degree);
+
+    if (angle >= 45) {
+        return `${directions[0], symbols[0]}`
+    }
+    return `${directions[angle], symbols[angle]}`
 }
