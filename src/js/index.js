@@ -1,6 +1,7 @@
 // MODEL IMPORTS
 import Search from './models/Search';
 import Weather from './models/Weather';
+import Saved from './models/Saved';
 
 // VIEW IMPORTS
 import { elements, renderLoader, clearLoader, renderErrorMessage, clearErrorMessage } from './views/base';
@@ -44,6 +45,7 @@ const weatherController = async() => {
         renderErrorMessage();
     }
 }
+
 
 elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
