@@ -55,16 +55,8 @@ export const renderErrorMessage = () => {
 
 }
 
-// REPLACE CLEAR UI - searchView
-export const clearErrorMessage = target => {
-    if (target.classList.contains('error__btn')) {
-        isError = false;
-        elements.searchInput.focus()
-        target.parentElement.remove()
-    } else if (target.classList.contains('search') && isError === true) {
-        document.querySelector('.error').remove();
-        isError = false;
-    } else {
-        console.log('error removing error message')
-    }
+export const clearErrorMessage = () => {
+    elements.searchInput.focus();
+    elements.errorMessage.parentElement.remove();
+    console.log('Error Message to be cleared')
 }
