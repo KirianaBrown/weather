@@ -19,29 +19,29 @@ export const renderWeather = (weather, metric = 'C') => {
     </div>
 
     <div class="info">
-                    <ul class="info__list">
-                        <li class="info__list-item">
-                            Sunrise: ${convertUnix(weather.sys.sunrise)}
-                        </li>
-                        <li class="info__list-item">
-                            Sunset: ${convertUnix(weather.sys.sunset)}
-                        </li>
-                        <li class="info__list-item">
-                            Humidity: ${weather.main.humidity}%
-                        </li>
-                    </ul>
-                    <ul class="info__list">
-                        <li class="info__list-item">
-                            Wind Speed: ${weather.wind.speed} met/sec
-                        </li>
-                        <li class="info__list-item">
-                            Wind Direction: ${getDirection(weather.wind.deg)}
-                        </li>
-                        <li class="info__list-item">
-                            <span class='info__list-title'>Pressure :</span> ${weather.main.pressure}hPa
-                        </li>
-                    </ul>
-                </div>
+        <ul class="info__list">
+            <li class="info__list-item">
+                <span class='info__list-title'>Sunrise: </span> ${convertUnix(weather.sys.sunrise)}
+            </li>
+            <li class="info__list-item">
+                <span class='info__list-title'>Sunset: </span> ${convertUnix(weather.sys.sunset)}
+            </li>
+            <li class="info__list-item">
+                <span class='info__list-title'>Humidity: </span> ${weather.main.humidity}%
+            </li>
+        </ul>
+        <ul class="info__list">
+            <li class="info__list-item">
+                <span class='info__list-title'>Wind Speed: </span> ${weather.wind.speed} met/sec
+            </li>
+            <li class="info__list-item">
+                <span class='info__list-title'>Wind Direction: </span> ${getDirection(weather.wind.deg)}
+            </li>
+            <li class="info__list-item">
+                <span class='info__list-title'>Pressure :</span> ${weather.main.pressure}hPa
+            </li>
+        </ul>
+    </div>
   `
 
     elements.weatherDetails.insertAdjacentHTML('afterbegin', html);
