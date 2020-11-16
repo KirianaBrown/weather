@@ -5,5 +5,16 @@ export default class Saved {
         this.saved = []
     }
 
+    addItem(img, location, temp) {
+        const item = {
+            id: uniqid()
+            img,
+            location,
+            temp,
+        }
+
+        this.saved.push(item);
+        return item;
+    }
 
 }
