@@ -4,8 +4,8 @@
     margin: 0 auto;
     background-color: rgba($color: $color-light-grey, $alpha: .8);
     padding: 1rem;
-    border-radius: 2rem;
-    @include box-shadow;
+    border-radius: $border-radius;
+    @include box-shadow-dark;
     display: grid;
     // grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr 3fr 1fr;
