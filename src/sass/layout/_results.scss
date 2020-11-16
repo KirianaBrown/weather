@@ -14,7 +14,7 @@
         position: relative;
     }
     &__love {
-        background-color: none;
+        background-color: rgba($color: #fff, $alpha: 0);
         position: absolute;
         right: 4rem;
         top: 0;
