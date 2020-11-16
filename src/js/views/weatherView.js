@@ -38,7 +38,7 @@ export const renderWeather = (weather, metric = 'C') => {
                             Wind Direction: ${getDirection(weather.wind.deg)}
                         </li>
                         <li class="info__list-item">
-                            Pressure: ${weather.main.pressure}hPa
+                            <span class='info__list-title'>Pressure :</span> ${weather.main.pressure}hPa
                         </li>
                     </ul>
                 </div>
