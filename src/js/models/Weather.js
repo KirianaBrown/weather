@@ -1,22 +1,18 @@
+import axios from 'axios';
+
 export default class Weather {
-    constructor(weatherObj) {
-        this.weatherObj = weatherObj;
-        this.id = weatherObj.id;
-        this.city = weatherObj.name;
-        this.country = weatherObj.sys.country;
-        this.temp = weatherObj.main.temp;
+    constructor(query) {
+        this.query = query;
     }
 
-    setMetric() {
-        this.type = 'deg'
+    async getWeather() {
+        const API_KEY = `${process.env.API_KEY}`;
+        const res = await axios(`${process.env.API_URL}?q=${this.query}&units=metric&appid=${API_KEY}`);
+        this.results = res.data;
+        this.metric = 'C';
+        this.id = this.results.id;
+
+        console.log(this.results)
     }
 
-    showWeatherTemp() {
-        console.log(this.weatherObj);
-        console.log(this.id);
-        console.log(this.city);
-        console.log(this.country);
-        console.log(this.temp);
-        console.log(this.type);
-    }
 }

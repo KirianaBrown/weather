@@ -4,6 +4,7 @@ export const elements = {
     resultsContainer: document.querySelector('.results'),
     errorBtn: document.querySelector('.error__btn'),
     errorMessage: document.querySelector('.error'),
+    weatherDetails: document.querySelector('.results__container'),
 }
 
 let isError = false;
@@ -34,7 +35,7 @@ export const clearLoader = () => {
 
 
 export const renderErrorMessage = () => {
-    const parentEl = elements.resultsContainer;
+    const parentEl = elements.errorMessage;
     const markUp = `
         <div class="${elementStrings.error}">
             <h1 class="error__heading">Oops!</h1>
