@@ -110,6 +110,7 @@ const weatherController = async() => {
     // 2. Prepare the UI
     searchView.clearUI();
     searchView.clearInput();
+    searchView.clearError();
     // 3. Render loader
     renderLoader(elements.resultsContainer);
     // 3. Call the getResults method
