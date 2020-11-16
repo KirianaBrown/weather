@@ -35,7 +35,7 @@ export const clearLoader = () => {
 
 
 export const renderErrorMessage = () => {
-    const parentEl = elements.resultsContainer;
+    const parentEl = elements.errorMessage;
     const markUp = `
         <div class="${elementStrings.error}">
             <h1 class="error__heading">Oops!</h1>
