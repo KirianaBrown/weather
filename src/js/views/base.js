@@ -5,6 +5,8 @@ export const elements = {
     errorBtn: document.querySelector('.error__btn'),
     errorMessage: document.querySelector('.error'),
     weatherDetails: document.querySelector('.results__container'),
+    savedContainer: document.querySelector('.saved'),
+    savedList: document.querySelector('.saved__list'),
 }
 
 let isError = false;
