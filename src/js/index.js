@@ -10,6 +10,7 @@ import { elements, renderLoader, clearLoader, renderErrorMessage, clearErrorMess
 import * as searchView from './views/searchView';
 import * as weatherView from './views/weatherView';
 import * as savedView from './views/savedView';
+import * as forecastView from './views/forecastView';
 
 
 
@@ -54,7 +55,8 @@ const weatherController = async(query) => {
 const forecastController = async(location) => {
     state.forecast = new Forecast('Christchurch');
     try {
-        await state.forecast.getForecast()
+        await state.forecast.getForecast();
+        forecastView.renderForecast(state.forecast.forecastArr);
     } catch (err) {
         console.log('error with forecast')
     }
