@@ -1,11 +1,13 @@
 // MODEL IMPORTS
 import Search from './models/Search';
 import Weather from './models/Weather';
+import Saved from './models/Saved';
 
 // VIEW IMPORTS
 import { elements, renderLoader, clearLoader, renderErrorMessage, clearErrorMessage } from './views/base';
 import * as searchView from './views/searchView';
 import * as weatherView from './views/weatherView';
+import * as savedView from './views/savedView';
 
 
 
@@ -20,113 +22,84 @@ import '../sass/main.scss';
     4. Saved Location Object
 
 */
-// const state = {}
-
-// const searchControl = async() => {
-//     console.log('2. Success the search controller has been called')
-
-//     // Get user input
-//     console.log('3. Get the User Input from the the form')
-//     const query = searchView.getInput();
-
-//     if (query) {
-//         console.log(`4. The search result is ${query}`);
-
-//         // 1. Create new search object
-//         // state.search = new Search(query);
-//         state.weather = new Weather(query);
-//         // 2. Prepare UI
-//         searchView.clearInput();
-//         searchView.clearUI();
-//         // 3. Render Loader
-//         renderLoader(elements.resultsContainer);
-
-//         try {
-//             // await state.search.getResults();
-//             await state.weather.getWeather();
-//             clearLoader();
-//             // searchView.renderWeather(state.search.results);
-//             // weatherController(state.search.results);
-//         } catch (err) {
-//             console.log(err)
-//             console.log('ERROR: no results returned')
-//             clearLoader();
-//             renderErrorMessage();
-//         }
-
-
-//     } else {
-//         console.log('ERROR: there is NO form input')
-//     }
-// }
-
-
-// // const weatherController = async(weatherObject) => {
-// //     // 1. create new weatherObj
-// //     state.weather = new Weather(weatherObject);
-// //     state.weather.setMetric();
-// //     state.weather.showWeatherTemp();
-
-// //     // 2. Prepare the UI
-
-// //     // 3. Render the results
-// //     weatherView.renderWeather(state.weather);
-
-// // }
-
-
-// // EVENT LISTENERS
-// elements.searchForm.addEventListener('submit', e => {
-
-//     e.preventDefault();
-//     console.log('1. Success form has been submitted')
-//     searchControl();
-//     // const target = e.target;
-//     // clearErrorMessage(target);
-
-
-// })
-
-elements.resultsContainer.addEventListener('click', e => {
-    e.preventDefault();
-    const target = e.target;
-    clearErrorMessage(target);
-    // console.log(target);
-})
-
-// // elements.errorMessage.addEventListener('click', e => {
-// //     e.preventDefault();
-// //     const target = e.target;
-// //     console.log(target)
-// // })
-
-
 const state = {}
 
-const weatherController = async() => {
-    const query = searchView.getInput();
-    // 1. Create new Weather Obj
-    state.weather = new Weather(query);
-    // 2. Prepare the UI
-    searchView.clearUI();
-    searchView.clearInput();
-    searchView.clearError();
-    // 3. Render loader
-    renderLoader(elements.resultsContainer);
-    // 3. Call the getResults method
-    try {
-        await state.weather.getWeather();
-        clearLoader();
-        weatherView.renderWeather(state.weather.results)
+const weatherController = async(query) => {
 
-    } catch (err) {
-        console.log(err)
-        clearLoader();
+    if (!location) {
         renderErrorMessage();
+    } else {
+        state.weather = new Weather(query);
+        // 2. Prepare the UI
+        searchView.clearUI();
+        searchView.clearInput();
+        searchView.clearError();
+        // 3. Render loader
+        renderLoader(elements.resultsContainer);
+        // 3. Call the getResults method
+        try {
+            await state.weather.getWeather();
+            clearLoader();
+            weatherView.renderWeather(state.weather.results, state.saved.isSaved(state.weather.id));
+        } catch (err) {
+            console.log(err)
+            clearLoader();
+            renderErrorMessage();
+        }
+    }
+}
+
+const savedController = () => {
+    const currentId = state.weather.id;
+
+    if (!state.saved.isSaved(currentId)) {
+        // 1. Create new item
+        const newSavedItem = state.saved.addSaved(
+                currentId,
+                state.weather.results.name,
+                state.weather.results.main.temp,
+                '10d'
+            )
+            // 2. Toggle saved button
+        savedView.toggleSavedButton(true);
+        // 3. Render to List
+        savedView.renderItem(newSavedItem);
+    } else {
+        savedView.toggleSavedButton(false);
+        savedView.deleteItem(currentId);
+        state.saved.deleteSaved(currentId);
     }
 }
 
 elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
-    weatherController();
+    let query = searchView.getInput();
+    weatherController(query);
+})
+
+
+// Handling non-render details events.
+elements.resultsContainer.addEventListener('click', e => {
+    e.preventDefault();
+    if (e.target.matches('.error__btn, .error__btn *')) {
+        clearErrorMessage();
+    } else if (e.target.matches('.results__love, .results__love *')) {
+        savedController();
+    }
+});
+
+elements.savedContainer.addEventListener('click', e => {
+    if (e.target.closest('.saved__item, .saved__item *')) {
+        const parentEl = e.target.parentNode;
+        const location = parentEl.dataset.itemlocation
+
+        if (location) {
+            weatherController(location)
+        }
+    }
+})
+
+
+window.addEventListener('load', () => {
+    state.saved = new Saved();
 })
