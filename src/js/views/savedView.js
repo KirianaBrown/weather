@@ -8,20 +8,14 @@ export const toggleSavedButton = isLiked => {
 
 export const renderItem = item => {
     const markup = `
-    <li class="saved__item" data-itemid=${item.id}>
-        <a href="123" class="saved__link">
-            <figure class="saved__fig">
+    <li class="saved__item" data-itemid=${item.id} data-itemLocation=${item.location}>
+        <a href="${item.id}" class="saved__link" data-itemLocation=${item.location}>
+            <figure class="saved__fig" data-itemLocation=${item.location}>
                 <img src="img/weather/${item.img}.svg" alt="Test Image">
             </figure>
 
             <p class="saved__location">${item.location}</p>
             <p class="saved__temp">${Math.round(item.temp)}</p>
-
-            <button class="saved__delete btn-tiny">
-                <svg>
-                    <use href="img/icons.svg#icon-circle-with-cross"></use>
-                </svg>
-            </button>
         </a>
     </li> 
   `
@@ -30,6 +24,9 @@ export const renderItem = item => {
 };
 
 export const deleteItem = id => {
-    const item = document.querySelector(`[data-itemid="${id}"]`)
-    console.log(item)
-};
+    const item = document.querySelector(`.saved__item[data-itemid='${id}']`)
+
+    if (item) {
+        item.parentElement.removeChild(item);
+    }
+}
