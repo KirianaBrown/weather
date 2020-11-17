@@ -1,7 +1,7 @@
 import { elements } from './base'
 
 export const toggleSavedButton = isLiked => {
-    const iconString = isLiked ? 'icon-heart' : 'icon-heart-outlined';
+    const iconString = isLiked ? 'icon-bookmark' : 'icon-bookmark-outlined';
 
     document.querySelector('.results__love use').setAttribute('href', `img/icons.svg#${iconString}`);
 }
@@ -15,7 +15,7 @@ export const renderItem = item => {
             </figure>
 
             <p class="saved__location">${item.location}</p>
-            <p class="saved__temp">${Math.round(item.temp)}</p>
+            <p class="saved__temp">${Math.round(item.temp)}&#0176;</p>
         </a>
     </li> 
   `

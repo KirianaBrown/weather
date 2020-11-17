@@ -7,7 +7,7 @@ export const renderWeather = (weather, isSaved, metric = 'C') => {
 
     <button class="results__love">
         <svg class="results__likes">
-            <use href="img/icons.svg#icon-heart${isSaved ? '' : '-outlined'}"></use>
+            <use href="img/icons.svg#icon-bookmark${isSaved ? '' : '-outlined'}"></use>
         </svg>
     </button>
      

@@ -18,24 +18,10 @@
     <div class="container">
         <header class="header">
             <div class="header__info">
-                <svg class="header__logo" viewBox="0 0 860 377" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <defs>
-                    <linearGradient x1="90.3609067%" y1="95.1728843%" x2="26.7931983%" y2="26.8261121%"
-                        id="linearGradient-1">
-                        <stop stop-color="#8FB7CC" offset="0%"></stop>
-                        <stop stop-color="#BECDD2" offset="100%"></stop>
-                    </linearGradient>
-                </defs>
-                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.6">
-                    <g id="undraw_Weather_app_re_kcb1-(1)">
-                        
-                        <path
-                            d="M269.84414,97.23965 C195.90102,97.23965 135.74392,158.45401 135.74392,233.69717 C135.74392,308.93985 195.90102,370.15469 269.84414,370.15469 L627.9269,370.15469 C684.47695,370.15469 730.48378,323.37735 730.48378,265.87979 C730.48378,208.38223 684.47695,161.60489 627.9269,161.60489 L614.48159,161.60489 L614.30971,158.7875 C608.90395,70.13614 536.24111,0.69229 448.88564,0.69229 C385.98183,0.69229 327.50258,37.9208 299.90273,95.53555 L299.08657,97.23965 L269.84414,97.23965 Z"
-                            id="cloud" fill="url(#linearGradient-1)" fill-rule="nonzero"></path>
-                    </g>
-                    
-                </g>
-            </svg>
+
+                <svg class="header__logo">
+                        <use href="img/icons.svg#icon-cloud"></use>
+                    </svg>
                 <h1 class="header__heading">Weather Forecastr</h1>
             </div>
             <form class="search">
@@ -50,6 +36,7 @@
         </header>
 
         <div class="results">
+
 
             <div class="error">
                 <!-- <h1 class="error__heading">Oops!</h1>
@@ -66,10 +53,10 @@
                 </div>
 
                 <button class="results__love">
-        <svg class="results__likes">
-            <use href="img/icons.svg#icon-heart-outlined"></use>
-        </svg>
-    </button>
+                    <svg class="results__likes">
+                        <use href="img/icons.svg#icon-heart-outlined"></use>
+                    </svg>
+                </button>
 
                 
 
@@ -117,7 +104,7 @@
                 <h2 class="heading-secondary">Saved Locations</h2>
                 <ul class="saved__list">
                     <!-- <li class="saved__item">
-                        <a href="123" class="saved__link">
+                        <a href="#" class="saved__link">
                             <figure class="saved__fig">
                                 <img src="img/weather/02d.svg" alt="Test Image">
                             </figure>
