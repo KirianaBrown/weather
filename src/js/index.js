@@ -112,15 +112,14 @@ elements.savedContainer.addEventListener('click', e => {
     }
 })
 
-navigator.geolocation.getCurrentPosition((position) => {
-    let lat, lon;
-    [lat, lon] = [position.coords.latitude, position.coords.longitude]
-    currentController(lat, lon)
 
-});
 
 
 window.addEventListener('load', () => {
     state.saved = new Saved();
-
+    navigator.geolocation.getCurrentPosition((position) => {
+        let lat, lon;
+        [lat, lon] = [position.coords.latitude, position.coords.longitude]
+        currentController(lat, lon)
+    });
 })
