@@ -7,6 +7,8 @@ export const elements = {
     weatherDetails: document.querySelector('.results__container'),
     savedContainer: document.querySelector('.saved'),
     savedList: document.querySelector('.saved__list'),
+    forecastContainer: document.querySelector('.forecast'),
+    forecastList: document.querySelector('.forecast__list'),
 }
 
 let isError = false;
