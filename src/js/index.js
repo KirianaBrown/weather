@@ -103,3 +103,9 @@ elements.savedContainer.addEventListener('click', e => {
 window.addEventListener('load', () => {
     state.saved = new Saved();
 })
+
+navigator.geolocation.getCurrentPosition((position) => {
+    console.log(position)
+    const currentLat = position.coords.latitude;
+    const currentLon = position.coords.longitude;
+});
