@@ -1,13 +1,13 @@
 import { elements } from './base';
 
-export const renderWeather = (weather, metric = 'C') => {
+export const renderWeather = (weather, isSaved, metric = 'C') => {
     const html =
         `
     <div class="results__location heading-tertiary">${weather.name} <sup class='country'> ${weather.sys.country} </sup></div>
 
     <button class="results__love">
         <svg class="results__likes">
-            <use href="img/icons.svg#icon-heart-outlined"></use>
+            <use href="img/icons.svg#icon-heart${isSaved ? '' : '-outlined'}"></use>
         </svg>
     </button>
      

@@ -23,6 +23,6 @@ export default class Saved {
 
     isSaved(id) {
         // Return True or False
-        return this.saved.findIndex(el => el.id === id) != 1;
+        return this.saved.findIndex(el => el.id === id) !== -1;
     }
 }

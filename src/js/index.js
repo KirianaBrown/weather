@@ -7,6 +7,7 @@ import Saved from './models/Saved';
 import { elements, renderLoader, clearLoader, renderErrorMessage, clearErrorMessage } from './views/base';
 import * as searchView from './views/searchView';
 import * as weatherView from './views/weatherView';
+import * as savedView from './views/savedView';
 
 
 
@@ -37,8 +38,7 @@ const weatherController = async() => {
     try {
         await state.weather.getWeather();
         clearLoader();
-        weatherView.renderWeather(state.weather.results)
-
+        weatherView.renderWeather(state.weather.results, state.saved.isSaved(state.weather.id));
     } catch (err) {
         console.log(err)
         clearLoader();
@@ -46,6 +46,30 @@ const weatherController = async() => {
     }
 }
 
+const savedController = () => {
+    console.log('Saved Controller is called');
+
+
+    const currentId = state.weather.id;
+
+    if (!state.saved.isSaved(currentId)) {
+        // 1. Create new item
+        const newSavedItem = state.saved.addSaved(
+                currentId,
+                state.weather.results.name,
+                state.weather.results.main.temp,
+                '10d'
+            )
+            // 2. Toggle saved button
+        savedView.toggleSavedButton(true);
+        // 3. Render to List
+        savedView.renderItem(newSavedItem);
+        console.log(state.saved)
+    } else {
+        savedView.toggleSavedButton(false);
+        savedView.deleteItem(currentId)
+    }
+}
 
 elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
@@ -57,5 +81,13 @@ elements.searchForm.addEventListener('submit', e => {
 elements.resultsContainer.addEventListener('click', e => {
     if (e.target.matches('.error__btn, .error__btn *')) {
         clearErrorMessage();
+    } else if (e.target.matches('.results__love, .results__love *')) {
+        console.log('Liked Button is clicked')
+        savedController();
     }
 });
+
+
+window.addEventListener('load', () => {
+    state.saved = new Saved();
+})
