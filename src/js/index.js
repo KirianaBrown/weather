@@ -2,6 +2,7 @@
 import Search from './models/Search';
 import Weather from './models/Weather';
 import Saved from './models/Saved';
+import Current from './models/Current';
 
 // VIEW IMPORTS
 import { elements, renderLoader, clearLoader, renderErrorMessage, clearErrorMessage } from './views/base';
@@ -25,8 +26,7 @@ import '../sass/main.scss';
 const state = {}
 
 const weatherController = async(query) => {
-
-    if (!location) {
+    if (!query) {
         renderErrorMessage();
     } else {
         state.weather = new Weather(query);
@@ -45,6 +45,18 @@ const weatherController = async(query) => {
             console.log(err)
             clearLoader();
             renderErrorMessage();
+        }
+    }
+}
+
+const currentController = async(lat, lon) => {
+    if (!lat && !lon) {} else {
+        state.current = new Current(lat, lon);
+        try {
+            await state.current.getCurrentLocation();
+            weatherController(state.current.location)
+        } catch (err) {
+            console.log(`Error with current ${err}`)
         }
     }
 }
@@ -70,6 +82,7 @@ const savedController = () => {
         state.saved.deleteSaved(currentId);
     }
 }
+
 
 elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
@@ -99,7 +112,15 @@ elements.savedContainer.addEventListener('click', e => {
     }
 })
 
+navigator.geolocation.getCurrentPosition((position) => {
+    let lat, lon;
+    [lat, lon] = [position.coords.latitude, position.coords.longitude]
+    currentController(lat, lon)
+
+});
+
 
 window.addEventListener('load', () => {
     state.saved = new Saved();
+
 })
