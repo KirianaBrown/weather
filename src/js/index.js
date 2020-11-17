@@ -2,6 +2,7 @@
 import Search from './models/Search';
 import Weather from './models/Weather';
 import Saved from './models/Saved';
+import Current from './models/Current';
 
 // VIEW IMPORTS
 import { elements, renderLoader, clearLoader, renderErrorMessage, clearErrorMessage } from './views/base';
@@ -25,8 +26,7 @@ import '../sass/main.scss';
 const state = {}
 
 const weatherController = async(query) => {
-
-    if (!location) {
+    if (!query) {
         renderErrorMessage();
     } else {
         state.weather = new Weather(query);
@@ -45,6 +45,21 @@ const weatherController = async(query) => {
             console.log(err)
             clearLoader();
             renderErrorMessage();
+        }
+    }
+}
+
+const currentController = async(lat, lon) => {
+    if (!lat && !lon) {
+        console.log('There are no coords')
+    } else {
+        console.log('WE have coords')
+        state.current = new Current(lat, lon);
+        try {
+            await state.current.getCurrentLocation();
+            weatherController(state.current.location)
+        } catch (err) {
+            console.log(`Error with current ${err}`)
         }
     }
 }
@@ -70,6 +85,7 @@ const savedController = () => {
         state.saved.deleteSaved(currentId);
     }
 }
+
 
 elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
@@ -99,13 +115,16 @@ elements.savedContainer.addEventListener('click', e => {
     }
 })
 
+navigator.geolocation.getCurrentPosition((position) => {
+    console.log(position)
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+    currentController(lat, lon)
+
+});
+
 
 window.addEventListener('load', () => {
     state.saved = new Saved();
-})
 
-navigator.geolocation.getCurrentPosition((position) => {
-    console.log(position)
-    const currentLat = position.coords.latitude;
-    const currentLon = position.coords.longitude;
-});
+})
