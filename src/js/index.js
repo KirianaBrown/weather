@@ -3,6 +3,7 @@ import Search from './models/Search';
 import Weather from './models/Weather';
 import Saved from './models/Saved';
 import Current from './models/Current';
+import Forecast from './models/Forecast';
 
 // VIEW IMPORTS
 import { elements, renderLoader, clearLoader, renderErrorMessage, clearErrorMessage } from './views/base';
@@ -41,11 +42,21 @@ const weatherController = async(query) => {
             await state.weather.getWeather();
             clearLoader();
             weatherView.renderWeather(state.weather.results, state.saved.isSaved(state.weather.id));
+            forecastController(state.weather.results.name)
         } catch (err) {
             console.log(err)
             clearLoader();
             renderErrorMessage();
         }
+    }
+}
+
+const forecastController = async(location) => {
+    state.forecast = new Forecast('Christchurch');
+    try {
+        await state.forecast.getForecast()
+    } catch (err) {
+        console.log('error with forecast')
     }
 }
 
