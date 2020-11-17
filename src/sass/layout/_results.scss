@@ -14,11 +14,8 @@
         position: relative;
     }
     &__love {
-        background-color: rgba($color: #fff, $alpha: 0);
-        position: absolute;
-        right: 4rem;
-        top: 0;
-        border-radius: 50%;
+        margin-top: .5rem;
+        margin-left: .5rem;
         border: none;
         cursor: pointer;
         &:visited,
@@ -30,9 +27,9 @@
     &__likes {
         // border-radius: 50%;
         // border: none;
-        fill: $color-primary;
-        height: 4.5rem;
-        width: 4.5rem;
+        fill: $color-secondary;
+        height: 2rem;
+        width: 2rem;
         margin-left: auto;
         transition: all .2s;
     }
