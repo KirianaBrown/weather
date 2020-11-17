@@ -58,7 +58,7 @@ const savedController = () => {
                 currentId,
                 state.weather.results.name,
                 state.weather.results.main.temp,
-                '10d'
+                state.weather.results.weather[0].icon,
             )
             // 2. Toggle saved button
         savedView.toggleSavedButton(true);
