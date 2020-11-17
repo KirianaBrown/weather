@@ -50,10 +50,7 @@ const weatherController = async(query) => {
 }
 
 const currentController = async(lat, lon) => {
-    if (!lat && !lon) {
-        console.log('There are no coords')
-    } else {
-        console.log('WE have coords')
+    if (!lat && !lon) {} else {
         state.current = new Current(lat, lon);
         try {
             await state.current.getCurrentLocation();
@@ -116,9 +113,8 @@ elements.savedContainer.addEventListener('click', e => {
 })
 
 navigator.geolocation.getCurrentPosition((position) => {
-    console.log(position)
-    let lat = position.coords.latitude;
-    let lon = position.coords.longitude;
+    let lat, lon;
+    [lat, lon] = [position.coords.latitude, position.coords.longitude]
     currentController(lat, lon)
 
 });

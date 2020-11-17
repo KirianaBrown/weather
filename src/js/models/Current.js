@@ -10,7 +10,6 @@ export default class Current {
         const API_KEY = `${process.env.API_KEY}`;;
         const res = await axios(`https://api.openweathermap.org/data/2.5/weather?lat=${this.lat}&lon=${this.lon}&appid=${API_KEY}`);
         this.location = res.data.name
-        console.log(this.location)
     }
 
 }
