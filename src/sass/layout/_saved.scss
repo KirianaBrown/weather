@@ -1,6 +1,8 @@
 .saved {
     grid-column: 2.5/4;
-    height: 100%;
+    max-height: 94%;
+    overflow-y: auto;
+    overflow-x: hidden;
     padding: 1rem;
     // background-color: rgba($color: $color-secondary, $alpha: 0.1);
     position: absolute;
