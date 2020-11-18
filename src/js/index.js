@@ -4,6 +4,7 @@ import Weather from './models/Weather';
 import Saved from './models/Saved';
 import Current from './models/Current';
 import Forecast from './models/Forecast';
+import * as Units from './models/Units';
 
 // VIEW IMPORTS
 import { elements, renderLoader, clearLoader, renderErrorMessage, clearErrorMessage } from './views/base';
@@ -49,6 +50,7 @@ const weatherController = async(query) => {
             clearLoader();
             weatherView.renderWeather(state.weather.results, state.symbol, state.saved.isSaved(state.weather.id));
             forecastController(state.weather.results.name, state.unit)
+            console.log(state)
         } catch (err) {
             console.log(err)
             clearLoader();
@@ -113,6 +115,15 @@ elements.celsiusBtn.addEventListener('click', e => {
     e.preventDefault();
     e.target.classList.add('selected');
     elements.farenheitBtn.classList.remove('selected')
+
+    if (state.unit === 'imperial') {
+        state.temperature = Units.convertToCelsius(state.weather.results.main.temp);
+        state.unit = 'metric';
+        state.symbol = 'C';
+        weatherController(state.weather.query)
+    } else {
+        console.log('State is already in Celsius')
+    }
 })
 
 elements.farenheitBtn.addEventListener('click', e => {
@@ -122,6 +133,16 @@ elements.farenheitBtn.addEventListener('click', e => {
     e.target.classList.add('selected');
     elements.celsiusBtn.classList.remove('selected')
 
+    // Calc C - F
+    if (state.unit === 'metric') {
+        state.temperature = Units.convertToFarenheit(state.weather.results.main.temp);
+        state.unit = 'imperial';
+        state.symbol = 'F'
+        console.log(state.temperature, state.unit, state.symbol)
+        weatherController(state.weather.query)
+    } else {
+        console.log('state is alreay in imperial state')
+    }
 })
 
 
