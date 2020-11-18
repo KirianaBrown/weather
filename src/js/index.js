@@ -53,7 +53,7 @@ const weatherController = async(query) => {
 }
 
 const forecastController = async(location) => {
-    state.forecast = new Forecast('Christchurch');
+    state.forecast = new Forecast(location);
     try {
         await state.forecast.getForecast();
         forecastView.renderForecast(state.forecast.forecastArr);
