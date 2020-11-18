@@ -90,15 +90,6 @@
 
 .forecast {
     grid-row: 5/6;
-    // background-color: orange;
-    // position: relative;
-    // left: -2;
-    // position: absolute;
-    // top: 100%;
-    // left: 50%;
-    // transform: translate(-50%, -50%);
-    // bottom: 31rem;
-    // margin-top: -12rem;
     cursor: auto;
     // background-color: white;
     &__list {
@@ -106,23 +97,11 @@
         text-decoration: none;
     }
     &__item {
-        display: flex;
+        // display: flex;
         align-items: center;
         padding: .5rem;
         margin: .5rem;
-    }
-    &__link,
-    &__link:visited,
-    &__link:link {
-        color: $color-black;
-        padding: .5rem;
-        text-decoration: none;
-        // background-color: $color-white;
-        padding: 4rem;
-        // border: 1px solid black;
         text-align: center;
-        border-radius: 1rem;
-        cursor: auto;
     }
     &__fig {
         height: 4rem;
