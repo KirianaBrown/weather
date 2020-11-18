@@ -49,6 +49,7 @@
         // @include box-shadow-dark;
         cursor: pointer;
         border-radius: $border-radius;
+        color: $color-primary;
         // border: grey 1px solid;
         border: none;
         background-color: rgba($color: #fff, $alpha: 0.0);
@@ -64,8 +65,8 @@
 }
 
 .selected {
-    color: $color-primary;
+    color: $color-tertiary;
     font-weight: bolder;
-    border: $color-secondary 1px solid;
-    border-radius: $border-radius;
+    // border: $color-secondary 1px solid;
+    // border-radius: $border-radius;
 }
