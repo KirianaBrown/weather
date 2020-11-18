@@ -21,13 +21,14 @@ import '../sass/main.scss';
 /*
     1. Search Object
     2. Current Weather Object
-    3. Forecase Weather Object
+    3. Forecast Weather Object
     4. Saved Location Object
+    5. Units / symbol
 
 */
 const state = {
-    unit: 'imperial',
-    symbol: 'F'
+    unit: 'metric', // imperial
+    symbol: 'C' // F
 }
 
 const weatherController = async(query) => {
@@ -57,7 +58,7 @@ const weatherController = async(query) => {
 }
 
 const forecastController = async(location) => {
-    state.forecast = new Forecast(location);
+    state.forecast = new Forecast(location, state.unit);
     try {
         await state.forecast.getForecast();
         state.forecast.forecastWeather.forEach(el => forecastView.renderForecast(el, state.symbol));
@@ -100,11 +101,27 @@ const savedController = () => {
     }
 }
 
+// Event Listeners
 
 elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
     let query = searchView.getInput();
     weatherController(query);
+})
+
+elements.celsiusBtn.addEventListener('click', e => {
+    e.preventDefault();
+    e.target.classList.add('selected');
+    elements.farenheitBtn.classList.remove('selected')
+})
+
+elements.farenheitBtn.addEventListener('click', e => {
+    e.preventDefault();
+    console.log('Farenheit button')
+
+    e.target.classList.add('selected');
+    elements.celsiusBtn.classList.remove('selected')
+
 })
 
 
