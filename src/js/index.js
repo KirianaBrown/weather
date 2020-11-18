@@ -4,7 +4,6 @@ import Weather from './models/Weather';
 import Saved from './models/Saved';
 import Current from './models/Current';
 import Forecast from './models/Forecast';
-import * as Units from './models/Units';
 
 // VIEW IMPORTS
 import { elements, renderLoader, clearLoader, renderErrorMessage, clearErrorMessage } from './views/base';
@@ -12,8 +11,7 @@ import * as searchView from './views/searchView';
 import * as weatherView from './views/weatherView';
 import * as savedView from './views/savedView';
 import * as forecastView from './views/forecastView';
-
-
+import * as unitView from './views/unitView';
 
 // IMPORT STYLESHEETS
 import '../sass/main.scss';
@@ -113,35 +111,21 @@ elements.searchForm.addEventListener('submit', e => {
 
 elements.celsiusBtn.addEventListener('click', e => {
     e.preventDefault();
-    e.target.classList.add('selected');
-    elements.farenheitBtn.classList.remove('selected')
 
     if (state.unit === 'imperial') {
-        state.temperature = Units.convertToCelsius(state.weather.results.main.temp);
-        state.unit = 'metric';
-        state.symbol = 'C';
+        unitView.celsiusHandler(e, state);
         weatherController(state.weather.query)
-    } else {
-        console.log('State is already in Celsius')
     }
+
 })
 
 elements.farenheitBtn.addEventListener('click', e => {
     e.preventDefault();
-    console.log('Farenheit button')
+    console.log('Farenheit button has been clicked')
 
-    e.target.classList.add('selected');
-    elements.celsiusBtn.classList.remove('selected')
-
-    // Calc C - F
     if (state.unit === 'metric') {
-        state.temperature = Units.convertToFarenheit(state.weather.results.main.temp);
-        state.unit = 'imperial';
-        state.symbol = 'F'
-        console.log(state.temperature, state.unit, state.symbol)
+        unitView.farenheitHandler(e, state);
         weatherController(state.weather.query)
-    } else {
-        console.log('state is alreay in imperial state')
     }
 })
 
