@@ -3,12 +3,14 @@ import Search from './models/Search';
 import Weather from './models/Weather';
 import Saved from './models/Saved';
 import Current from './models/Current';
+import Forecast from './models/Forecast';
 
 // VIEW IMPORTS
 import { elements, renderLoader, clearLoader, renderErrorMessage, clearErrorMessage } from './views/base';
 import * as searchView from './views/searchView';
 import * as weatherView from './views/weatherView';
 import * as savedView from './views/savedView';
+import * as forecastView from './views/forecastView';
 
 
 
@@ -34,6 +36,7 @@ const weatherController = async(query) => {
         searchView.clearUI();
         searchView.clearInput();
         searchView.clearError();
+        searchView.clearForecast();
         // 3. Render loader
         renderLoader(elements.resultsContainer);
         // 3. Call the getResults method
@@ -41,11 +44,22 @@ const weatherController = async(query) => {
             await state.weather.getWeather();
             clearLoader();
             weatherView.renderWeather(state.weather.results, state.saved.isSaved(state.weather.id));
+            forecastController(state.weather.results.name)
         } catch (err) {
             console.log(err)
             clearLoader();
             renderErrorMessage();
         }
+    }
+}
+
+const forecastController = async(location) => {
+    state.forecast = new Forecast(location);
+    try {
+        await state.forecast.getForecast();
+        state.forecast.forecastWeather.forEach(el => forecastView.renderForecast(el));
+    } catch (err) {
+        console.log('error with forecast')
     }
 }
 
@@ -112,15 +126,18 @@ elements.savedContainer.addEventListener('click', e => {
     }
 })
 
-navigator.geolocation.getCurrentPosition((position) => {
-    let lat, lon;
-    [lat, lon] = [position.coords.latitude, position.coords.longitude]
-    currentController(lat, lon)
 
-});
 
 
 window.addEventListener('load', () => {
     state.saved = new Saved();
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+            let lat, lon;
+            [lat, lon] = [position.coords.latitude, position.coords.longitude]
+            currentController(lat, lon)
+        });
+    }
 
 })

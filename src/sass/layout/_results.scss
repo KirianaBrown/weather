@@ -14,11 +14,8 @@
         position: relative;
     }
     &__love {
-        background-color: rgba($color: #fff, $alpha: 0);
-        position: absolute;
-        right: 4rem;
-        top: 0;
-        border-radius: 50%;
+        margin-top: .5rem;
+        margin-left: .5rem;
         border: none;
         cursor: pointer;
         &:visited,
@@ -30,9 +27,9 @@
     &__likes {
         // border-radius: 50%;
         // border: none;
-        fill: $color-primary;
-        height: 4.5rem;
-        width: 4.5rem;
+        fill: $color-secondary;
+        height: 2rem;
+        width: 2rem;
         margin-left: auto;
         transition: all .2s;
     }
@@ -93,39 +90,21 @@
 
 .forecast {
     grid-row: 5/6;
-    // background-color: orange;
-    // position: relative;
-    // left: -2;
-    // position: absolute;
-    // top: 100%;
-    // left: 50%;
-    // transform: translate(-50%, -50%);
-    // bottom: 31rem;
-    // margin-top: -12rem;
     cursor: auto;
     // background-color: white;
     &__list {
         display: flex;
         text-decoration: none;
+        align-items: center;
+        justify-content: center;
+        color: grey;
     }
     &__item {
-        display: flex;
+        // display: flex;
         align-items: center;
-        padding: .5rem;
-        margin: .5rem;
-    }
-    &__link,
-    &__link:visited,
-    &__link:link {
-        color: $color-black;
-        padding: .5rem;
-        text-decoration: none;
-        // background-color: $color-white;
-        padding: 4rem;
-        // border: 1px solid black;
+        padding: 1rem;
+        margin: 2.4rem;
         text-align: center;
-        border-radius: 1rem;
-        cursor: auto;
     }
     &__fig {
         height: 4rem;

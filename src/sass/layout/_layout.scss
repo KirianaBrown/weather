@@ -34,10 +34,11 @@
         align-items: center;
     }
     &__logo {
-        width: 8rem;
-        height: 8rem;
+        width: 2rem;
+        height: 2rem;
+        fill: $color-secondary;
         // margin-left: 2rem;
-        // margin-right: 2rem;
+        margin-right: 2rem;
     }
     &__heading {
         text-transform: uppercase;

@@ -1,11 +1,13 @@
 .saved {
     grid-column: 2.5/4;
-    height: 100%;
+    max-height: 94%;
+    overflow-y: auto;
+    overflow-x: hidden;
     padding: 1rem;
-    background-color: rgba($color: $color-secondary, $alpha: 0.1);
+    // background-color: rgba($color: $color-secondary, $alpha: 0.1);
     position: absolute;
     right: 0;
-    width: 30%;
+    width: 20%;
     &__item {
         position: relative;
         transition: all .3s;
@@ -19,7 +21,7 @@
     &__link:link {
         display: flex;
         align-items: center;
-        color: grey;
+        color: lightslategrey;
         padding: 1rem;
         text-decoration: none;
         margin-top: 1rem;
