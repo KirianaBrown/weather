@@ -59,6 +59,6 @@ export const renderErrorMessage = () => {
 
 export const clearErrorMessage = () => {
     elements.searchInput.focus();
-    elements.errorMessage.parentElement.remove();
+    elements.errorMessage.innerHTML = '';
     console.log('Error Message to be cleared')
 }

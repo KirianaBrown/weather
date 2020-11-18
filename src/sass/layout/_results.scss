@@ -95,12 +95,15 @@
     &__list {
         display: flex;
         text-decoration: none;
+        align-items: center;
+        justify-content: center;
+        color: grey;
     }
     &__item {
         // display: flex;
         align-items: center;
-        padding: .5rem;
-        margin: .5rem;
+        padding: 1rem;
+        margin: 2.4rem;
         text-align: center;
     }
     &__fig {

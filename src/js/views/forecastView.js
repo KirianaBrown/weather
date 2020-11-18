@@ -4,12 +4,12 @@ export const renderForecast = (forecast) => {
 
     const markup = `
     <li class="forecast__item">  
-            <figure class="forecast__fig">
-                <img src="img/weather/${forecast.icon}.svg" alt="Test Image">
-            </figure>
+            
+            <img class="forecast__fig" src="img/weather/${forecast.icon}.svg" alt="forecast icon">
+            
             <div class="forecast__data">
                 <h4 class="forecast__date">${formatDateTime(forecast.dateTime)}</h4>
-                <p class="forecast__temp">${Math.floor(forecast.temp)}</p>
+                <p class="forecast__temp">${Math.floor(forecast.temp)}&#0176;</p>
             </div>
        
       </li>
@@ -26,8 +26,8 @@ const formatDateTime = dt => {
     // const humanStringForm = newDateVar.toLocaleDateString();
     const humanStringForm = newDateVar.toLocaleString("en-US", {
         weekday: 'long',
-        month: 'long',
-        day: 'numeric'
+        // month: 'long',
+        // day: 'numeric'
     })
 
     return humanStringForm

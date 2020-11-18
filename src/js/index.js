@@ -36,6 +36,7 @@ const weatherController = async(query) => {
         searchView.clearUI();
         searchView.clearInput();
         searchView.clearError();
+        searchView.clearForecast();
         // 3. Render loader
         renderLoader(elements.resultsContainer);
         // 3. Call the getResults method
