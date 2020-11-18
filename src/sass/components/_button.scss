@@ -40,3 +40,32 @@
 .btn-tiny:focus {
     outline: none;
 }
+
+.btn-units {
+    &,
+    &:visited,
+    &:link {
+        padding: .8rem;
+        // @include box-shadow-dark;
+        cursor: pointer;
+        border-radius: $border-radius;
+        // border: grey 1px solid;
+        border: none;
+        background-color: rgba($color: #fff, $alpha: 0.0);
+        margin: .25rem;
+        transition: all .3s;
+    }
+    &:hover {
+        transform: scale(1.05);
+    }
+    &:focus {
+        outline: none;
+    }
+}
+
+.selected {
+    color: $color-primary;
+    font-weight: bolder;
+    border: $color-secondary 1px solid;
+    border-radius: $border-radius;
+}
