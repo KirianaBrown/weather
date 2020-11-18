@@ -56,7 +56,7 @@ const forecastController = async(location) => {
     state.forecast = new Forecast(location);
     try {
         await state.forecast.getForecast();
-        forecastView.renderForecast(state.forecast.forecastArr);
+        state.forecast.forecastWeather.forEach(el => forecastView.renderForecast(el));
     } catch (err) {
         console.log('error with forecast')
     }
@@ -130,9 +130,13 @@ elements.savedContainer.addEventListener('click', e => {
 
 window.addEventListener('load', () => {
     state.saved = new Saved();
-    navigator.geolocation.getCurrentPosition((position) => {
-        let lat, lon;
-        [lat, lon] = [position.coords.latitude, position.coords.longitude]
-        currentController(lat, lon)
-    });
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+            let lat, lon;
+            [lat, lon] = [position.coords.latitude, position.coords.longitude]
+            currentController(lat, lon)
+        });
+    }
+
 })
