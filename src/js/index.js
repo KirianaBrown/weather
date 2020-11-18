@@ -25,13 +25,16 @@ import '../sass/main.scss';
     4. Saved Location Object
 
 */
-const state = {}
+const state = {
+    unit: 'imperial',
+    symbol: 'F'
+}
 
 const weatherController = async(query) => {
     if (!query) {
         renderErrorMessage();
     } else {
-        state.weather = new Weather(query);
+        state.weather = new Weather(query, state.unit);
         // 2. Prepare the UI
         searchView.clearUI();
         searchView.clearInput();
@@ -43,7 +46,7 @@ const weatherController = async(query) => {
         try {
             await state.weather.getWeather();
             clearLoader();
-            weatherView.renderWeather(state.weather.results, state.saved.isSaved(state.weather.id));
+            weatherView.renderWeather(state.weather.results, state.symbol, state.saved.isSaved(state.weather.id));
             forecastController(state.weather.results.name)
         } catch (err) {
             console.log(err)
