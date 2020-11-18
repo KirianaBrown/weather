@@ -47,7 +47,7 @@ const weatherController = async(query) => {
             await state.weather.getWeather();
             clearLoader();
             weatherView.renderWeather(state.weather.results, state.symbol, state.saved.isSaved(state.weather.id));
-            forecastController(state.weather.results.name)
+            forecastController(state.weather.results.name, state.unit)
         } catch (err) {
             console.log(err)
             clearLoader();
@@ -60,7 +60,7 @@ const forecastController = async(location) => {
     state.forecast = new Forecast(location);
     try {
         await state.forecast.getForecast();
-        state.forecast.forecastWeather.forEach(el => forecastView.renderForecast(el));
+        state.forecast.forecastWeather.forEach(el => forecastView.renderForecast(el, state.symbol));
     } catch (err) {
         console.log('error with forecast')
     }
