@@ -3,6 +3,8 @@ Vanilla Javascript Weather App powered by [Openweathermap](https://openweatherma
 
 Stores data into a local state object including current location weather as well as a user input based search. Local storage is used to set and get saved locations to render weather data. 
 
+View final project: [WeatherApp](https://kirianabrown.github.io/weather/).
+
 ## Summary
 * HTML5
 * SASS

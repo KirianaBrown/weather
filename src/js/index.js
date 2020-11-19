@@ -166,9 +166,6 @@ elements.savedContainer.addEventListener('click', e => {
     }
 })
 
-
-
-
 window.addEventListener('load', () => {
     state.saved = new Saved();
     state.saved.readStorage();

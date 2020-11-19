@@ -7,9 +7,7 @@
     border-radius: $border-radius;
     @include box-shadow-dark;
     display: grid;
-    // grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr 3fr 1fr;
-    // column-gap: 2rem;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -18,17 +16,12 @@
 
 .header {
     max-width: 100%;
-    // background-color: #F9F5F3;
     grid-column: 1/3;
     grid-row: 1/2;
-    // background-color: rgba($color: $color-primary, $alpha: .1);
-    // border-radius: 2rem;
-    // @include box-shadow-light;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0rem 2rem;
-    // padding-left: 4rem;
     &__info {
         display: flex;
         align-items: center;
@@ -37,7 +30,6 @@
         width: 2rem;
         height: 2rem;
         fill: $color-secondary;
-        // margin-left: 2rem;
         margin-right: 2rem;
     }
     &__heading {

@@ -39,7 +39,6 @@ export const clearLoader = () => {
     }
 }
 
-
 export const renderErrorMessage = () => {
     const parentEl = elements.errorMessage;
     const markUp = `
@@ -56,7 +55,6 @@ export const renderErrorMessage = () => {
     parentEl.insertAdjacentHTML('afterbegin', markUp);
 
     isError = true;
-
 }
 
 export const clearErrorMessage = () => {

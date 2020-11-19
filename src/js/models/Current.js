@@ -11,5 +11,4 @@ export default class Current {
         const res = await axios(`${process.env.API_URL}?lat=${this.lat}&lon=${this.lon}&appid=${API_KEY}`);
         this.location = res.data.name
     }
-
 }
