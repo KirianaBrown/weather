@@ -7,7 +7,7 @@ View final project: [WeatherApp](https://kirianabrown.github.io/weather/).
 
 ## Summary
 * HTML5
-* SASS
+* SCSS
 * ES6
 * Webpack bundle manager
 * Babel ES6 converter
