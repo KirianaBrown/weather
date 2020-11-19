@@ -1,7 +1,8 @@
 # Weather APP
-Vanilla Javascript Weather App 
+Vanilla Javascript Weather App powered by [Openweathermap](https://openweathermap.org/api)
 
-Created this from scratch using HTML, CSS and JS Vanilla only.
+## Technologies
+ES6 Javascript / HTML / SASS
 
 You can clone the repository and use the following commands:
 
@@ -14,4 +15,9 @@ npm init
 ##### To run development mode
 ```shell
 npm run start
+```
+
+##### To run build mode
+```shell
+npm run build
 ```
