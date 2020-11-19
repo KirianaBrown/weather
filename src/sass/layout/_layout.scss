@@ -49,3 +49,11 @@
         background-clip: text;
     }
 }
+
+.units {
+    display: flex;
+    align-items: center;
+    &__span {
+        color: grey;
+    }
+}

@@ -11,8 +11,7 @@ import * as searchView from './views/searchView';
 import * as weatherView from './views/weatherView';
 import * as savedView from './views/savedView';
 import * as forecastView from './views/forecastView';
-
-
+import * as unitView from './views/unitView';
 
 // IMPORT STYLESHEETS
 import '../sass/main.scss';
@@ -21,17 +20,21 @@ import '../sass/main.scss';
 /*
     1. Search Object
     2. Current Weather Object
-    3. Forecase Weather Object
+    3. Forecast Weather Object
     4. Saved Location Object
+    5. Units / symbol
 
 */
-const state = {}
+const state = {
+    unit: 'metric', // imperial
+    symbol: 'C' // F
+}
 
 const weatherController = async(query) => {
     if (!query) {
         renderErrorMessage();
     } else {
-        state.weather = new Weather(query);
+        state.weather = new Weather(query, state.unit);
         // 2. Prepare the UI
         searchView.clearUI();
         searchView.clearInput();
@@ -43,8 +46,9 @@ const weatherController = async(query) => {
         try {
             await state.weather.getWeather();
             clearLoader();
-            weatherView.renderWeather(state.weather.results, state.saved.isSaved(state.weather.id));
-            forecastController(state.weather.results.name)
+            weatherView.renderWeather(state.weather.results, state.symbol, state.saved.isSaved(state.weather.id));
+            forecastController(state.weather.results.name, state.unit)
+            console.log(state)
         } catch (err) {
             console.log(err)
             clearLoader();
@@ -54,10 +58,10 @@ const weatherController = async(query) => {
 }
 
 const forecastController = async(location) => {
-    state.forecast = new Forecast(location);
+    state.forecast = new Forecast(location, state.unit);
     try {
         await state.forecast.getForecast();
-        state.forecast.forecastWeather.forEach(el => forecastView.renderForecast(el));
+        state.forecast.forecastWeather.forEach(el => forecastView.renderForecast(el, state.symbol));
     } catch (err) {
         console.log('error with forecast')
     }
@@ -97,11 +101,51 @@ const savedController = () => {
     }
 }
 
+// Event Listeners
 
 elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
     let query = searchView.getInput();
     weatherController(query);
+})
+
+elements.celsiusBtn.addEventListener('click', e => {
+    e.preventDefault();
+
+
+
+    if (state.unit === 'imperial') {
+        unitView.celsiusHandler(e, state);
+        weatherController(state.weather.query)
+
+        if (state.saved) {
+            state.saved.saved.forEach(el => {
+                savedView.deleteItem(el.id);
+                el.temp = unitView.convertToCelsius(el.temp);
+                savedView.renderItem(el);
+            })
+        }
+    }
+
+})
+
+elements.farenheitBtn.addEventListener('click', e => {
+    e.preventDefault();
+    console.log('Farenheit button has been clicked')
+
+    if (state.unit === 'metric') {
+        unitView.farenheitHandler(e, state);
+        weatherController(state.weather.query)
+
+        if (state.saved) {
+            state.saved.saved.forEach(el => {
+                savedView.deleteItem(el.id);
+                el.temp = unitView.convertToFarenheit(el.temp);
+                savedView.renderItem(el);
+                console.log(state.saved)
+            })
+        }
+    }
 })
 
 

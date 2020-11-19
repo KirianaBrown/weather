@@ -9,6 +9,8 @@ export const elements = {
     savedList: document.querySelector('.saved__list'),
     forecastContainer: document.querySelector('.forecast'),
     forecastList: document.querySelector('.forecast__list'),
+    celsiusBtn: document.querySelector('.celsius'),
+    farenheitBtn: document.querySelector('.farenheit')
 }
 
 let isError = false;

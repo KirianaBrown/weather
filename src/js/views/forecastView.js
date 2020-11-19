@@ -1,6 +1,6 @@
 import { elements } from './base';
 
-export const renderForecast = (forecast) => {
+export const renderForecast = (forecast, symbol) => {
 
     const markup = `
     <li class="forecast__item">  
@@ -9,7 +9,7 @@ export const renderForecast = (forecast) => {
             
             <div class="forecast__data">
                 <h4 class="forecast__date">${formatDateTime(forecast.dateTime)}</h4>
-                <p class="forecast__temp">${Math.floor(forecast.temp)}&#0176;</p>
+                <p class="forecast__temp">${Math.floor(forecast.temp)}&#0176;${symbol}</p>
             </div>
        
       </li>
