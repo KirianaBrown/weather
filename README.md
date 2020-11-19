@@ -1,7 +1,7 @@
 # Weather APP
 Vanilla Javascript Weather App powered by [Openweathermap](https://openweathermap.org/api)
 
-## Technologies
+## Summary
 ES6 Javascript / HTML / SASS
 
 You can clone the repository and use the following commands:
