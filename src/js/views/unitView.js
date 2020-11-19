@@ -9,7 +9,6 @@ export const convertToCelsius = farenheit => {
 }
 
 export const farenheitHandler = (e, state) => {
-    console.log('farenhiet controller has been called')
     e.target.classList.add('selected');
     elements.celsiusBtn.classList.remove('selected')
 
@@ -18,10 +17,6 @@ export const farenheitHandler = (e, state) => {
         state.temperature = convertToFarenheit(state.weather.results.main.temp);
         state.unit = 'imperial';
         state.symbol = 'F'
-        console.log(state.symbol);
-
-    } else {
-        console.log('state is alreay in imperial state')
     }
 }
 
@@ -33,8 +28,5 @@ export const celsiusHandler = (e, state) => {
         state.temperature = convertToCelsius(state.weather.results.main.temp);
         state.unit = 'metric';
         state.symbol = 'C';
-
-    } else {
-        console.log('State is already in Celsius')
     }
 }

@@ -48,7 +48,6 @@ const weatherController = async(query) => {
             clearLoader();
             weatherView.renderWeather(state.weather.results, state.symbol, state.saved.isSaved(state.weather.id));
             forecastController(state.weather.results.name, state.unit)
-            console.log(state)
         } catch (err) {
             console.log(err)
             clearLoader();
@@ -63,7 +62,7 @@ const forecastController = async(location) => {
         await state.forecast.getForecast();
         state.forecast.forecastWeather.forEach(el => forecastView.renderForecast(el, state.symbol));
     } catch (err) {
-        console.log('error with forecast')
+        console.log(err)
     }
 }
 
@@ -131,7 +130,6 @@ elements.celsiusBtn.addEventListener('click', e => {
 
 elements.farenheitBtn.addEventListener('click', e => {
     e.preventDefault();
-    console.log('Farenheit button has been clicked')
 
     if (state.unit === 'metric') {
         unitView.farenheitHandler(e, state);
@@ -142,7 +140,6 @@ elements.farenheitBtn.addEventListener('click', e => {
                 savedView.deleteItem(el.id);
                 el.temp = unitView.convertToFarenheit(el.temp);
                 savedView.renderItem(el);
-                console.log(state.saved)
             })
         }
     }
@@ -163,7 +160,6 @@ elements.savedContainer.addEventListener('click', e => {
     if (e.target.closest('.saved__item, .saved__item *')) {
         const parentEl = e.target.parentNode;
         const location = parentEl.dataset.itemlocation
-
         if (location) {
             weatherController(location)
         }
