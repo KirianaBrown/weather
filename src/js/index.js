@@ -171,6 +171,11 @@ elements.savedContainer.addEventListener('click', e => {
 
 window.addEventListener('load', () => {
     state.saved = new Saved();
+    state.saved.readStorage();
+
+    state.saved.saved.forEach(el => {
+        savedView.renderItem(el)
+    })
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {
