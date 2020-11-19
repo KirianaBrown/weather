@@ -112,9 +112,19 @@ elements.searchForm.addEventListener('submit', e => {
 elements.celsiusBtn.addEventListener('click', e => {
     e.preventDefault();
 
+
+
     if (state.unit === 'imperial') {
         unitView.celsiusHandler(e, state);
         weatherController(state.weather.query)
+
+        if (state.saved) {
+            state.saved.saved.forEach(el => {
+                savedView.deleteItem(el.id);
+                el.temp = unitView.convertToCelsius(el.temp);
+                savedView.renderItem(el);
+            })
+        }
     }
 
 })
@@ -126,6 +136,15 @@ elements.farenheitBtn.addEventListener('click', e => {
     if (state.unit === 'metric') {
         unitView.farenheitHandler(e, state);
         weatherController(state.weather.query)
+
+        if (state.saved) {
+            state.saved.saved.forEach(el => {
+                savedView.deleteItem(el.id);
+                el.temp = unitView.convertToFarenheit(el.temp);
+                savedView.renderItem(el);
+                console.log(state.saved)
+            })
+        }
     }
 })
 

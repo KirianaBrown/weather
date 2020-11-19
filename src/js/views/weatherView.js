@@ -8,12 +8,9 @@ export const renderWeather = (weather, symbol, isSaved) => {
         <svg class="results__likes">
             <use href="img/icons.svg#icon-bookmark${isSaved ? '' : '-outlined'}"></use>
         </svg>
-    </button>
-    
+    </button>    
     </div>
 
-   
-     
       <div class="details">
         <div class="details__temperature">
             ${Math.round(weather.main.temp)} <span class='details__temperature-metric'> &#0176;${symbol} </span>
