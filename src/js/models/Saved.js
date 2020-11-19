@@ -13,16 +13,34 @@ export default class Saved {
 
         this.saved.push(savedItem);
 
+        // Update local storage
+        this.updateLocalStorage();
+
         return savedItem;
     }
 
     deleteSaved(id) {
         const index = this.saved.findIndex(el => el.id === id)
         this.saved.splice(index, 1);
+
+        // update local storage
+        this.updateLocalStorage();
     }
 
     isSaved(id) {
         // Return True or False
         return this.saved.findIndex(el => el.id === id) !== -1;
+    }
+
+    updateLocalStorage() {
+        localStorage.setItem('saved', JSON.stringify(this.saved))
+    }
+
+    readStorage() {
+        const storage = JSON.parse(localStorage.getItem('saved'))
+
+        if (storage) {
+            this.saved = storage;
+        }
     }
 }
