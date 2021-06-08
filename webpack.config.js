@@ -1,9 +1,9 @@
 // Webpack uses this package to work with directories
-const path = require('path');
+const path = require("path");
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const Dotenv = require('dotenv-webpack');
+const Dotenv = require("dotenv-webpack");
 
 /* 
   MODULE.EXPORTS = {} IS THE MAIN CONFIGURATION OBJECT
@@ -21,28 +21,28 @@ const Dotenv = require('dotenv-webpack');
   */
 
 module.exports = {
-    entry: './src/js/index.js',
+    entry: "./src/js/index.js",
     output: {
-        path: path.resolve(__dirname, 'dist/js'),
-        filename: 'bundle.js'
+        path: path.resolve(__dirname, "dist"),
+        filename: "bundle.js",
     },
     devServer: {
-        contentBase: './dist'
+        contentBase: "./dist",
     },
+
     plugins: [
         new HtmlWebpackPlugin({
-            filename: 'index.html',
-            template: './src/index.html'
+            template: "src/index.html",
         }),
-        new Dotenv()
     ],
+
     module: {
         rules: [{
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: 'babel-loader'
-                }
+                    loader: "babel-loader",
+                },
             },
             {
                 test: /\.scss$/,
@@ -50,14 +50,13 @@ module.exports = {
                 use: [
                     "style-loader", // creates style nodes from JS Nodes {
                     "css-loader", // translates CSS into CommonJs
-                    "sass-loader" // compiles Sass into to CSS, using node sass by default
-                ]
+                    "sass-loader", // compiles Sass into to CSS, using node sass by default
+                ],
             },
             {
                 test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
-                loader: 'url-loader'
-            }
-
-        ]
-    }
-}
+                loader: "url-loader",
+            },
+        ],
+    },
+};
