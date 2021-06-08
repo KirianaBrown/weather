@@ -1,9 +1,11 @@
 .container {
-    width: 1180px;
-    height: 88vh;
+    // width: 1180px;
+    width: 90%;
+    min-height: 90%;
+    // height: 88vh;
     margin: 0 auto;
     background-color: rgba($color: $color-light-grey, $alpha: .8);
-    padding: 1rem;
+    padding: .5rem;
     border-radius: $border-radius;
     @include box-shadow-dark;
     display: grid;
@@ -53,5 +55,10 @@
 footer {
     width: 100%;
     grid-column: 1/3;
+    grid-row: 3;
     text-align: right;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
 }

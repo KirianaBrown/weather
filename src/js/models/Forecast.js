@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 export default class Forecast {
     constructor(query, unit) {
@@ -7,10 +7,13 @@ export default class Forecast {
     }
 
     async getForecast() {
+        console.log("Get ForeCast Called");
         const API_KEY = `${process.env.API_KEY}`;
-        const res = await axios(`${proces.env.API_URL_FORECAST}=${this.query}&appid=${API_KEY}&units=${this.unit}`)
+        const res = await axios(
+            `http://api.openweathermap.org/data/2.5/forecast?q=${this.query}&appid=${API_KEY}&units=${this.unit}`
+        );
         this.forecast = res.data;
-        // 6am 9am 12pm 3pm 6pm 9pm 12pm 3am 6am 
+        // 6am 9am 12pm 3pm 6pm 9pm 12pm 3am 6am
         this.forecastArr = [
             this.forecast.list[8],
             this.forecast.list[16],
@@ -19,7 +22,7 @@ export default class Forecast {
             this.forecast.list[39],
         ];
 
-        this.forecastWeather = this.forecastArr.map(el => ({
+        this.forecastWeather = this.forecastArr.map((el) => ({
             temp: Math.round(el.main.temp),
             dateTime: el.dt,
             icon: el.weather[0].icon,

@@ -68,7 +68,8 @@
 }
 
 .info {
-    color: grey;
+    // color: grey;
+    color: rgb(168, 168, 168);
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -78,6 +79,7 @@
     width: 100%;
     &__list-title {
         font-weight: bold;
+        color: rgb(150, 150, 150);
     }
 }
 
@@ -98,7 +100,15 @@
         text-align: center;
     }
     &__fig {
-        height: 4rem;
-        width: 4rem;
+        height: 2rem;
+        width: 2rem;
+    }
+    &__date {
+        font-size: .8rem;
+        color: rgb(168, 168, 168);
+    }
+    &__temp {
+        font-size: .7rem;
+        color: rgb(168, 168, 168);
     }
 }
