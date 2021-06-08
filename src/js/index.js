@@ -36,6 +36,14 @@ const state = {
     symbol: "C", // F
 };
 
+const test = () => {
+    let node = document.querySelector(".test-heading");
+    let textContent = node.textContent;
+    node.innerHTML = process.env.MY_ENV;
+};
+
+test();
+
 const weatherController = async(query) => {
     if (!query) {
         renderErrorMessage();
