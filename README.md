@@ -6,11 +6,11 @@
   <br>
 </h1>
 
-🌤 Weather App powered by [Openweathermap](https://openweathermap.org/api).
+# 🌤 Weather App powered by [Openweathermap](https://openweathermap.org/api).
 
 Get an up to date weather report for your location or one of your previously searched locations! Including a 5 day forecase so you will never be caught out in the rain again.
 
-🏓 Tech Stack
+## 🏓 Tech Stack
 
 - Html
 - SCSS
@@ -19,7 +19,7 @@ Get an up to date weather report for your location or one of your previously sea
 - Babel for ES6 conversion
 - Axios for API fetching
 
-🥎 Summary
+## 🥎 Summary
 
 This project was structured using the MVC model enabled with the help of ES6 modules. The models (search, forecast, weather) are seperated out from the views rendered and this is all controlled by the central index.js file.
 
@@ -27,7 +27,7 @@ Data (search / weather) are stored as objects in a local state variable to be pa
 
 Local storage is implemented to set and get previous searched 'saved' locations.
 
-🚀 You can clone the repository and use the following commands:
+## 🚀 You can clone the repository and use the following commands:
 
 Note: Be sure to signup and request your API key [see this guide](https://home.openweathermap.org/users/sign_in) from openweathermap.
 
