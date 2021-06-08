@@ -1,30 +1,35 @@
 <h1 align="center">
   <br>
-  <a href="#">
-  <svg class="header__logo">
-    <use href='.dist/img/icons.svg#icon-cloud'> </use>
-  </svg>
+  <a href=""><img src="/dist/img/logo.png" alt="Weather Forecastr" width="200"></a>
   <br>
-  Weather App
+  Weather Forecastr
   <br>
 </h1>
 
-Vanilla Javascript Weather App powered by [Openweathermap](https://openweathermap.org/api).
+🌤 Weather App powered by [Openweathermap](https://openweathermap.org/api).
 
-Stores data into a local state object including current location weather as well as a user input based search. Local storage is used to set and get saved locations to render weather data.
+Get an up to date weather report for your location or one of your previously searched locations! Including a 5 day forecase so you will never be caught out in the rain again.
 
-View final project: [WeatherApp](https://kirianabrown.github.io/weather/).
+🏓 Tech Stack
 
-## Summary
-
-- HTML5
+- Html
 - SCSS
-- ES6
-- Webpack bundle manager
-- Babel ES6 converter
-- Axios
+- Javascript feat ES6 modules for MVC structure
+- Webpack as bundle manager
+- Babel for ES6 conversion
+- Axios for API fetching
 
-You can clone the repository and use the following commands:
+🥎 Summary
+
+This project was structured using the MVC model enabled with the help of ES6 modules. The models (search, forecast, weather) are seperated out from the views rendered and this is all controlled by the central index.js file.
+
+Data (search / weather) are stored as objects in a local state variable to be passed throughout the various models & views all handled by the controller index.js.
+
+Local storage is implemented to set and get previous searched 'saved' locations.
+
+🚀 You can clone the repository and use the following commands:
+
+Note: Be sure to signup and request your API key [see this guide](https://home.openweathermap.org/users/sign_in) from openweathermap.
 
 ##### To install run
 
@@ -44,6 +49,8 @@ npm run start
 npm run build
 ```
 
-##### NB
+##### Create local environments
 
+```shell
 Create a .env file to store your API_URL & API_KEY
+```
