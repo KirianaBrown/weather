@@ -34,7 +34,12 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "src/index.html",
         }),
-        new Dotenv(),
+        new Dotenv({
+            systemvars: true,
+        }),
+        new webpack.DefinePlugin({
+            "process.env.API_KEY": JSON.stringify(process.env.API_KEY),
+        }),
     ],
 
     module: {
