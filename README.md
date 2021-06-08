@@ -8,6 +8,8 @@
 
 # 🌤 Weather App powered by [Openweathermap](https://openweathermap.org/api).
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/031ef24b-d318-4211-9e18-629ff9cbf9f8/deploy-status)](https://app.netlify.com/sites/kb-weatherapp/deploys)
+
 Get an up to date weather report for your location or one of your previously searched locations! Including a 5 day forecase so you will never be caught out in the rain again.
 
 ## 🏓 Tech Stack
