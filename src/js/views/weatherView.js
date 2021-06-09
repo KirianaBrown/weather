@@ -205,11 +205,11 @@ const setDescription = (imgCode, temp, symbol) => {
         "tad cloudy",
         "snow snow snow",
         "hold on tight",
-        "its hot",
+        "its hot hot hot",
     ];
 
     if ((symbol == "C" && temp > 28) || (symbol == "F" && temp > 82.4)) {
-        return weatherQuotes[8];
+        return weatherQuotes[7];
     }
     if ((symbol == "C" && temp < 5) || (symbol == "F" && temp < 41)) {
         return weatherQuote[2];
@@ -282,4 +282,12 @@ const setDate = (timezone) => {
     // let formattedTime = `${hours}:${minutes}:${seconds}`
     console.log(formattedTime);
     return formattedTime;
+};
+
+export const renderImage = (conditions) => {
+    const imageEl = elements.weatherImage.src;
+    const source = `img/icons/${conditions}.svg`;
+    console.log(imageEl);
+    console.log(source);
+    elements.weatherImage.src = source;
 };

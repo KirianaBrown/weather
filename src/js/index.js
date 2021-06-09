@@ -43,8 +43,9 @@ const weatherController = async(query) => {
     } else {
         state.weather = new Weather(query, state.unit);
         // 2. Prepare the UI
-        // searchView.clearUI();
+        searchView.clearUI();
         searchView.clearInput();
+        weatherView.renderImage("cloud");
         // searchView.clearError();
         // searchView.clearForecast();
         // 3. Render loader

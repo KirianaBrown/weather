@@ -15,12 +15,13 @@ export const elements = {
     searchForm: document.querySelector(".container-action-search--form"),
     searchInput: document.querySelector(".container-action-search--input"),
     weatherDetails: document.querySelector(".container-results"),
+    weatherImage: document.querySelector(".weather-icon"),
 
     // Not done yet.
     resultsContainer: document.querySelector(".results"),
     errorBtn: document.querySelector(".error__btn"),
     errorMessage: document.querySelector(".error"),
-    //   weatherDetails: document.querySelector(".results__container"),
+
     savedContainer: document.querySelector(".saved"),
     savedList: document.querySelector(".saved__list"),
     forecastContainer: document.querySelector(".forecast"),
