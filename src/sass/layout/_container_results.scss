@@ -29,6 +29,23 @@
                 cursor: pointer;
                 text-transform: uppercase;
                 border: none;
+                &:hover {
+                    color: $color-dusk;
+                    opacity: 1;
+                    text-shadow: 10px 10px 10px rgba($color-rosy, .6);
+                }
+                &--selected {
+                    background-color: transparent;
+                    font-family: $heading-font;
+                    font-weight: 800;
+                    font-size: 6rem;
+                    color: $color-dusk;
+                    opacity: 1;
+                    cursor: pointer;
+                    text-transform: uppercase;
+                    border: none;
+                    text-shadow: 10px 10px 10px rgba($color-rosy, .6);
+                }
             }
         }
     }
@@ -40,6 +57,7 @@
             font-weight: 700;
             font-size: 16rem;
             padding: 0rem;
+            text-shadow: 5px 5px 5px rgba($color-rosy, .6);
         }
         &--metric {
             color: $color-rosy;
@@ -69,7 +87,8 @@
             font-weight: 700;
             font-style: italic;
             font-size: 6rem;
-            margin-top: 1rem;
+            margin-top: -4rem;
+            text-shadow: 5px 5px 5px rgba($color-rosy, .6);
         }
     }
     &-summary {

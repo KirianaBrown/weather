@@ -2,23 +2,44 @@ body {
     margin-top: -20rem;
 }
 
+.day {
+    background-color: $color-peach;
+}
+
+.night {
+    background-color: $color-blue;
+    color: $color-light-blue;
+}
+
+.night input {
+    background-color: $color-light-blue;
+}
+
+.night .container-results-content--temperature {
+    color: $color-light-blue;
+    text-shadow: 5px 5px 5px rgba($color-light-blue, .6);
+}
+
+.night .container-results-content--description {
+    color: $color-light-blue;
+    text-shadow: 5px 5px 5px rgba($color-light-blue, .6);
+}
+
 .weather-icon {
     height: 20rem;
     width: 20rem;
-    background-color: $color-dusk;
     opacity: .5;
-    border-radius: 50%;
     position: relative;
     top: 50%;
     left: 50%;
     translate: (-50%, -50%);
+    z-index: 2000;
 }
 
 .container {
     width: 100%;
     min-height: 100%;
     margin: 0 auto;
-    background-color: $color-peach;
     display: grid;
     grid-template-columns: 2.5% 55% 42.5%;
     &-controls {
@@ -125,4 +146,12 @@ footer {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+}
+
+.responsive-search-heading {
+    display: none;
+}
+
+.forecast-responsive {
+    display: none;
 }

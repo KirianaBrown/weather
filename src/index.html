@@ -14,8 +14,8 @@
     <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon" />
 </head>
 
-<body>
-    <div class="weather-icon"></div>
+<body class="day">
+    <img src="img/icons/snow.svg" alt="weather icon" class="weather-icon"></img>
     <div class="container">
 
         <div class="container-controls">
@@ -34,12 +34,7 @@
                 </div>
             </div>
             <div class="container-results-content">
-
                 <h2 class="container-results-content--temperature">25<span class="container-results-content--metric"><sup>&deg;C</sup></span></h2>
-                <div class='container-results-content--weather'>
-                    <!-- <img src="img/weather/01n.svg" alt="weather icon" class="container-results-content--icon"> -->
-                </div>
-
                 <h3 class="container-results-content--description">Suns Out</h3>
             </div>
             <div class="container-results-summary">
@@ -58,7 +53,27 @@
                 </div>
             </div>
         </div>
+        <div class="forecast-responsive">
+            <div class="forecast-responsive-day">
+                <h6>tue</h6>
+                <p>18 &deg;C</p>
+            </div>
+            <div class="forecast-responsive-day">
+                <h6>wed</h6>
+                <p>18 &deg;C</p>
+            </div>
+            <div class="forecast-responsive-day">
+                <h6>thur</h6>
+                <p>18 &deg;C</p>
+            </div>
+            <div class="forecast-responsive-day">
+                <h6>fri</h6>
+                <p>18 &deg;C</p>
+            </div>
+        </div>
+
         <div class="container-action">
+            <h1 class="responsive-search-heading">New Search</h1>
             <div class="container-action-search">
                 <button class="container-action-search-btn">
                     <svg class="search__icon container-action-search-icon">
