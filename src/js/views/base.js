@@ -1,26 +1,39 @@
 export const elements = {
-    searchForm: document.querySelector('.search'),
-    searchInput: document.querySelector('.search__field'),
-    resultsContainer: document.querySelector('.results'),
-    errorBtn: document.querySelector('.error__btn'),
-    errorMessage: document.querySelector('.error'),
-    weatherDetails: document.querySelector('.results__container'),
-    savedContainer: document.querySelector('.saved'),
-    savedList: document.querySelector('.saved__list'),
-    forecastContainer: document.querySelector('.forecast'),
-    forecastList: document.querySelector('.forecast__list'),
-    celsiusBtn: document.querySelector('.celsius'),
-    farenheitBtn: document.querySelector('.farenheit')
-}
+    // searchForm: document.querySelector('.search'),
+    // searchInput: document.querySelector('.search__field'),
+    // resultsContainer: document.querySelector('.results'),
+    // errorBtn: document.querySelector('.error__btn'),
+    // errorMessage: document.querySelector('.error'),
+    // weatherDetails: document.querySelector('.results__container'),
+    // savedContainer: document.querySelector('.saved'),
+    // savedList: document.querySelector('.saved__list'),
+    // forecastContainer: document.querySelector('.forecast'),
+    // forecastList: document.querySelector('.forecast__list'),
+    // celsiusBtn: document.querySelector('.celsius'),
+    // farenheitBtn: document.querySelector('.farenheit')
+
+    searchForm: document.querySelector(".container-action-search--form"),
+    searchInput: document.querySelector(".container-action-search--input"),
+    resultsContainer: document.querySelector(".results"),
+    errorBtn: document.querySelector(".error__btn"),
+    errorMessage: document.querySelector(".error"),
+    weatherDetails: document.querySelector(".results__container"),
+    savedContainer: document.querySelector(".saved"),
+    savedList: document.querySelector(".saved__list"),
+    forecastContainer: document.querySelector(".forecast"),
+    forecastList: document.querySelector(".forecast__list"),
+    celsiusBtn: document.querySelector(".celsius"),
+    farenheitBtn: document.querySelector(".farenheit"),
+};
 
 let isError = false;
 
 export const elementStrings = {
-    error: 'error',
-    loader: 'loader'
-}
+    error: "error",
+    loader: "loader",
+};
 
-export const renderLoader = parentEl => {
+export const renderLoader = (parentEl) => {
     const loader = `
     <div class = "${elementStrings.loader}" >
         <svg> 
@@ -28,16 +41,16 @@ export const renderLoader = parentEl => {
         </svg>
     </div>  
     `;
-    parentEl.insertAdjacentHTML('afterbegin', loader);
-}
+    parentEl.insertAdjacentHTML("afterbegin", loader);
+};
 
 export const clearLoader = () => {
-    const loader = document.querySelector('.loader');
+    const loader = document.querySelector(".loader");
 
     if (loader) {
         loader.parentElement.removeChild(loader);
     }
-}
+};
 
 export const renderErrorMessage = () => {
     const parentEl = elements.errorMessage;
@@ -50,15 +63,15 @@ export const renderErrorMessage = () => {
                 Search Again
             </button>
         </div>
-  `
+  `;
 
-    parentEl.insertAdjacentHTML('afterbegin', markUp);
+    parentEl.insertAdjacentHTML("afterbegin", markUp);
 
     isError = true;
-}
+};
 
 export const clearErrorMessage = () => {
     elements.searchInput.focus();
-    elements.errorMessage.innerHTML = '';
-    console.log('Error Message to be cleared')
-}
+    elements.errorMessage.innerHTML = "";
+    console.log("Error Message to be cleared");
+};

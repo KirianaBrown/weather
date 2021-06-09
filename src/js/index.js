@@ -38,26 +38,27 @@ const state = {
 
 const weatherController = async(query) => {
     if (!query) {
-        renderErrorMessage();
+        // renderErrorMessage();
+        console.log("Render Error Message");
     } else {
         state.weather = new Weather(query, state.unit);
         // 2. Prepare the UI
-        searchView.clearUI();
+        // searchView.clearUI();
         searchView.clearInput();
-        searchView.clearError();
-        searchView.clearForecast();
+        // searchView.clearError();
+        // searchView.clearForecast();
         // 3. Render loader
-        renderLoader(elements.resultsContainer);
+        // renderLoader(elements.resultsContainer);
         // 3. Call the getResults method
         try {
             await state.weather.getWeather();
-            clearLoader();
-            weatherView.renderWeather(
-                state.weather.results,
-                state.symbol,
-                state.saved.isSaved(state.weather.id)
-            );
-            forecastController(state.weather.results.name, state.unit);
+            // clearLoader();
+            // weatherView.renderWeather(
+            //     state.weather.results,
+            //     state.symbol,
+            //     state.saved.isSaved(state.weather.id)
+            // );
+            // forecastController(state.weather.results.name, state.unit);
         } catch (err) {
             console.log(err);
             clearLoader();
