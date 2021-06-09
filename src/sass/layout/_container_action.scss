@@ -2,6 +2,11 @@
     &-search {
         display: flex;
         justify-content: flex-end;
+        &--form {
+            width: 70%;
+            display: flex;
+            // background-color: #fff;
+        }
         &-btn {
             background-color: $color-dusk;
             opacity: .7;
@@ -9,6 +14,10 @@
             padding: 1rem;
             border-top-left-radius: 10%;
             border-bottom-left-radius: 10%;
+            width: 20.5%;
+            height: 100%;
+            cursor: pointer;
+            border-right: 2px solid $color-rosy;
         }
         &-icon {
             fill: $color-peach;
@@ -19,12 +28,14 @@
         &--input {
             background-color: $color-rosy;
             padding: 1rem;
-            width: 70%;
+            width: 78%;
+            height: 100%;
             font-family: $heading-font;
             border: none;
             font-size: 4rem;
             font-weight: 500;
             color: $color-dusk;
+            margin: 0!important;
             &::placeholder {
                 color: $color-peach;
                 opacity: .8;
