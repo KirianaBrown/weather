@@ -1,0 +1,108 @@
+.container-results {
+    &-heading {
+        text-transform: uppercase;
+        font-family: $heading-font;
+        font-size: 1.5rem;
+        font-weight: 800;
+        text-align: end;
+        padding-right: 2rem;
+    }
+    &-date {
+        display: flex;
+        align-items: flex-end;
+        padding-left: 10rem;
+        &__date {
+            font-size: 2rem;
+            text-transform: uppercase;
+            font-family: $heading-font;
+            font-weight: 200;
+        }
+        &__favourite {
+            margin-left: 4rem;
+            &--btn {
+                background-color: transparent;
+                font-family: $heading-font;
+                font-weight: 800;
+                font-size: 6rem;
+                color: $color-rosy;
+                opacity: .4;
+                cursor: pointer;
+                text-transform: uppercase;
+                border: none;
+            }
+        }
+    }
+    &-content {
+        padding-left: 10rem;
+        &--temperature {
+            color: $color-rosy;
+            font-family: $heading-font;
+            font-weight: 700;
+            font-size: 16rem;
+            padding: 0rem;
+        }
+        &--metric {
+            color: $color-rosy;
+            opacity: .4;
+            // font-family: $outline-font;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: white;
+        }
+        &--weather {
+            margin-top: -9rem;
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 40rem;
+        }
+        &--icon {
+            height: 10rem;
+            width: 10rem;
+            background-color: $color-rosy;
+            // opacity: .4;
+            border-radius: 50%;
+            padding: 1rem;
+            // margin-top: -6rem;
+        }
+        &--description {
+            text-transform: uppercase;
+            font-family: $heading-font;
+            font-weight: 700;
+            font-style: italic;
+            font-size: 6rem;
+            margin-top: 1rem;
+        }
+    }
+    &-summary {
+        width: 60%;
+        margin-left: 10rem;
+        &--heading {
+            text-transform: uppercase;
+            font-family: $heading-font;
+            font-weight: 700;
+            text-align: center;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        &--flex {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+        &--key {
+            text-transform: uppercase;
+            font-weight: 400;
+            color: $color-dusk;
+            font-size: 1.6rem;
+            margin-right: 2rem;
+        }
+        &--value {
+            text-transform: uppercase;
+            font-weight: 400;
+            color: $color-rosy;
+            opacity: .8;
+            font-size: 1.6rem;
+            margin-left: 2rem;
+        }
+    }
+}

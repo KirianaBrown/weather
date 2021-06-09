@@ -1,0 +1,96 @@
+.container-action {
+    &-search {
+        display: flex;
+        justify-content: flex-end;
+        &-btn {
+            background-color: $color-dusk;
+            opacity: .7;
+            border: none;
+            padding: 1rem;
+            border-top-left-radius: 10%;
+            border-bottom-left-radius: 10%;
+        }
+        &-icon {
+            fill: $color-peach;
+            height: 2.5rem;
+            width: 2.5rem;
+            cursor: pointer;
+        }
+        &--input {
+            background-color: $color-rosy;
+            padding: 1rem;
+            width: 70%;
+            font-family: $heading-font;
+            border: none;
+            font-size: 4rem;
+            font-weight: 500;
+            color: $color-dusk;
+            &::placeholder {
+                color: $color-peach;
+                opacity: .8;
+                font-family: $heading-font;
+                font-weight: 800;
+                text-transform: uppercase;
+                font-size: 8.5rem;
+            }
+        }
+    }
+    &-favourites {
+        &-heading {
+            text-transform: uppercase;
+            font-family: $heading-font;
+            font-weight: 700;
+            font-size: 3rem;
+            text-align: right;
+            color: $color-rosy;
+            opacity: .8;
+        }
+        &-list {
+            text-align: right;
+            text-transform: uppercase;
+            font-size: 2rem;
+            font-family: $heading-font;
+            font-weight: 600;
+            color: $color-rosy;
+            opacity: .5;
+            cursor: pointer;
+            height: 80%;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        &-listItem:hover {
+            color: $color-dusk;
+        }
+    }
+    &-forecast {
+        display: flex;
+        align-items: flex-start;
+        padding-top: 5rem;
+        &-day {
+            border: 1px solid white;
+            height: 12rem;
+            width: 10rem;
+            padding: 1rem;
+            margin: 1rem;
+            border-radius: 10%;
+            position: relative;
+            box-shadow: 5px 5px 5px 0px rgba($color-rosy, .6);
+            -webkit-box-shadow: 5px 5px 5px 0px rgba($color-rosy, .6);
+            -moz-box-shadow: 5px 5px 5px 0px rgba($color-rosy, .6);
+            & h6 {
+                position: absolute;
+                top: 50%;
+                left: 10%;
+                font-size: 2rem;
+                text-transform: lowercase;
+                font-style: italic;
+            }
+            & p {
+                position: absolute;
+                top: 80%;
+                left: 10%;
+                font-size: 1.4rem;
+            }
+        }
+    }
+}

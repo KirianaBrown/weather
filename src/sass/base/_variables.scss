@@ -1,10 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&family=Work+Sans:ital,wght@0,200;0,400;0,500;0,800;1,800&display=swap');
 // Color Variables
 $color-primary: #8fb7cc;
 $color-secondary:#becdd2;
 $color-tertiary: #4974a5;
 $color-white: #f5f9f9;
 $color-black: #3e4545;
+$color-navy: #14172c;
 $color-light-grey: #e9ecef;
+$color-blue: #4546fe;
+$color-light-blue: #9494f9;
+$color-peach: #ffd9d8;
+$color-rosy: #fdb1b2;
+$color-dusk: #ff8a8c;
+$heading-font: 'Work Sans',
+sans-serif;
+$outline-font:'Londrina Outline',
+cursive;
 $border-radius: 2rem;
 @mixin box-shadow-dark {
     box-shadow: 0 2rem 6rem 0.5rem rgba(101, 90, 86, 0.2);
