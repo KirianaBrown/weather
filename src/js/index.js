@@ -53,11 +53,12 @@ const weatherController = async(query) => {
         try {
             await state.weather.getWeather();
             // clearLoader();
-            // weatherView.renderWeather(
-            //     state.weather.results,
-            //     state.symbol,
-            //     state.saved.isSaved(state.weather.id)
-            // );
+            weatherView.renderWeather(
+                state.weather.results,
+                state.symbol,
+                // state.saved.isSaved(state.weather.id)
+                false
+            );
             // forecastController(state.weather.results.name, state.unit);
         } catch (err) {
             console.log(err);
