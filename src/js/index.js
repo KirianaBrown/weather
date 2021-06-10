@@ -45,7 +45,6 @@ const weatherController = async(query) => {
         // 2. Prepare the UI
         searchView.clearUI();
         searchView.clearInput();
-        weatherView.renderImage("cloud");
         // searchView.clearError();
         // searchView.clearForecast();
         // 3. Render loader
@@ -57,9 +56,9 @@ const weatherController = async(query) => {
             weatherView.renderWeather(
                 state.weather.results,
                 state.symbol,
-                // state.saved.isSaved(state.weather.id)
-                false
+                state.saved.isSaved(state.weather.id)
             );
+            weatherView.renderImage(state.weather.results);
             // forecastController(state.weather.results.name, state.unit);
         } catch (err) {
             console.log(err);
@@ -95,9 +94,12 @@ const currentController = async(lat, lon) => {
 };
 
 const savedController = () => {
+    console.log("saved controller has been called");
     const currentId = state.weather.id;
+    console.log(currentId);
 
     if (!state.saved.isSaved(currentId)) {
+        console.log("create a new saved item");
         // 1. Create new item
         const newSavedItem = state.saved.addSaved(
             currentId,
@@ -110,6 +112,7 @@ const savedController = () => {
         // 3. Render to List
         savedView.renderItem(newSavedItem);
     } else {
+        console.log("item is already saved");
         savedView.toggleSavedButton(false);
         savedView.deleteItem(currentId);
         state.saved.deleteSaved(currentId);
@@ -117,11 +120,23 @@ const savedController = () => {
 };
 
 // Event Listeners
-
 elements.searchForm.addEventListener("submit", (e) => {
     e.preventDefault();
     let query = searchView.getInput();
     weatherController(query);
+});
+
+// Handling non-rendered events (FAV & CLEAR ERROR)
+elements.weatherDetails.addEventListener("click", (e) => {
+    e.preventDefault();
+    console.log("weather details has been clicked");
+    if (
+        e.target.matches(".container-results-date__favourite--btn") ||
+        e.target.matches(".container-results-date__favourite--btn--selected")
+    ) {
+        console.log("Fav button has been clicked call the savedController");
+        savedController();
+    }
 });
 
 elements.celsiusBtn.addEventListener("click", (e) => {
@@ -159,24 +174,26 @@ elements.farenheitBtn.addEventListener("click", (e) => {
 });
 
 // Handling non-render details events.
-elements.resultsContainer.addEventListener("click", (e) => {
-    e.preventDefault();
-    if (e.target.matches(".error__btn, .error__btn *")) {
-        clearErrorMessage();
-    } else if (e.target.matches(".results__love, .results__love *")) {
-        savedController();
-    }
-});
+// elements.resultsContainer.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     if (e.target.matches(".error__btn, .error__btn *")) {
+//         clearErrorMessage();
+//     } else if (e.target.matches(".results__love, .results__love *")) {
+//         savedController();
+//     } else if (e.target.matches(".container-results-date__favourite--btn")) {
+//         console.log("Fav button is hit");
+//     }
+// });
 
-elements.savedContainer.addEventListener("click", (e) => {
-    if (e.target.closest(".saved__item, .saved__item *")) {
-        const parentEl = e.target.parentNode;
-        const location = parentEl.dataset.itemlocation;
-        if (location) {
-            weatherController(location);
-        }
-    }
-});
+// elements.savedContainer.addEventListener("click", (e) => {
+//     if (e.target.closest(".saved__item, .saved__item *")) {
+//         const parentEl = e.target.parentNode;
+//         const location = parentEl.dataset.itemlocation;
+//         if (location) {
+//             weatherController(location);
+//         }
+//     }
+// });
 
 window.addEventListener("load", () => {
     state.saved = new Saved();

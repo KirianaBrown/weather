@@ -12,13 +12,20 @@ export const elements = {
     // celsiusBtn: document.querySelector('.celsius'),
     // farenheitBtn: document.querySelector('.farenheit')
 
+    // 1. Search Form
     searchForm: document.querySelector(".container-action-search--form"),
     searchInput: document.querySelector(".container-action-search--input"),
+
+    // 2. Render weather results
     weatherDetails: document.querySelector(".container-results"),
     weatherImage: document.querySelector(".weather-icon"),
 
+    // 3. Control units
+    celsiusBtn: document.querySelector(".container-controls__celsius"),
+    farenheitBtn: document.querySelector(".container-controls__farenheit"),
+
     // Not done yet.
-    resultsContainer: document.querySelector(".results"),
+    // resultsContainer: document.querySelector(".results"),
     errorBtn: document.querySelector(".error__btn"),
     errorMessage: document.querySelector(".error"),
 
@@ -26,8 +33,6 @@ export const elements = {
     savedList: document.querySelector(".saved__list"),
     forecastContainer: document.querySelector(".forecast"),
     forecastList: document.querySelector(".forecast__list"),
-    celsiusBtn: document.querySelector(".celsius"),
-    farenheitBtn: document.querySelector(".farenheit"),
 };
 
 let isError = false;

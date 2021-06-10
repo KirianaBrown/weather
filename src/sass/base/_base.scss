@@ -34,6 +34,15 @@ a {
     color: $color-white;
 }
 
+input:focus {
+    // outline: 5px solid $color-dusk;
+    outline: none;
+}
+
+button:focus {
+    outline: none;
+}
+
 .heading-primary {
     color: $color-primary;
     padding: 0rem 1rem 1rem 0;

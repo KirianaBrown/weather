@@ -11,7 +11,11 @@ export const renderWeather = (weather, symbol, isSaved) => {
                     <h4>${weather.name}</h4>
                 </div>
                 <div class="container-results-date__favourite">
-                    <button class="container-results-date__favourite--btn">fav</button>
+                    <button id="favBtn" class=${
+                      isSaved
+                        ? "container-results-date__favourite--btn--selected"
+                        : "container-results-date__favourite--btn"
+                    }>fav</button>
                 </div>
             </div>
 
@@ -45,6 +49,51 @@ export const renderWeather = (weather, symbol, isSaved) => {
     `;
 
     elements.weatherDetails.insertAdjacentHTML("beforeend", html);
+};
+
+export const renderImage = (weather) => {
+    const code = weather.weather[0].icon;
+    let condition = "";
+    // conditions: cloud, rain, snow, storm, sun, wind
+    // 1. Map weather icon # to a condition
+    const weatherConditions = [
+        "sun",
+        "hidden",
+        "rain",
+        "storm",
+        "cloud",
+        "snow",
+        "wind",
+        "sun",
+    ];
+
+    if (code === "01n" || code === "01d") {
+        condition = weatherConditions[0];
+    } else if (code === "02d" || code === "02n") {
+        condition = weatherConditions[1];
+    } else if (
+        code === "03d" ||
+        code === "03n" ||
+        code === "04d" ||
+        code === "04n"
+    ) {
+        condition = weatherConditions[4];
+    } else if (code === "09d" || code === "09n") {
+        condition = weatherConditions[1];
+    } else if (code === "10d" || code === "10n") {
+        condition = weatherConditions[2];
+    } else if (code === "11d" || code === "11n") {
+        condition = weatherConditions[3];
+    } else if (code === "13d" || code === "13n") {
+        condition = weatherConditions[5];
+    } else {
+        condition = weatherConditions[4];
+    }
+
+    const imageEl = elements.weatherImage.src;
+    const src = `img/icons/${condition}.svg`;
+
+    elements.weatherImage.src = src;
 };
 
 export const renderWeather1 = (weather, symbol, isSaved) => {
@@ -206,17 +255,20 @@ const setDescription = (imgCode, temp, symbol) => {
         "snow snow snow",
         "hold on tight",
         "its hot hot hot",
+        "suns hiding",
     ];
 
     if ((symbol == "C" && temp > 28) || (symbol == "F" && temp > 82.4)) {
         return weatherQuotes[7];
     }
     if ((symbol == "C" && temp < 5) || (symbol == "F" && temp < 41)) {
-        return weatherQuote[2];
+        return weatherQuote[1];
     }
 
-    if (code === "01n" || code === "01d" || code === "02d" || code === "02n") {
+    if (code === "01n" || code === "01d") {
         return weatherQuotes[0];
+    } else if (code === "02d" || code === "02n") {
+        return weatherQuotes[8];
     } else if (
         code === "03d" ||
         code === "03n" ||
@@ -247,12 +299,11 @@ const setDate = (timezone) => {
     const date = new Date(dateTime);
 
     const hours = date.getHours();
-    let minutes = date.getMinutes();
-    const seconds = date.getSeconds();
     const day = date.getDay();
     const dayofMonth = date.getDate();
     const month = date.getMonth();
 
+    let minutes = date.getMinutes();
     if (minutes < 10) {
         let newMin = minutes.toString();
         minutes = `0${minutes}`;
@@ -279,15 +330,5 @@ const setDate = (timezone) => {
 
     let formattedTime = `${days[day]} ${dayofMonth} ${months[month]} ${hours}:${minutes} ${timeUnit}`;
 
-    // let formattedTime = `${hours}:${minutes}:${seconds}`
-    console.log(formattedTime);
     return formattedTime;
-};
-
-export const renderImage = (conditions) => {
-    const imageEl = elements.weatherImage.src;
-    const source = `img/icons/${conditions}.svg`;
-    console.log(imageEl);
-    console.log(source);
-    elements.weatherImage.src = source;
 };
