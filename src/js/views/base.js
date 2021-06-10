@@ -27,6 +27,9 @@ export const elements = {
     // 4. Saved container
     savedContainer: document.querySelector(".container-action-favourites-list"),
 
+    // 5. Forecast List
+    forecastList: document.querySelector(".container-action-forecast"),
+
     // Not done yet.
     // resultsContainer: document.querySelector(".results"),
     errorBtn: document.querySelector(".error__btn"),
@@ -34,7 +37,6 @@ export const elements = {
 
     savedList: document.querySelector(".saved__list"),
     forecastContainer: document.querySelector(".forecast"),
-    forecastList: document.querySelector(".forecast__list"),
 };
 
 let isError = false;

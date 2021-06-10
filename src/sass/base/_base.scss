@@ -41,33 +41,3 @@ input:focus {
 button:focus {
     outline: none;
 }
-
-.heading-primary {
-    color: $color-primary;
-    padding: 0rem 1rem 1rem 0;
-    text-transform: uppercase;
-    font-size: 2.2rem;
-}
-
-.heading-secondary {
-    text-align: center;
-    color: $color-primary;
-    padding: 0rem 1rem 1rem 0;
-    text-transform: uppercase;
-}
-
-.heading-tertiary {
-    color: $color-secondary;
-    // color: $color-black;
-    padding: 0rem 1rem 1rem 0;
-    // text-transform: uppercase;
-    font-size: 2.8rem;
-}
-
-.country {
-    // background-color: $color-secondary;
-    color: $color-primary;
-    padding: .5rem 1rem .5rem 1rem;
-    border-radius: .6rem;
-    font-size: 1rem;
-}

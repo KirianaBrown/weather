@@ -23,9 +23,6 @@ export const renderItem = (item) => {
     <li class="container-action-favourites-listItem  saved__item" data-itemid=${
       item.id
     } data-itemLocation=${item.location}>
-
-    
-    
     ${Math.round(item.temp)} ${item.location} 
                     </li>
     `;

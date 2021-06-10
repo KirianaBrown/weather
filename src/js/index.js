@@ -46,7 +46,7 @@ const weatherController = async(query) => {
         searchView.clearUI();
         searchView.clearInput();
         // searchView.clearError();
-        // searchView.clearForecast();
+        searchView.clearForecast();
         // 3. Render loader
         // renderLoader(elements.resultsContainer);
         // 3. Call the getResults method
@@ -59,7 +59,7 @@ const weatherController = async(query) => {
                 state.saved.isSaved(state.weather.id)
             );
             weatherView.renderImage(state.weather.results);
-            // forecastController(state.weather.results.name, state.unit);
+            forecastController(state.weather.results.name, state.unit);
         } catch (err) {
             console.log(err);
             clearLoader();
@@ -94,12 +94,9 @@ const currentController = async(lat, lon) => {
 };
 
 const savedController = () => {
-    console.log("saved controller has been called");
     const currentId = state.weather.id;
-    console.log(currentId);
 
     if (!state.saved.isSaved(currentId)) {
-        console.log("create a new saved item");
         // 1. Create new item
         const newSavedItem = state.saved.addSaved(
             currentId,
@@ -111,7 +108,6 @@ const savedController = () => {
         // 3. Render to List
         savedView.renderItem(newSavedItem);
     } else {
-        console.log("item is already saved");
         savedView.toggleSavedButton(false);
         savedView.deleteItem(currentId);
         state.saved.deleteSaved(currentId);

@@ -35,6 +35,14 @@ body {
     left: 50%;
     translate: (-50%, -50%);
     z-index: 2000;
+    animation-name: bobbingAnim;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+    -webkit-animation-name: bobbingAnim;
+    -webkit-animation-duration: 4s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-play-state: running;
 }
 
 .container {
@@ -155,4 +163,19 @@ footer {
 
 .forecast-responsive {
     display: none;
+}
+
+@keyframes bobbingAnim {
+    0% {
+        transform: translate(0px, 0px) rotateZ(0.001deg);
+        animation-timing-function: ease-in-out
+    }
+    50% {
+        transform: translate(0px, 12px) rotateZ(0.001deg);
+        animation-timing-function: ease-in-out
+    }
+    100% {
+        transform: translate(0px, 0px) rotateZ(0.001deg);
+        animation-timing-function: ease-in-out
+    }
 }

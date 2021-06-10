@@ -213,7 +213,6 @@ const convertUnix = (unixTime) => {
     let formattedTime = `${days[day]} ${d} ${months[month]} ${hours}:${minutes} ${timeUnit}`;
 
     // let formattedTime = `${hours}:${minutes}:${seconds}`
-    console.log(formattedTime);
     return formattedTime;
 };
 
@@ -245,7 +244,7 @@ const getDirection = (angle) => {
 const setDescription = (imgCode, temp, symbol) => {
     // sun, cold, rain, storm, cloud, snow, wind
     const code = imgCode;
-    console.log(code);
+
     const weatherQuotes = [
         "suns out",
         "it's a bit nippy",
