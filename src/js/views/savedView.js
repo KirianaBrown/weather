@@ -7,12 +7,10 @@ export const toggleSavedButton = (isLiked) => {
 
     if (isLiked) {
         const favButton = document.querySelector("#favBtn");
-        console.log(favButton);
         favButton.classList.add("container-results-date__favourite--btn--selected");
         favButton.classList.remove("container-results-date__favourite--btn");
     } else {
         const favButton = document.querySelector("#favBtn");
-        console.log(favButton);
         favButton.classList.remove(
             "container-results-date__favourite--btn--selected"
         );
@@ -21,24 +19,18 @@ export const toggleSavedButton = (isLiked) => {
 };
 
 export const renderItem = (item) => {
-    const markup = `
-    <li class="saved__item" data-itemid=${item.id} data-itemLocation=${
-    item.location
-  }>
-        <a href="${item.id}" class="saved__link" data-itemLocation=${
-    item.location
-  }>
-            <figure class="saved__fig" data-itemLocation=${item.location}>
-                <img src="img/weather/${item.img}.svg" alt="Test Image">
-            </figure>
+    const html = `
+    <li class="container-action-favourites-listItem  saved__item" data-itemid=${
+      item.id
+    }>
+    <a href="${item.id}" class="saved__item-link">
+    
+    
+    ${Math.round(item.temp)} ${item.location} </a>
+                    </li>
+    `;
 
-            <p class="saved__location">${item.location}</p>
-            <p class="saved__temp">${Math.round(item.temp)}&#0176;</p>
-        </a>
-    </li> 
-  `;
-
-    elements.savedList.insertAdjacentHTML("beforeend", markup);
+    elements.savedContainer.insertAdjacentHTML("beforeend", html);
 };
 
 export const deleteItem = (id) => {
