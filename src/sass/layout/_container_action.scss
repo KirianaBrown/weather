@@ -71,7 +71,7 @@
             overflow-x: hidden;
         }
         &-listItem:hover {
-            // color: $color-dusk;
+            color: $color-dusk;
             background-color: transparent;
         }
     }
@@ -106,12 +106,4 @@
             }
         }
     }
-}
-
-a.saved__item-link {
-    color: $color-rosy;
-}
-
-a.saved__item-link:hover {
-    color: $color-dusk;
 }

@@ -104,8 +104,7 @@ const savedController = () => {
         const newSavedItem = state.saved.addSaved(
             currentId,
             state.weather.results.name,
-            state.weather.results.main.temp,
-            state.weather.results.weather[0].icon
+            state.weather.results.main.temp
         );
         // 2. Toggle saved button
         savedView.toggleSavedButton(true);
@@ -129,13 +128,21 @@ elements.searchForm.addEventListener("submit", (e) => {
 // Handling non-rendered events (FAV & CLEAR ERROR)
 elements.weatherDetails.addEventListener("click", (e) => {
     e.preventDefault();
-    console.log("weather details has been clicked");
     if (
         e.target.matches(".container-results-date__favourite--btn") ||
         e.target.matches(".container-results-date__favourite--btn--selected")
     ) {
-        console.log("Fav button has been clicked call the savedController");
         savedController();
+    }
+});
+
+elements.savedContainer.addEventListener("click", (e) => {
+    if (e.target.closest(".saved__item")) {
+        const location = e.target.dataset.itemlocation;
+
+        if (location) {
+            weatherController(location);
+        }
     }
 });
 
@@ -185,15 +192,7 @@ elements.farenheitBtn.addEventListener("click", (e) => {
 //     }
 // });
 
-// elements.savedContainer.addEventListener("click", (e) => {
-//     if (e.target.closest(".saved__item, .saved__item *")) {
-//         const parentEl = e.target.parentNode;
-//         const location = parentEl.dataset.itemlocation;
-//         if (location) {
-//             weatherController(location);
-//         }
-//     }
-// });
+// ;
 
 window.addEventListener("load", () => {
     state.saved = new Saved();

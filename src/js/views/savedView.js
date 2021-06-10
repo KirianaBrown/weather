@@ -22,11 +22,11 @@ export const renderItem = (item) => {
     const html = `
     <li class="container-action-favourites-listItem  saved__item" data-itemid=${
       item.id
-    }>
-    <a href="${item.id}" class="saved__item-link">
+    } data-itemLocation=${item.location}>
+
     
     
-    ${Math.round(item.temp)} ${item.location} </a>
+    ${Math.round(item.temp)} ${item.location} 
                     </li>
     `;
 
