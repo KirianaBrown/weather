@@ -59,6 +59,7 @@ const weatherController = async(query) => {
                 state.saved.isSaved(state.weather.id)
             );
             weatherView.renderImage(state.weather.results);
+            dayOrNightController();
             forecastController(state.weather.results.name, state.unit);
         } catch (err) {
             console.log(err);
@@ -114,6 +115,12 @@ const savedController = () => {
     }
 };
 
+const dayOrNightController = () => {
+    console.log("d/n controller called");
+    console.log(state.weather.results.sys.sunrise);
+    console.log(state.weather.results.sys.sunset);
+};
+
 // Event Listeners
 elements.searchForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -162,7 +169,13 @@ elements.celsiusBtn.addEventListener("click", (e) => {
 elements.farenheitBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
-    if (state.unit === "metric") {
+    if (state.unit === "metric" && state.weather === undefined) {
+        state.unit = "imperial";
+        state.symbol = "F";
+        unitView.farenheitHandler(e, state);
+    }
+
+    if (state.unit === "metric" && state.weather !== undefined) {
         unitView.farenheitHandler(e, state);
         weatherController(state.weather.query);
 
@@ -175,20 +188,6 @@ elements.farenheitBtn.addEventListener("click", (e) => {
         }
     }
 });
-
-// Handling non-render details events.
-// elements.resultsContainer.addEventListener("click", (e) => {
-//     e.preventDefault();
-//     if (e.target.matches(".error__btn, .error__btn *")) {
-//         clearErrorMessage();
-//     } else if (e.target.matches(".results__love, .results__love *")) {
-//         savedController();
-//     } else if (e.target.matches(".container-results-date__favourite--btn")) {
-//         console.log("Fav button is hit");
-//     }
-// });
-
-// ;
 
 window.addEventListener("load", () => {
     state.saved = new Saved();
