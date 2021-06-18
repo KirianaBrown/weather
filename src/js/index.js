@@ -4,6 +4,7 @@ import Weather from "./models/Weather";
 import Saved from "./models/Saved";
 import Current from "./models/Current";
 import Forecast from "./models/Forecast";
+import { calcTimeOfDay } from "./models/DayOfNight";
 
 // VIEW IMPORTS
 import {
@@ -18,6 +19,7 @@ import * as weatherView from "./views/weatherView";
 import * as savedView from "./views/savedView";
 import * as forecastView from "./views/forecastView";
 import * as unitView from "./views/unitView";
+import * as dayOfNightView from "./views/dayOrNightView";
 
 // IMPORT STYLESHEETS
 import "../sass/main.scss";
@@ -34,6 +36,7 @@ import "../sass/main.scss";
 const state = {
     unit: "metric", // imperial
     symbol: "C", // F
+    isDay: true,
 };
 
 const weatherController = async(query) => {
@@ -117,8 +120,10 @@ const savedController = () => {
 
 const dayOrNightController = () => {
     console.log("d/n controller called");
-    console.log(state.weather.results.sys.sunrise);
-    console.log(state.weather.results.sys.sunset);
+
+    // 1. get T/F
+    const dayTime = calcTimeOfDay(state.weather.results);
+    dayOfNightView.renderDayOrNight(dayTime);
 };
 
 // Event Listeners
