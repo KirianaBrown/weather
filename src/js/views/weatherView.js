@@ -63,6 +63,8 @@ export const renderImage = (weather) => {
         "snow",
         "wind",
         "sun",
+        "scattered",
+        "fog",
     ];
 
     if (code === "01n" || code === "01d") {
@@ -77,13 +79,15 @@ export const renderImage = (weather) => {
     ) {
         condition = weatherConditions[4];
     } else if (code === "09d" || code === "09n") {
-        condition = weatherConditions[1];
-    } else if (code === "10d" || code === "10n") {
         condition = weatherConditions[2];
+    } else if (code === "10d" || code === "10n") {
+        condition = weatherConditions[8];
     } else if (code === "11d" || code === "11n") {
         condition = weatherConditions[3];
     } else if (code === "13d" || code === "13n") {
         condition = weatherConditions[5];
+    } else if (code === "50d" || code === "50n") {
+        condition = weatherConditions[9];
     } else {
         condition = weatherConditions[4];
     }

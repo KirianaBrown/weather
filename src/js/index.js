@@ -41,14 +41,14 @@ const state = {
 
 const weatherController = async(query) => {
     if (!query) {
-        // renderErrorMessage();
+        renderErrorMessage();
         console.log("Render Error Message");
     } else {
         state.weather = new Weather(query, state.unit);
         // 2. Prepare the UI
         searchView.clearUI();
         searchView.clearInput();
-        // searchView.clearError();
+        searchView.clearError();
         searchView.clearForecast();
         // 3. Render loader
         // renderLoader(elements.resultsContainer);
@@ -66,7 +66,8 @@ const weatherController = async(query) => {
             forecastController(state.weather.results.name, state.unit);
         } catch (err) {
             console.log(err);
-            clearLoader();
+            console.log("search location does not exist");
+            // clearLoader();
             renderErrorMessage();
         }
     }
@@ -119,8 +120,6 @@ const savedController = () => {
 };
 
 const dayOrNightController = () => {
-    console.log("d/n controller called");
-
     // 1. get T/F
     const dayTime = calcTimeOfDay(state.weather.results);
     dayOfNightView.renderDayOrNight(dayTime);
@@ -191,6 +190,14 @@ elements.farenheitBtn.addEventListener("click", (e) => {
                 savedView.renderItem(el);
             });
         }
+    }
+});
+
+elements.errorMessage.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    if (e.target.classList.contains("error__btn")) {
+        clearErrorMessage();
     }
 });
 

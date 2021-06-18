@@ -70,10 +70,22 @@ export const elementStrings = {
 //     isError = true;
 // };
 
+export const renderErrorMessage = () => {
+    console.log("render error called");
+
+    const markup = `
+    <img class="error__img" src="img/icons/error.svg" alt="error image">
+    <h1 class="error__heading"> Oops! We couldn't find your search </h1>
+    <button class='error-button error__btn'> Search Again </button>
+
+    `;
+    document.querySelector(".error").insertAdjacentHTML("afterbegin", markup);
+};
+
 export const clearErrorMessage = () => {
     elements.searchInput.focus();
-    elements.errorMessage.innerHTML = "";
-    console.log("Error Message to be cleared");
+    document.querySelector(".error").innerHTML = "";
+    console.log("Error container cleared");
 };
 
 export const convertUnix = (unixTime, use = "format") => {
