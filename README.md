@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href=""><img src="/dist/img/icons/sun.svg" alt="Weather Forecastr" width="200"></a>
+  <a href="https://kb-weatherapp.netlify.app"><img src="/dist/img/icons/sun.svg" alt="Weather Forecastr" width="200"></a>
   <br>
   Suns Out Buns Out
   <br>
