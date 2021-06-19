@@ -31,8 +31,12 @@ import "../sass/main.scss";
     3. Forecast Weather Object
     4. Saved Location Object
     5. Units / symbol
-
 */
+
+/*
+on c/f change need to update local storage and then read the local storage to update the unit to be selected. 
+*/
+
 const state = {
     unit: "metric", // imperial
     symbol: "C", // F
@@ -160,10 +164,11 @@ elements.savedContainer.addEventListener("click", (e) => {
 elements.celsiusBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
-    if (state.unit === "imperial") {
+    if (state.unit === "imperial" && state.weather === undefined) {
+        state.unit = "metric";
+        state.symbol = "C";
         unitView.celsiusHandler(e, state);
-        weatherController(state.weather.query);
-
+        unitView.updateUnitsLocalStorage(state.unit, state.symbol);
         if (state.saved) {
             state.saved.saved.forEach((el) => {
                 savedView.deleteItem(el.id);
@@ -171,6 +176,10 @@ elements.celsiusBtn.addEventListener("click", (e) => {
                 savedView.renderItem(el);
             });
         }
+    }
+    if (state.unit === "imperial" && state.weather !== undefined) {
+        unitView.celsiusHandler(e, state);
+        weatherController(state.weather.query);
     }
 });
 
@@ -181,12 +190,7 @@ elements.farenheitBtn.addEventListener("click", (e) => {
         state.unit = "imperial";
         state.symbol = "F";
         unitView.farenheitHandler(e, state);
-    }
-
-    if (state.unit === "metric" && state.weather !== undefined) {
-        unitView.farenheitHandler(e, state);
-        weatherController(state.weather.query);
-
+        unitView.updateUnitsLocalStorage(state.unit, state.symbol);
         if (state.saved) {
             state.saved.saved.forEach((el) => {
                 savedView.deleteItem(el.id);
@@ -194,6 +198,11 @@ elements.farenheitBtn.addEventListener("click", (e) => {
                 savedView.renderItem(el);
             });
         }
+    }
+
+    if (state.unit === "metric" && state.weather !== undefined) {
+        unitView.farenheitHandler(e, state);
+        weatherController(state.weather.query);
     }
 });
 
@@ -208,6 +217,14 @@ elements.errorMessage.addEventListener("click", (e) => {
 window.addEventListener("load", () => {
     state.saved = new Saved();
     state.saved.readStorage();
+
+    // READ unit from storage
+    state.unit = unitView.readUnitsStorage();
+    state.symbol = unitView.readSymbolStorage();
+
+    unitView.setActiveState(state.unit, state.symbol);
+
+    // set selected based on state storage
 
     state.saved.saved.forEach((el) => {
         savedView.renderItem(el);
