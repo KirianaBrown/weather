@@ -39,9 +39,16 @@ const state = {
 };
 
 const weatherController = async(query) => {
+    searchView.clearError();
+    searchView.clearUI();
+    searchView.clearForecast();
     if (!query) {
+        if (state.weather) {
+            searchView.clearError();
+            searchView.clearUI();
+            searchView.clearForecast();
+        }
         renderErrorMessage();
-        console.log("Render Error Message");
     } else {
         state.weather = new Weather(query, state.unit);
         // 2. Prepare the UI
@@ -64,8 +71,6 @@ const weatherController = async(query) => {
             dayOrNightController();
             forecastController(state.weather.results.name, state.unit);
         } catch (err) {
-            console.log(err);
-            console.log("search location does not exist");
             clearLoader();
             renderErrorMessage();
         }
@@ -80,8 +85,8 @@ const forecastController = async(location) => {
             forecastView.renderForecast(el, state.symbol)
         );
     } catch (err) {
-        console.log(err);
-        console.log("Error getting forecast");
+        clearLoader();
+        renderErrorMessage();
     }
 };
 
