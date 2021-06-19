@@ -1,27 +1,36 @@
 .error {
     position: absolute;
-    top: 50%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    padding: 2rem;
+    z-index: 3000;
+    transition: all .5s ease;
+    &__img {
+        width: 10rem;
+        height: 10rem;
+        z-index: 8000;
+    }
     &__heading {
-        background-image: linear-gradient(to right bottom, $color-primary, $color-tertiary);
-        -webkit-background-clip: text;
-        color: transparent;
-        font-size: 10rem;
-    }
-    &__title {
-        color: $color-black;
-        text-transform: uppercase;
-    }
-    &__content {
-        color: $color-black;
-        padding: 2rem 0 2rem 0;
+        color: $color-dusk;
+        font-size: 2rem;
     }
     &__btn {
-        background: linear-gradient(to right bottom, $color-primary, $color-tertiary);
         width: 100%;
+        padding: 1rem;
+        border-radius: 15px;
         display: flex;
         justify-content: center;
+        text-align: center;
+        background-color: $color-dusk;
+        border: 2px solid $color-rosy;
+        color: $color-white;
+        cursor: pointer;
+        margin-top: 2rem;
+        &:hover {
+            transform: scale(1.05);
+            background-color: $color-rosy;
+        }
     }
 }

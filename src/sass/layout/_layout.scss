@@ -1,55 +1,66 @@
+body {
+    margin-top: -20rem;
+    padding: 0;
+}
+
 .container {
-    // width: 1180px;
-    width: 90%;
-    min-height: 90%;
-    // height: 88vh;
+    width: 100%;
+    min-height: 99%;
     margin: 0 auto;
-    background-color: rgba($color: $color-light-grey, $alpha: .8);
-    padding: .5rem;
-    border-radius: $border-radius;
-    @include box-shadow-dark;
     display: grid;
-    grid-template-rows: 1fr 3fr 1fr;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.header {
-    max-width: 100%;
-    grid-column: 1/3;
-    grid-row: 1/2;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0rem 2rem;
-    &__info {
+    grid-template-columns: 2.5% 55% 42.5%;
+    &-controls {
         display: flex;
-        align-items: center;
     }
-    &__logo {
-        width: 2rem;
-        height: 2rem;
-        fill: $color-secondary;
-        margin-right: 2rem;
+    &-results {
+        grid-template-rows: repeat(6, 1fr);
+        &-heading {
+            grid-row: 1;
+            height: 5%;
+        }
+        &-date {
+            grid-row: 2;
+            height: 20%;
+        }
+        &-content {
+            grid-row: span 3/ 5;
+            height: 55%;
+        }
+        &-summary {
+            grid-row: span 5/ 7;
+            height: 20%;
+        }
     }
-    &__heading {
-        text-transform: uppercase;
-        font-size: 1.6rem;
-        background-image: linear-gradient(to right bottom, $color-secondary, $color-primary);
-        color: transparent;
-        -webkit-background-clip: text;
-        background-clip: text;
+    &-action {
+        grid-template-rows: repeat(6 1fr);
+        &-search {
+            grid-row: 1;
+            height: 10%;
+        }
+        &-favourites {
+            grid-row: span 2/5;
+            height: 42.5%;
+        }
+        &-forecast {
+            grid-row: span 5/7;
+            height: 42.5%
+        }
+        &-footer {
+            height: 5%;
+            grid-row: 7;
+            &--link {
+                color: $color-dusk;
+            }
+        }
     }
 }
 
-.units {
-    display: flex;
-    align-items: center;
-    &__span {
-        color: grey;
-    }
+.heading {
+    font-size: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: $heading-font;
+    font-weight: 800;
 }
 
 footer {
@@ -61,4 +72,12 @@ footer {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+}
+
+.responsive-search-heading {
+    display: none;
+}
+
+.forecast-responsive {
+    display: none;
 }

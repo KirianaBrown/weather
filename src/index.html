@@ -4,152 +4,54 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Weather App</title>
-    <meta name="description" content="Simple Weather App">
+    <title>Suns Out, Buns Out!</title>
+    <meta name="description" content="Find out what the weather is like in your city or anyone in the world for that matter! Is it Suns out, Buns out or is the rain on it's way.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="../img/favicon.png" type="favicon.png" />
-    <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon" />
+    <link rel="icon" href="../img/icons/rain.svg" type="favicon.png" />
+    <link rel="shortcut icon" href="../img/icons/rain.svg" type="image/x-icon" />
 </head>
 
-<body>
+<body id="body" class="day">
+    <img src="img/icons/snow.svg" alt="weather icon" class="weather-icon"></img>
     <div class="container">
-        <header class="header">
-            <div class="header__info">
-                <svg class="header__logo">
-                        <use href="img/icons.svg#icon-cloud"></use>
-                    </svg>
-                <h1 class="header__heading">Weather Forecastr</h1>
-            </div>
-            <form class="search">
-                <input type="text" autofocus class="search__field" placeholder="Search weather in your local area ....">
-                <button class="btn search__btn">
-                    <svg class="search__icon">
-                        <use href="img/icons.svg#icon-magnifying-glass"></use>
-                    </svg>
-                    <span>Search</span>
-                </button>
-            </form>
-            <div class="units">
-                <button class="btn-units celsius selected">
-                    C
-                </button>
-                <span class='units__span'> / </span>
-                <button class="btn-units farenheit">
-                    F
-                </button>
-            </div>
+        <div class="container-controls">
+            <button class=" container-controls--btn container-controls__farenheit">Farenheit</button>
+            <button class="container-controls--btn container-controls__celsius container-controls-selected">Celsius</button>
+        </div>
+        <div class="error"></div>
+        <div class="container-results">
+            <h1 class="container-results-heading">Weather
+            </h1>
 
-        </header>
-
-        <div class="results">
-            <h1 class="test-heading">Environment</h1>
-
-            <div class="error">
-                <!-- <h1 class="error__heading">Oops!</h1>
-                <h3 class="error__title">Location not found</h3>
-                <p class="error__content">We had trouble finding the location you entered please try again</p>
-                <button class="btn error__btn">
-                    Search Again
-                </button> -->
-            </div>
-            <div class="results__container">
-
-                <!-- <div class="results__location heading-tertiary">London <sup class='country'> GB} </sup>
-                </div>
-
-                <button class="results__love">
-                    <svg class="results__likes">
-                        <use href="img/icons.svg#icon-heart-outlined"></use>
-                    </svg>
-                </button>
-
-                <div class="details">
-                    <div class="details__temperature">
-                        10 <span class='details__temperature-metric'> &#0176;C </span>
-                    </div>
-
-                    <div class="details__description">
-                        <img class="details__fig" src="./img/weather/04n.svg" alt="Weather Icon" />
-                        <br>
-                        <p class="details__description-secondary">Cloudy</p>
-                        <p class="details__description-secondary">H:11&#0176;C L:8&#0176;C
-                        </p>
-                    </div>
-                </div>
-
-                <div class="info">
-                    <ul class="info__list">
-                        <li class="info__list-item">
-                            Sunrise: 8am
-                        </li>
-                        <li class="info__list-item">
-                            Sunset: 8pm
-                        </li>
-                        <li class="info__list-item">
-                            Chance of Rain: 20%
-                        </li>
-                    </ul>
-                    <ul class="info__list">
-                        <li class="info__list-item">
-                            Humidity: 10
-                        </li>
-                        <li class="info__list-item">
-                            Wind: 10
-                        </li>
-                        <li class="info__list-item">
-                            Pressure: 10
-                        </li>
-                    </ul>
-                </div> -->
-            </div>
-
-            <div class="saved">
-                <h2 class="heading-secondary">Saved Locations</h2>
-                <ul class="saved__list">
-                    <!-- 
-                    <li class="saved__item">
-                        <a href="123" class="saved__link">
-                            <figure class="saved__fig">
-                                <img src="img/weather/02d.svg" alt="Test Image">
-                            </figure>
-                            <p class="saved__location">Auckland</p>
-                            <p class="saved__temp">28</p>
-                            <button class="saved__delete btn-tiny">
-                                <svg>
-                                    <use href="img/icons.svg#icon-circle-with-cross"></use>
-                                </svg>
-                            </button>
-                        </a>
-                    </li> -->
-                </ul>
-            </div>
-
-            <div class="forecast">
-                <ul class="forecast__list">
-                    <!--  <li class="forecast__item">
-                        <a href="123" class="forecast__link">
-                            <figure class="forecast__fig">
-                                <img src="img/weather/02d.svg" alt="Test Image">
-                            </figure>
-                            <div class="forecast__data">
-                                <h4 class="forecast__date">Tues</h4>
-                                <p class="forecast__temp">26</p>
-                            </div>
-                        </a>
-                    </li> -->
-                </ul>
-            </div>
+        </div>
+        <div class="forecast-responsive">
         </div>
 
-        <footer>
-            <a href="https://openweathermap.org/api" class="footer--content">Powered By: https://openweathermap.org/api</a>
-        </footer>
+        <div class="container-action">
+            <h1 class="responsive-search-heading">New Search</h1>
+            <div class="container-action-search">
+                <form class="container-action-search--form">
+                    <button type="submit" class="container-action-search-btn">
+                        <svg class="search__icon container-action-search-icon">
+                            <use href="img/icons.svg#icon-magnifying-glass"></use>
+                        </svg>
+                    </button>
+                    <input type="text" class="container-action-search--input" placeholder="location" />
+                </form>
+            </div>
+            <div class="container-action-favourites">
+                <h2 class="container-action-favourites-heading">Fav Cities</h2>
+                <ul class="container-action-favourites-list">
+
+                </ul>
+            </div>
+            <div class="container-action-forecast">
+
+            </div>
+            <footer class="container-action-footer"><a href="https://openweathermap.org/api" class="container-action-footer--link">Powered By: openweathermap</a></footer>
+        </div>
     </div>
-
-
     <script src="dist/bundle.js"></script>
 </body>
 

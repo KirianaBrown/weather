@@ -1,9 +1,11 @@
 @import './base/variables';
 @import './base/base';
-@import './components/button';
 @import './layout/layout';
-@import './layout/results';
-@import './layout/saved';
+@import './components/dayornight';
 @import './components/loader';
 @import './components/error';
-@import './components/search';
+@import './components/weatherIcon';
+@import './layout/container_controls';
+@import './layout/container_results';
+@import './layout/container_action';
+@import './components/media';

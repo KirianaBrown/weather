@@ -7,12 +7,8 @@
 body {
     width: 100vw;
     height: 100vh;
-    background-image: url('https://images.unsplash.com/photo-1428908728789-d2de25dbd4e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2180&q=80');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center bottom;
-    // color: #f5f9f9;
-    color: $color-white;
+    background-color: $color-peach;
+    color: $color-rosy;
     padding: 1rem;
     letter-spacing: .11rem;
     line-height: 1.7;
@@ -30,35 +26,12 @@ li {
 
 a {
     text-decoration: none;
-    color: $color-white;
 }
 
-.heading-primary {
-    color: $color-primary;
-    padding: 0rem 1rem 1rem 0;
-    text-transform: uppercase;
-    font-size: 2.2rem;
+input:focus {
+    outline: none;
 }
 
-.heading-secondary {
-    text-align: center;
-    color: $color-primary;
-    padding: 0rem 1rem 1rem 0;
-    text-transform: uppercase;
-}
-
-.heading-tertiary {
-    color: $color-secondary;
-    // color: $color-black;
-    padding: 0rem 1rem 1rem 0;
-    // text-transform: uppercase;
-    font-size: 2.8rem;
-}
-
-.country {
-    // background-color: $color-secondary;
-    color: $color-primary;
-    padding: .5rem 1rem .5rem 1rem;
-    border-radius: .6rem;
-    font-size: 1rem;
+button:focus {
+    outline: none;
 }

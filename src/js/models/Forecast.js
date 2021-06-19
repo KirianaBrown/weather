@@ -7,7 +7,6 @@ export default class Forecast {
     }
 
     async getForecast() {
-        console.log("Get ForeCast Called");
         const API_KEY = `${process.env.API_KEY}`;
         const res = await axios(
             `http://api.openweathermap.org/data/2.5/forecast?q=${this.query}&appid=${API_KEY}&units=${this.unit}`
@@ -15,11 +14,12 @@ export default class Forecast {
         this.forecast = res.data;
         // 6am 9am 12pm 3pm 6pm 9pm 12pm 3am 6am
         this.forecastArr = [
+            this.forecast.list[1],
             this.forecast.list[8],
             this.forecast.list[16],
             this.forecast.list[24],
-            this.forecast.list[32],
-            this.forecast.list[39],
+            // this.forecast.list[32],
+            // this.forecast.list[39],
         ];
 
         this.forecastWeather = this.forecastArr.map((el) => ({
