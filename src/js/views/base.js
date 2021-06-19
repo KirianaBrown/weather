@@ -1,7 +1,4 @@
 export const elements = {
-    // errorBtn: document.querySelector('.error__btn'),
-    // errorMessage: document.querySelector('.error'),
-
     // 1. Search Form
     searchForm: document.querySelector(".container-action-search--form"),
     searchInput: document.querySelector(".container-action-search--input"),
@@ -51,43 +48,6 @@ export const clearLoader = () => {
     }
 };
 
-// export const renderLoader = (parentEl) => {
-//     const loader = `
-//     <div class = "${elementStrings.loader}" >
-//         <svg>
-//             <use href="img/icons.svg#icon-cw"></use>
-//         </svg>
-//     </div>
-//     `;
-//     parentEl.insertAdjacentHTML("afterbegin", loader);
-// };
-
-// export const clearLoader = () => {
-//     const loader = document.querySelector(".loader");
-
-//     if (loader) {
-//         loader.parentElement.removeChild(loader);
-//     }
-// };
-
-// export const renderErrorMessage = () => {
-//     const parentEl = elements.errorMessage;
-//     const markUp = `
-//         <div class="${elementStrings.error}">
-//             <h1 class="error__heading">Oops!</h1>
-//             <h3 class="error__title">Location not found</h3>
-//             <p class="error__content">We had trouble finding the location you entered please try again</p>
-//             <button class="btn error__btn">
-//                 Search Again
-//             </button>
-//         </div>
-//   `;
-
-//     parentEl.insertAdjacentHTML("afterbegin", markUp);
-
-//     isError = true;
-// };
-
 export const renderErrorMessage = () => {
     console.log("render error called");
 
@@ -106,6 +66,23 @@ export const clearErrorMessage = () => {
     console.log("Error container cleared");
 };
 
+const days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+
+const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+];
+
 export const convertUnix = (unixTime, use = "format") => {
     const date = new Date(unixTime * 1000);
     const hours = date.getHours();
@@ -114,31 +91,6 @@ export const convertUnix = (unixTime, use = "format") => {
     const day = date.getDay();
     const d = date.getDate();
     const month = date.getMonth();
-
-    const days = [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-    ];
-
-    const months = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
-    ];
 
     let timeUnit = hours >= 12 ? "PM" : "AM";
 
@@ -170,23 +122,6 @@ export const setDate = (timezone, use = "format") => {
         let newMin = minutes.toString();
         minutes = `0${minutes}`;
     }
-
-    const days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
-
-    const months = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
-    ];
 
     let timeUnit = hours >= 12 ? "PM" : "AM";
 

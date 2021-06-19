@@ -14,7 +14,6 @@ const formatDateTime = (dt) => {
     const unixTimeStamp = dt;
     const milliseconds = unixTimeStamp * 1000;
     const newDateVar = new Date(milliseconds);
-    // const humanStringForm = newDateVar.toLocaleDateString();
     const humanStringForm = newDateVar.toLocaleString("en-US", {
         weekday: "short",
         // month: 'long',

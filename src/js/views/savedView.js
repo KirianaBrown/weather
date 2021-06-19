@@ -1,10 +1,6 @@
 import { elements } from "./base";
 
 export const toggleSavedButton = (isLiked) => {
-    // const iconString = isLiked ? 'icon-bookmark' : 'icon-bookmark-outlined';
-
-    // document.querySelector('.results__love use').setAttribute('href', `img/icons.svg#${iconString}`);
-
     if (isLiked) {
         const favButton = document.querySelector("#favBtn");
         favButton.classList.add("container-results-date__favourite--btn--selected");

@@ -1,0 +1,22 @@
+.day {
+    background-color: $color-peach;
+}
+
+.night {
+    background-color: $color-blue;
+    color: $color-light-blue;
+}
+
+.night input {
+    background-color: $color-light-blue;
+}
+
+.night .container-results-content--temperature {
+    color: $color-light-blue;
+    text-shadow: 5px 5px 5px rgba($color-light-blue, .6);
+}
+
+.night .container-results-content--description {
+    color: $color-light-blue;
+    text-shadow: 5px 5px 5px rgba($color-light-blue, .6);
+}
