@@ -4,6 +4,7 @@ import Weather from "./models/Weather";
 import Saved from "./models/Saved";
 import Current from "./models/Current";
 import Forecast from "./models/Forecast";
+import { calcTimeOfDay } from "./models/DayOfNight";
 
 // VIEW IMPORTS
 import {
@@ -18,6 +19,7 @@ import * as weatherView from "./views/weatherView";
 import * as savedView from "./views/savedView";
 import * as forecastView from "./views/forecastView";
 import * as unitView from "./views/unitView";
+import * as dayOfNightView from "./views/dayOrNightView";
 
 // IMPORT STYLESHEETS
 import "../sass/main.scss";
@@ -36,16 +38,16 @@ const state = {
     symbol: "C", // F
 };
 
-const test = () => {
-    let node = document.querySelector(".test-heading");
-    let textContent = node.textContent;
-    node.innerHTML = process.env.MY_ENV;
-};
-
-test();
-
 const weatherController = async(query) => {
+    searchView.clearError();
+    searchView.clearUI();
+    searchView.clearForecast();
     if (!query) {
+        if (state.weather) {
+            searchView.clearError();
+            searchView.clearUI();
+            searchView.clearForecast();
+        }
         renderErrorMessage();
     } else {
         state.weather = new Weather(query, state.unit);
@@ -55,7 +57,7 @@ const weatherController = async(query) => {
         searchView.clearError();
         searchView.clearForecast();
         // 3. Render loader
-        renderLoader(elements.resultsContainer);
+        renderLoader();
         // 3. Call the getResults method
         try {
             await state.weather.getWeather();
@@ -65,9 +67,10 @@ const weatherController = async(query) => {
                 state.symbol,
                 state.saved.isSaved(state.weather.id)
             );
+            weatherView.renderImage(state.weather.results);
+            dayOrNightController();
             forecastController(state.weather.results.name, state.unit);
         } catch (err) {
-            console.log(err);
             clearLoader();
             renderErrorMessage();
         }
@@ -82,8 +85,8 @@ const forecastController = async(location) => {
             forecastView.renderForecast(el, state.symbol)
         );
     } catch (err) {
-        console.log(err);
-        console.log("Error getting forecast");
+        clearLoader();
+        renderErrorMessage();
     }
 };
 
@@ -107,8 +110,7 @@ const savedController = () => {
         const newSavedItem = state.saved.addSaved(
             currentId,
             state.weather.results.name,
-            state.weather.results.main.temp,
-            state.weather.results.weather[0].icon
+            state.weather.results.main.temp
         );
         // 2. Toggle saved button
         savedView.toggleSavedButton(true);
@@ -121,12 +123,38 @@ const savedController = () => {
     }
 };
 
-// Event Listeners
+const dayOrNightController = () => {
+    // 1. get T/F
+    const dayTime = calcTimeOfDay(state.weather.results);
+    dayOfNightView.renderDayOrNight(dayTime);
+};
 
+// Event Listeners
 elements.searchForm.addEventListener("submit", (e) => {
     e.preventDefault();
     let query = searchView.getInput();
     weatherController(query);
+});
+
+// Handling non-rendered events (FAV & CLEAR ERROR)
+elements.weatherDetails.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (
+        e.target.matches(".container-results-date__favourite--btn") ||
+        e.target.matches(".container-results-date__favourite--btn--selected")
+    ) {
+        savedController();
+    }
+});
+
+elements.savedContainer.addEventListener("click", (e) => {
+    if (e.target.closest(".saved__item")) {
+        const location = e.target.dataset.itemlocation;
+
+        if (location) {
+            weatherController(location);
+        }
+    }
 });
 
 elements.celsiusBtn.addEventListener("click", (e) => {
@@ -149,7 +177,13 @@ elements.celsiusBtn.addEventListener("click", (e) => {
 elements.farenheitBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
-    if (state.unit === "metric") {
+    if (state.unit === "metric" && state.weather === undefined) {
+        state.unit = "imperial";
+        state.symbol = "F";
+        unitView.farenheitHandler(e, state);
+    }
+
+    if (state.unit === "metric" && state.weather !== undefined) {
         unitView.farenheitHandler(e, state);
         weatherController(state.weather.query);
 
@@ -163,23 +197,11 @@ elements.farenheitBtn.addEventListener("click", (e) => {
     }
 });
 
-// Handling non-render details events.
-elements.resultsContainer.addEventListener("click", (e) => {
+elements.errorMessage.addEventListener("click", (e) => {
     e.preventDefault();
-    if (e.target.matches(".error__btn, .error__btn *")) {
-        clearErrorMessage();
-    } else if (e.target.matches(".results__love, .results__love *")) {
-        savedController();
-    }
-});
 
-elements.savedContainer.addEventListener("click", (e) => {
-    if (e.target.closest(".saved__item, .saved__item *")) {
-        const parentEl = e.target.parentNode;
-        const location = parentEl.dataset.itemlocation;
-        if (location) {
-            weatherController(location);
-        }
+    if (e.target.classList.contains("error__btn")) {
+        clearErrorMessage();
     }
 });
 

@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 export default class Weather {
     constructor(query, unit) {
@@ -8,11 +8,10 @@ export default class Weather {
 
     async getWeather() {
         const API_KEY = `${process.env.API_KEY}`;
-        const res = await axios(`${process.env.API_URL}?q=${this.query}&units=${this.unit}&appid=${API_KEY}`);
+        const res = await axios(
+            `${process.env.API_URL}?q=${this.query}&units=${this.unit}&appid=${API_KEY}`
+        );
         this.results = res.data;
         this.id = this.results.id;
-
-        console.log(this.results)
     }
-
 }

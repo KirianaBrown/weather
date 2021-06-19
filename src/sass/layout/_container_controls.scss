@@ -1,0 +1,35 @@
+.container-controls {
+    &--btn {
+        position: fixed;
+        width: 100px;
+        height: 50px;
+        left: 2%;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-family: $heading-font;
+        font-weight: 700;
+        color: $color-rosy;
+        padding: 1%;
+        transform-origin: 0% 50%;
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        transform: rotate(-90deg) translateX(50%);
+        &:hover {
+            color: $color-dusk;
+        }
+    }
+    &-selected {
+        color: $color-dusk;
+        font-weight: 700;
+    }
+    &__celsius {
+        top: 45%;
+    }
+    &__farenheit {
+        top: 65%;
+    }
+}
