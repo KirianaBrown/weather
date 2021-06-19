@@ -36,7 +36,6 @@ import "../sass/main.scss";
 const state = {
     unit: "metric", // imperial
     symbol: "C", // F
-    isDay: true,
 };
 
 const weatherController = async(query) => {
@@ -51,11 +50,11 @@ const weatherController = async(query) => {
         searchView.clearError();
         searchView.clearForecast();
         // 3. Render loader
-        // renderLoader(elements.resultsContainer);
+        renderLoader();
         // 3. Call the getResults method
         try {
             await state.weather.getWeather();
-            // clearLoader();
+            clearLoader();
             weatherView.renderWeather(
                 state.weather.results,
                 state.symbol,
@@ -67,7 +66,7 @@ const weatherController = async(query) => {
         } catch (err) {
             console.log(err);
             console.log("search location does not exist");
-            // clearLoader();
+            clearLoader();
             renderErrorMessage();
         }
     }

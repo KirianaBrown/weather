@@ -20,9 +20,7 @@ export const elements = {
     // 5. Forecast List
     forecastList: document.querySelector(".container-action-forecast"),
 
-    // Not done yet.
-    // resultsContainer: document.querySelector(".results"),
-    errorBtn: document.querySelector(".error__btn"),
+    // 6. Error
     errorMessage: document.querySelector(".error"),
 };
 
@@ -31,6 +29,26 @@ let isError = false;
 export const elementStrings = {
     error: "error",
     loader: "loader",
+};
+
+export const renderLoader = () => {
+    const loader = `
+    <div class='loader'>
+    <svg>
+             <use href="img/icons.svg#icon-cw"></use>
+         </svg>
+    </div>
+    `;
+
+    elements.weatherDetails.insertAdjacentHTML("afterbegin", loader);
+};
+
+export const clearLoader = () => {
+    const loader = document.querySelector(".loader");
+
+    if (loader) {
+        loader.parentElement.removeChild(loader);
+    }
 };
 
 // export const renderLoader = (parentEl) => {
