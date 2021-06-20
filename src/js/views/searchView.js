@@ -10,14 +10,18 @@ export const clearForecast = () => (elements.forecastList.innerHTML = "");
 
 export const clearUI = () => {
     const cntnt = elements.weatherDetails;
+    console.log("clear the UI");
 
-    if (cntnt.childNodes.length === 6) {
-        // Default setting
-        return;
-    }
+    if (process.env.MY_ENV === "development") {
+        console.log("development");
+        if (cntnt.childNodes.length === 5) {
+            // Default setting
+            return;
+        }
 
-    while (cntnt.childNodes.length > 6) {
-        // Remove all but the main containers
-        cntnt.removeChild(cntnt.lastChild);
+        while (cntnt.childNodes.length > 5) {
+            // Remove all but the main containers
+            cntnt.removeChild(cntnt.lastChild);
+        }
     }
 };
