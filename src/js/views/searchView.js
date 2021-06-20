@@ -11,12 +11,12 @@ export const clearForecast = () => (elements.forecastList.innerHTML = "");
 export const clearUI = () => {
     const cntnt = elements.weatherDetails;
 
-    if (cntnt.childNodes.length === 5) {
+    if (cntnt.childNodes.length === 6) {
         // Default setting
         return;
     }
 
-    while (cntnt.childNodes.length > 5) {
+    while (cntnt.childNodes.length > 6) {
         // Remove all but the main containers
         cntnt.removeChild(cntnt.lastChild);
     }
