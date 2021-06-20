@@ -24,11 +24,11 @@ export const clearUI = () => {
         }
     } else {
         const container = document.querySelector(".container-results");
-        if (container) {
-            console.log(container);
-            console.log(container.childNodes.length);
-        } else {
-            console.log("no container");
+        if (container.childNodes === 1) {
+            return;
+        }
+        while (container.childNodes.length > 1) {
+            container.removeChild(container.lastChild);
         }
     }
 };
