@@ -180,8 +180,9 @@ elements.celsiusBtn.addEventListener("click", (e) => {
         }
     }
     if (state.unit === "imperial" && state.weather !== undefined) {
-        weatherController(state.weather.query);
         unitView.celsiusHandler(e, state);
+        weatherController(state.weather.query);
+        console.log("change to celsius with my state");
         if (state.saved) {
             state.saved.saved.forEach((el) => {
                 savedView.deleteItem(el.id);

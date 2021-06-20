@@ -36,7 +36,11 @@ export const celsiusHandler = (e, state) => {
     elements.farenheitBtn.classList.remove("container-controls-selected");
 
     if (state.unit === "imperial") {
+        console.log("imperial units");
+        console.log(state.weather);
+        console.log(state.weather[0]);
         state.temperature = convertToCelsius(state.weather.results.main.temp);
+
         state.unit = "metric";
         state.symbol = "C";
         updateUnitsLocalStorage(state.unit, state.symbol);
