@@ -27,7 +27,7 @@ export const clearUI = () => {
         if (container.childNodes === 1) {
             return;
         }
-        while (container.childNodes.length > 2) {
+        while (container.childNodes.length > 3) {
             container.removeChild(container.lastChild);
             console.log(container.childNodes);
         }
