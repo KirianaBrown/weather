@@ -90,7 +90,6 @@ const forecastController = async(location) => {
         );
     } catch (err) {
         clearLoader();
-        console.log("error with forecasting");
         // renderErrorMessage();
     }
 };
@@ -102,7 +101,8 @@ const currentController = async(lat, lon) => {
             await state.current.getCurrentLocation();
             weatherController(state.current.location);
         } catch (err) {
-            console.log(`Error with current ${err}`);
+            searchView.clearUI();
+            renderErrorMessage();
         }
     }
 };
@@ -182,7 +182,6 @@ elements.celsiusBtn.addEventListener("click", (e) => {
     if (state.unit === "imperial" && state.weather !== undefined) {
         unitView.celsiusHandler(e, state);
         weatherController(state.weather.query);
-        console.log("change to celsius with my state");
         if (state.saved) {
             state.saved.saved.forEach((el) => {
                 savedView.deleteItem(el.id);
