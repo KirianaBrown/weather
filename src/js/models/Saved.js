@@ -1,6 +1,6 @@
 export default class Saved {
     constructor() {
-        this.saved = []
+        this.saved = [];
     }
 
     addSaved(id, location, temp, img) {
@@ -8,8 +8,8 @@ export default class Saved {
             id,
             location,
             temp,
-            img
-        }
+            img,
+        };
 
         this.saved.push(savedItem);
 
@@ -20,7 +20,7 @@ export default class Saved {
     }
 
     deleteSaved(id) {
-        const index = this.saved.findIndex(el => el.id === id)
+        const index = this.saved.findIndex((el) => el.id === id);
         this.saved.splice(index, 1);
 
         // update local storage
@@ -29,15 +29,23 @@ export default class Saved {
 
     isSaved(id) {
         // Return True or False
-        return this.saved.findIndex(el => el.id === id) !== -1;
+        return this.saved.findIndex((el) => el.id === id) !== -1;
+    }
+
+    updateSaved(id) {
+        // Find element by id
+        const element = this.saved.find((el) => el.id === id);
+
+        // update local storage
+        this.updateLocalStorage();
     }
 
     updateLocalStorage() {
-        localStorage.setItem('saved', JSON.stringify(this.saved))
+        localStorage.setItem("saved", JSON.stringify(this.saved));
     }
 
     readStorage() {
-        const storage = JSON.parse(localStorage.getItem('saved'))
+        const storage = JSON.parse(localStorage.getItem("saved"));
 
         if (storage) {
             this.saved = storage;

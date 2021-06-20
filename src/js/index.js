@@ -167,19 +167,19 @@ elements.celsiusBtn.addEventListener("click", (e) => {
     if (state.unit === "imperial" && state.weather === undefined) {
         state.unit = "metric";
         state.symbol = "C";
-        unitView.celsiusHandler(e, state);
         unitView.updateUnitsLocalStorage(state.unit, state.symbol);
-        if (state.saved) {
-            state.saved.saved.forEach((el) => {
-                savedView.deleteItem(el.id);
-                el.temp = unitView.convertToCelsius(el.temp);
-                savedView.renderItem(el);
-            });
-        }
     }
     if (state.unit === "imperial" && state.weather !== undefined) {
-        unitView.celsiusHandler(e, state);
         weatherController(state.weather.query);
+    }
+    unitView.celsiusHandler(e, state);
+    if (state.saved) {
+        state.saved.saved.forEach((el) => {
+            savedView.deleteItem(el.id);
+            el.temp = unitView.convertToCelsius(el.temp);
+            state.saved.updateSaved(el.id);
+            savedView.renderItem(el);
+        });
     }
 });
 
@@ -189,20 +189,20 @@ elements.farenheitBtn.addEventListener("click", (e) => {
     if (state.unit === "metric" && state.weather === undefined) {
         state.unit = "imperial";
         state.symbol = "F";
-        unitView.farenheitHandler(e, state);
         unitView.updateUnitsLocalStorage(state.unit, state.symbol);
-        if (state.saved) {
-            state.saved.saved.forEach((el) => {
-                savedView.deleteItem(el.id);
-                el.temp = unitView.convertToFarenheit(el.temp);
-                savedView.renderItem(el);
-            });
-        }
     }
 
     if (state.unit === "metric" && state.weather !== undefined) {
-        unitView.farenheitHandler(e, state);
         weatherController(state.weather.query);
+    }
+    unitView.farenheitHandler(e, state);
+    if (state.saved) {
+        state.saved.saved.forEach((el) => {
+            savedView.deleteItem(el.id);
+            el.temp = unitView.convertToFarenheit(el.temp);
+            state.saved.updateSaved(el.id);
+            savedView.renderItem(el);
+        });
     }
 });
 
