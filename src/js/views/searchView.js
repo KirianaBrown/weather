@@ -29,6 +29,7 @@ export const clearUI = () => {
         }
         while (container.childNodes.length > 2) {
             container.removeChild(container.lastChild);
+            console.log(container.childNodes);
         }
     }
 };
