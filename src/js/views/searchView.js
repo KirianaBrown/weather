@@ -23,5 +23,8 @@ export const clearUI = () => {
             // Remove all but the main containers
             cntnt.removeChild(cntnt.lastChild);
         }
+    } else {
+        console.log(cntn);
+        console.log(cntn.childNodes.length);
     }
 };
