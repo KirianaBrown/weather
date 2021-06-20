@@ -170,9 +170,11 @@ elements.celsiusBtn.addEventListener("click", (e) => {
         unitView.celsiusHandler(e, state);
         unitView.updateUnitsLocalStorage(state.unit, state.symbol);
         if (state.saved) {
+            console.log("render from storage");
             state.saved.saved.forEach((el) => {
                 savedView.deleteItem(el.id);
                 el.temp = unitView.convertToCelsius(el.temp);
+                state.saved.updateSaved(el.id);
                 savedView.renderItem(el);
             });
         }
@@ -184,6 +186,7 @@ elements.celsiusBtn.addEventListener("click", (e) => {
             state.saved.saved.forEach((el) => {
                 savedView.deleteItem(el.id);
                 el.temp = unitView.convertToCelsius(el.temp);
+                state.saved.updateSaved(el.id);
                 savedView.renderItem(el);
             });
         }
@@ -202,6 +205,7 @@ elements.farenheitBtn.addEventListener("click", (e) => {
             state.saved.saved.forEach((el) => {
                 savedView.deleteItem(el.id);
                 el.temp = unitView.convertToFarenheit(el.temp);
+                state.saved.updateSaved(el.id);
                 savedView.renderItem(el);
             });
         }
@@ -214,6 +218,7 @@ elements.farenheitBtn.addEventListener("click", (e) => {
             state.saved.saved.forEach((el) => {
                 savedView.deleteItem(el.id);
                 el.temp = unitView.convertToFarenheit(el.temp);
+                state.saved.updateSaved(el.id);
                 savedView.renderItem(el);
             });
         }
@@ -232,9 +237,13 @@ window.addEventListener("load", () => {
     state.saved = new Saved();
     state.saved.readStorage();
 
+    console.log(state.saved.saved);
+
     // READ unit from storage
     state.unit = unitView.readUnitsStorage();
     state.symbol = unitView.readSymbolStorage();
+
+    console.log(`unit: ${state.unit} symbol: ${state.symbol}`);
 
     unitView.setActiveState(state.unit, state.symbol);
 
