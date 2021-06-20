@@ -90,6 +90,7 @@ const forecastController = async(location) => {
         );
     } catch (err) {
         clearLoader();
+        console.log("error with forecasting");
         renderErrorMessage();
     }
 };

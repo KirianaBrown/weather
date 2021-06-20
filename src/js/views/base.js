@@ -49,8 +49,6 @@ export const clearLoader = () => {
 };
 
 export const renderErrorMessage = () => {
-    console.log("render error called");
-
     const markup = `
     <img class="error__img" src="img/icons/error.svg" alt="error image">
     <h1 class="error__heading"> Oops! We couldn't find your search </h1>
