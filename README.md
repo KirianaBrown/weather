@@ -1,12 +1,12 @@
 <h1 align="center">
   <br>
-  <a href="https://kb-weatherapp.netlify.app"><img src="/dist/img/icons/sun.svg" alt="Weather Forecastr" width="200"></a>
+  <a href="https://kb-weatherapp.netlify.app" target="__blank"><img src="/dist/img/icons/sun.svg" alt="Weather Forecastr" width="200"></a>
   <br>
-  Suns Out Buns Out
+  <a href="https://kb-weatherapp.netlify.app" target="__blank">Suns Out Buns Out</a>
   <br>
 </h1>
 
-# 🌤 Weather App powered by [Openweathermap](https://openweathermap.org/api).
+###### 🌤 Suns Out Buns Out - Weather App powered by [Openweathermap](https://openweathermap.org/api).
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/031ef24b-d318-4211-9e18-629ff9cbf9f8/deploy-status)](https://app.netlify.com/sites/kb-weatherapp/deploys)
 
