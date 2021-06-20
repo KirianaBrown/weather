@@ -180,6 +180,13 @@ elements.celsiusBtn.addEventListener("click", (e) => {
     if (state.unit === "imperial" && state.weather !== undefined) {
         unitView.celsiusHandler(e, state);
         weatherController(state.weather.query);
+        if (state.saved) {
+            state.saved.saved.forEach((el) => {
+                savedView.deleteItem(el.id);
+                el.temp = unitView.convertToCelsius(el.temp);
+                savedView.renderItem(el);
+            });
+        }
     }
 });
 
@@ -203,6 +210,13 @@ elements.farenheitBtn.addEventListener("click", (e) => {
     if (state.unit === "metric" && state.weather !== undefined) {
         unitView.farenheitHandler(e, state);
         weatherController(state.weather.query);
+        if (state.saved) {
+            state.saved.saved.forEach((el) => {
+                savedView.deleteItem(el.id);
+                el.temp = unitView.convertToFarenheit(el.temp);
+                savedView.renderItem(el);
+            });
+        }
     }
 });
 
