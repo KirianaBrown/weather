@@ -3,6 +3,8 @@
 *.sass.map
 *.scss.map
 
+node_modules
+
 
 # OS generated files #
 ######################
