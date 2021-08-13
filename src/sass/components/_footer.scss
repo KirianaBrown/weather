@@ -1,0 +1,11 @@
+.footer {
+    background-color: white;
+    height: 4rem;
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    &--link {
+        color: inherit;
+    }
+}

@@ -1,0 +1,22 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    &-heading {
+        text-transform: uppercase;
+        font-family: $heading-font;
+        font-size: 1.5rem;
+        font-weight: 800;
+        text-align: end;
+        padding-right: 2rem;
+        align-self: center;
+        margin-left: 20rem;
+    }
+    &-form {
+        align-self: flex-end;
+        width: 35%;
+        display: flex;
+        height: 100%;
+    }
+}
