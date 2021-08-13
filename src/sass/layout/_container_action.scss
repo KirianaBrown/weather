@@ -2,12 +2,6 @@
     &-search {
         display: flex;
         justify-content: flex-end;
-        &--form {
-            width: 35%;
-            display: flex;
-            height: 100%;
-            // background-color: #fff;
-        }
         &-btn {
             background-color: $color-dusk;
             opacity: .7;

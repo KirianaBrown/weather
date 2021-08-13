@@ -1,12 +1,12 @@
 .weather-icon {
+    opacity: .5;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    z-index: 2000;
     height: 20rem;
     width: 20rem;
-    opacity: .5;
-    position: relative;
-    top: 50%;
-    left: 50%;
-    translate: (-50%, -50%);
-    z-index: 2000;
     animation-name: bobbingAnim;
     animation-duration: 4s;
     animation-iteration-count: infinite;

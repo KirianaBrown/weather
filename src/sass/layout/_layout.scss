@@ -1,11 +1,12 @@
 body {
     // margin-top: -20rem;
     padding: 0;
+    position: relative;
 }
 
 .container {
     width: 100%;
-    min-height: 99%;
+    height: 100%;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 2.5% 55% 42.5%;

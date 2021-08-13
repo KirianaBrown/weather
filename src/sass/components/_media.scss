@@ -8,19 +8,8 @@
     body {
         color: green;
     }
-    .mx {
-        width: 100%;
+    .header {
         display: block;
-        height: auto;
-        background: coral;
-        &-1 {
-            width: 100%;
-            background-color: yellow;
-        }
-        &-2 {
-            width: 100%;
-            background-color: cornflowerblue;
-        }
     }
 }
 
