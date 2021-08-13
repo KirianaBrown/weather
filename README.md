@@ -33,7 +33,7 @@ Get an up to date weather report for your location or one of your previously sea
 
 ## 🥎 Summary
 
-<img align='center' src="/dist/img/readMe.png" alt="Weather Forecastr">
+<img align='center' src="/dist/img/readme1.png" alt="Weather Forecastr">
 
 This project was structured using the MVC model enabled with the help of ES6 modules. The models (search, forecast, weather) are seperated out from the views rendered and this is all controlled by the central index.js file.
 
