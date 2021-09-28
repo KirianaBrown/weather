@@ -37,6 +37,7 @@
         "axios": "^0.21.1",
         "core-js": "^3.6.5",
         "dotenv-webpack": "^5.1.0",
+        "nth-check": "^2.0.1",
         "path-parse": "^1.0.7",
         "regenerator-runtime": "^0.13.7",
         "set-value": "^4.0.1",
