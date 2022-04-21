@@ -4,6 +4,8 @@
 *.scss.map
 
 node_modules
+./node_modules
+/node_modules
 
 
 # OS generated files #
