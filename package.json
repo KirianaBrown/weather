@@ -4,8 +4,8 @@
     "description": "Simple Weather App",
     "main": "index.js",
     "scripts": {
-        "build": "webpack --mode production",
-        "start": "webpack-dev-server --mode development --open"
+        "build": "webpack --config webpack.prod.js",
+        "start": "webpack serve --open --config webpack.dev.js"
     },
     "repository": {
         "type": "git",
@@ -26,8 +26,9 @@
         "css-loader": "^4.3.0",
         "html-webpack-plugin": "^5.5.0",
         "mini-css-extract-plugin": "^2.6.0",
-        "node-sass": "^7.0.1",
-        "sass-loader": "^10.0.2",
+        "node-sass": "^6.0.0",
+        "sass": "^1.50.1",
+        "sass-loader": "^12.6.0",
         "style-loader": "^1.2.1",
         "webpack": "^5.72.0",
         "webpack-cli": "^4.9.2",
@@ -36,6 +37,7 @@
     },
     "dependencies": {
         "@babel/polyfill": "^7.11.5",
+        "axios": "^0.26.1",
         "core-js": "^3.6.5",
         "regenerator-runtime": "^0.13.7",
         "set-value": "^4.0.1",
