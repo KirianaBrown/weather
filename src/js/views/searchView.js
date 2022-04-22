@@ -24,6 +24,7 @@ export const clearUI = () => {
         }
     } else {
         const container = document.querySelector(".container-results");
+        console.log(container);
         if (container.childNodes === 1) {
             return;
         }
