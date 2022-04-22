@@ -27,3 +27,7 @@ $border-radius: 2rem;
 @mixin box-shadow {
     box-shadow: 0 0.8rem 8rem .1rem rgba(101, 90, 86, 0.1);
 }
+
+@mixin background-gradient {
+    background-image: linear-gradient(to right top, #fdb1b2, #ffadc0, #ffacd2, #fbade7, #ecb1fd);
+}
