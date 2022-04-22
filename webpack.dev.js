@@ -1,6 +1,7 @@
 const Common = require("./webpack.common");
 const { merge } = require("webpack-merge");
 const path = require("path");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = merge(Common, {
     mode: "development",
@@ -11,6 +12,7 @@ module.exports = merge(Common, {
             directory: path.join(__dirname, "dist"),
         },
     },
+    plugins: [new Dotenv()],
     module: {
         rules: [{
             test: /\.scss$/,
