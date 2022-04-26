@@ -14,11 +14,9 @@ export default class Search {
             console.log("NO API KEY LOADED");
         }
 
-        console.log(API_KEY);
         const res = await axios(
             `https://api.openweathermap.org/data/2.5/weather?q=${this.query}&units=metric&appid=${API_KEY}`
         );
         this.results = res.data;
-        // console.log(this.results)
     }
 }
