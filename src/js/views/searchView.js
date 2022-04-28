@@ -9,13 +9,6 @@ export const clearError = () => (elements.errorMessage.innerHTML = "");
 export const clearForecast = () => (elements.forecastList.innerHTML = "");
 
 export const clearUI = () => {
-    if (!process.env.MY_ENV) {
-        console.log("no environment set");
-    } else {
-        console.log("env set");
-        console.log(process.env.MY_ENV);
-    }
-
     // if (process.env.MY_ENV === "development") {
     //     const cntnt = elements.weatherDetails;
 
@@ -30,13 +23,13 @@ export const clearUI = () => {
     //     }
     // } else {
 
-    //     const container = document.querySelector(".container-results");
+    const container = document.querySelector(".container-results");
 
-    //     if (container.childNodes === 1) {
-    //         return;
-    //     }
-    //     while (container.childNodes.length > 3) {
-    //         container.removeChild(container.lastChild);
-    //     }
+    if (container.childNodes === 1) {
+        return;
+    }
+    while (container.childNodes.length > 3) {
+        container.removeChild(container.lastChild);
+    }
     // }
 };
