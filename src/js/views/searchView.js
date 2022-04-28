@@ -9,27 +9,34 @@ export const clearError = () => (elements.errorMessage.innerHTML = "");
 export const clearForecast = () => (elements.forecastList.innerHTML = "");
 
 export const clearUI = () => {
-    if (process.env.MY_ENV === "development") {
-        const cntnt = elements.weatherDetails;
-        console.log("development");
-        if (cntnt.childNodes.length === 5) {
-            // Default setting
-            return;
-        }
-
-        while (cntnt.childNodes.length > 5) {
-            // Remove all but the main containers
-            cntnt.removeChild(cntnt.lastChild);
-        }
+    if (!process.env.MY_ENV) {
+        console.log("no environment set");
     } else {
-        console.log("production");
-        const container = document.querySelector(".container-results");
-
-        if (container.childNodes === 1) {
-            return;
-        }
-        while (container.childNodes.length > 3) {
-            container.removeChild(container.lastChild);
-        }
+        console.log("env set");
+        console.log(process.env.MY_ENV);
     }
+
+    // if (process.env.MY_ENV === "development") {
+    //     const cntnt = elements.weatherDetails;
+
+    //     if (cntnt.childNodes.length === 5) {
+    //         // Default setting
+    //         return;
+    //     }
+
+    //     while (cntnt.childNodes.length > 5) {
+    //         // Remove all but the main containers
+    //         cntnt.removeChild(cntnt.lastChild);
+    //     }
+    // } else {
+
+    //     const container = document.querySelector(".container-results");
+
+    //     if (container.childNodes === 1) {
+    //         return;
+    //     }
+    //     while (container.childNodes.length > 3) {
+    //         container.removeChild(container.lastChild);
+    //     }
+    // }
 };
