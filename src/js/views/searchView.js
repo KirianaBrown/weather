@@ -9,9 +9,8 @@ export const clearError = () => (elements.errorMessage.innerHTML = "");
 export const clearForecast = () => (elements.forecastList.innerHTML = "");
 
 export const clearUI = () => {
-    const cntnt = elements.weatherDetails;
-
     if (process.env.MY_ENV === "development") {
+        const cntnt = elements.weatherDetails;
         console.log("development");
         if (cntnt.childNodes.length === 5) {
             // Default setting
