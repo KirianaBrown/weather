@@ -27,7 +27,7 @@
         "dotenv-webpack": "^7.1.0",
         "html-webpack-plugin": "^5.5.0",
         "mini-css-extract-plugin": "^2.6.0",
-        "node-sass": "^7.0.3",
+        "node-sass": "^9.0.0",
         "sass": "^1.50.1",
         "sass-loader": "^12.6.0",
         "style-loader": "^1.2.1",
